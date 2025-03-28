@@ -12,7 +12,6 @@ var structnetconn =
     [ "recv_bufsize", "structnetconn.html#a6febc9717418ddba16f16e988061cfac", null ],
     [ "recvmbox", "structnetconn.html#a9f2bf6a3865b6a22a8a71ec2f3e770da", null ],
     [ "send_timeout", "structnetconn.html#a44e55724482b8e447134f5ba4f01551a", null ],
-    [ "socket", "structnetconn.html#ac8e05eb65774665e364a3dcf0f139b36", null ],
     [ "state", "structnetconn.html#a936c33090ec35e5e8c0011be5515a589", null ],
     [ "type", "structnetconn.html#a61af908d1d2e4e7345ac65d3b390d7b6", null ]
 ];

@@ -25,11 +25,12 @@ var searchData=
   ['udp_5fsendto_5fif_5fsrc_22',['udp_sendto_if_src',['../group__udp__raw.html#gaa389827c979c766c1dae301239f7bbb7',1,'udp_sendto_if_src(struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *dst_ip, u16_t dst_port, struct netif *netif, const ip_addr_t *src_ip):&#160;udp.c'],['../group__udp__raw.html#gaa389827c979c766c1dae301239f7bbb7',1,'udp_sendto_if_src(struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *dst_ip, u16_t dst_port, struct netif *netif, const ip_addr_t *src_ip):&#160;udp.c']]],
   ['udp_5fstats_23',['UDP_STATS',['../group__lwip__opts__stats.html#gaef64b11bf71f0d6d5bafaf6092462276',1,'opt.h']]],
   ['udp_5fttl_24',['UDP_TTL',['../group__lwip__opts__udp.html#ga97908a317bcba89174b5d1ccbdca0096',1,'opt.h']]],
-  ['unicast_5freply_25',['unicast_reply',['../structmdns__outpacket.html#a68255725575af086a3afa76bc5c8e64d',1,'mdns_outpacket']]],
-  ['unit_5fid_26',['unit_id',['../structnetbios__answer.html#aeed6aa8ba4f8bb107d141b3b3d0a1787',1,'netbios_answer']]],
-  ['unlock_5ftcpip_5fcore_27',['UNLOCK_TCPIP_CORE',['../tcpip_8h.html#a915effea029b9c4891e1ec635eb1826d',1,'tcpip.h']]],
-  ['upgrading_28',['Upgrading',['../upgrading.html',1,'']]],
-  ['use_29',['use',['../structigmp__group.html#ab3625aeb3689e3626f73138eb0e41852',1,'igmp_group::use'],['../structmld__group.html#addc67094f83c9352fe039c392c480f9e',1,'mld_group::use']]],
-  ['used_30',['used',['../structmem.html#aa76b6a39425617435978dce903f0d456',1,'mem']]],
-  ['username_31',['username',['../structsmtp__session.html#a568e3def9d0ec54e3c079f577717a6bb',1,'smtp_session']]]
+  ['unicast_5fmsg_5fin_5fuse_25',['unicast_msg_in_use',['../structmdns__delayed__msg.html#abd5210624394fece45e57e16da85a47d',1,'mdns_delayed_msg']]],
+  ['unicast_5freply_5frequested_26',['unicast_reply_requested',['../structmdns__outmsg.html#a8abcd5b3e04c16a75752b36cf613ac6f',1,'mdns_outmsg']]],
+  ['unit_5fid_27',['unit_id',['../structnetbios__answer.html#aeed6aa8ba4f8bb107d141b3b3d0a1787',1,'netbios_answer']]],
+  ['unlock_5ftcpip_5fcore_28',['UNLOCK_TCPIP_CORE',['../tcpip_8h.html#a915effea029b9c4891e1ec635eb1826d',1,'tcpip.h']]],
+  ['upgrading_29',['Upgrading',['../upgrading.html',1,'']]],
+  ['use_30',['use',['../structigmp__group.html#ab3625aeb3689e3626f73138eb0e41852',1,'igmp_group::use'],['../structmld__group.html#addc67094f83c9352fe039c392c480f9e',1,'mld_group::use']]],
+  ['used_31',['used',['../structmem.html#aa76b6a39425617435978dce903f0d456',1,'mem']]],
+  ['username_32',['username',['../structsmtp__session.html#a568e3def9d0ec54e3c079f577717a6bb',1,'smtp_session']]]
 ];

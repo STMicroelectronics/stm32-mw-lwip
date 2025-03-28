@@ -26,6 +26,8 @@ var group__netif =
       ] ]
     ] ],
     [ "netif_is_up", "group__netif.html#ga94a4c24c988afc0a577387730f303b19", null ],
+    [ "netif_set_igmp_mac_filter", "group__netif.html#ga3428b3f8195249c6cd8704a4db46b401", null ],
+    [ "netif_set_mld_mac_filter", "group__netif.html#ga97f30bb5542e4c07d3b32e3c754e104c", null ],
     [ "netif_ext_callback_fn", "group__netif.html#ga5ee213cea065424c89c66f138c008da1", null ],
     [ "netif_nsc_reason_t", "group__netif.html#gab2b9387389513a02027c62e246723808", null ],
     [ "netif_add", "group__netif.html#ga22055759a25f5d6cea7e7deab0a07434", null ],

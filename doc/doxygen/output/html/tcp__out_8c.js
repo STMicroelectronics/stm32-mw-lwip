@@ -11,6 +11,7 @@ var tcp__out_8c =
     [ "tcp_rexmit_rto_commit", "tcp__out_8c.html#a9ef9dc094e21bdf0779aed25ab0b08d4", null ],
     [ "tcp_rexmit_rto_prepare", "tcp__out_8c.html#a1f318930bd6d49074343cc79c5166f39", null ],
     [ "tcp_rst", "tcp__out_8c.html#aa90f8051c9633d3017c588245cdc4014", null ],
+    [ "tcp_rst_netif", "tcp__out_8c.html#a7cf7cbc5aa473de8116dc9f00cbc5d57", null ],
     [ "tcp_send_empty_ack", "tcp__out_8c.html#aefde3e34b2cc8df9654986484c44a996", null ],
     [ "tcp_send_fin", "tcp__out_8c.html#af40ba9d645a8910436c3d7cf13dba342", null ],
     [ "tcp_split_unsent_seg", "tcp__out_8c.html#ac930859c4e4ad9fcf6bb25ef5e91bcd5", null ],

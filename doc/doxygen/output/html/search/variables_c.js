@@ -1,9 +1,9 @@
 var searchData=
 [
   ['last_5freporter_5fflag_0',['last_reporter_flag',['../structigmp__group.html#a8fa72062d168d81c1c5ae5209eb0a874',1,'igmp_group::last_reporter_flag'],['../structmld__group.html#aa8eb75f4dfaefbf0d2853b0e31ceb53b',1,'mld_group::last_reporter_flag']]],
-  ['lastconflict_1',['lastconflict',['../structautoip.html#a2f51d8cde73e20d6e0ae3ec8053afb55',1,'autoip']]],
+  ['lastconflict_1',['lastconflict',['../structacd.html#a9dd4e1b82dd3e97717f011dbf862a58e',1,'acd']]],
   ['lastdata_2',['lastdata',['../structlwip__sock.html#aa487ac16b7e5b6a2a618b7b5060247e1',1,'lwip_sock']]],
-  ['legacy_5fquery_3',['legacy_query',['../structmdns__outpacket.html#aff8c520bffa87c78e0ee2440571bbd65',1,'mdns_outpacket']]],
+  ['legacy_5fquery_3',['legacy_query',['../structmdns__outmsg.html#aab2d5c566dcd83874d9cc77cd5fc7253',1,'mdns_outmsg']]],
   ['len_4',['len',['../structnetvector.html#a8a95e6dcf57067e4354b9c2b6b391dbd',1,'netvector::len'],['../structpbuf.html#a6f82449625e36e294f5d210268c0703f',1,'pbuf::len'],['../structapi__msg.html#a40624c398d1939bfee54bffa708a363e',1,'api_msg::len']]],
   ['linger_5',['linger',['../structnetconn.html#a25ed06d944da0b0b9e7db5265be3fa3d',1,'netconn']]],
   ['link_6',['link',['../structstats__.html#a67759c9b0059bf569f9f771df23924eb',1,'stats_']]],

@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -201,7 +201,7 @@ Macros</h2></td></tr>
 <p><a class="el" href="#ga4068b3313e32f711ba016215fc2c886a">LWIP_HOOK_DHCP6_APPEND_OPTIONS(netif, dhcp6, state, msg, msg_type, options_len_ptr, max_len)</a>: Called from various dhcp6 functions when sending a DHCP6 message. This hook is called just before the DHCP6 message is sent, so the options are at the end of a DHCP6 message. Signature:</p><div class="fragment"><div class="line"><span class="keywordtype">void</span> my_hook(<span class="keyword">struct</span> <a class="code hl_struct" href="structnetif.html">netif</a> *<a class="code hl_struct" href="structnetif.html">netif</a>, <span class="keyword">struct</span> dhcp6 *dhcp, u8_t state, <span class="keyword">struct</span> <a class="code hl_struct" href="structdhcp6__msg.html">dhcp6_msg</a> *msg,</div>
 <div class="line">             u8_t msg_type, u16_t *options_len_ptr);</div>
 <div class="ttc" id="astructdhcp6__msg_html"><div class="ttname"><a href="structdhcp6__msg.html">dhcp6_msg</a></div><div class="ttdef"><b>Definition</b> dhcp6.h:59</div></div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
 </div><!-- fragment --><p> Arguments:</p><ul>
 <li>netif: struct netif that the packet will be sent through</li>
 <li>dhcp6: struct dhcp6 on that netif</li>
@@ -804,7 +804,7 @@ Macros</h2></td></tr>
 <li>optlen: tcp option length</li>
 <li>opt1len: tcp option length 1st part</li>
 <li>opt2: if this is != NULL, tcp options are split among 2 pbufs. In that case, options start at right after the tcp header ('(u8_t*)(hdr + 1)') for the first 'opt1len' bytes and the rest starts at 'opt2'. opt2len can be simply calculated: 'opt2len = optlen - opt1len;'</li>
-<li>p: input packet, p-&gt;payload points to application data (that's why tcp hdr and options are passed in seperately) Return value:</li>
+<li>p: input packet, p-&gt;payload points to application data (that's why tcp hdr and options are passed in separately) Return value:</li>
 <li>ERR_OK: continue input of this packet as normal</li>
 <li>!= ERR_OK: drop this packet for input (don't continue input processing)</li>
 </ul>
@@ -841,15 +841,15 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>LWIP_HOOK_TCP_ISN: Hook for generation of the Initial Sequence Number (ISN) for a new TCP connection. The default lwIP ISN generation algorithm is very basic and may allow for TCP spoofing attacks. This hook provides the means to implement the standardized ISN generation algorithm from RFC 6528 (see contrib/adons/tcp_isn), or any other desired algorithm as a replacement. Called from <a class="el" href="group__tcp__raw.html#ga9a31deea4cadacd39f9485f37cfdd012">tcp_connect()</a> and tcp_listen_input() when an ISN is needed for a new TCP connection, if TCP support (<a class="el" href="group__lwip__opts__tcp.html#gaa4ed98deb97b77c633cb8870f34c71e9">LWIP_TCP</a>) is enabled.<br  />
-Signature:</p><div class="fragment"><div class="line">u32_t my_hook_tcp_isn(<span class="keyword">const</span> <a class="code hl_struct" href="structip__addr.html">ip_addr_t</a>* local_ip, u16_t local_port, <span class="keyword">const</span> <a class="code hl_struct" href="structip__addr.html">ip_addr_t</a>* remote_ip, u16_t remote_port);</div>
+ Signature:</p><div class="fragment"><div class="line">u32_t my_hook_tcp_isn(<span class="keyword">const</span> <a class="code hl_struct" href="structip__addr.html">ip_addr_t</a>* local_ip, u16_t local_port, <span class="keyword">const</span> <a class="code hl_struct" href="structip__addr.html">ip_addr_t</a>* remote_ip, u16_t remote_port);</div>
 </div><!-- fragment --><ul>
 <li>it may be necessary to use "struct ip_addr" (<a class="el" href="structip4__addr.html">ip4_addr</a>, <a class="el" href="structip6__addr.html">ip6_addr</a>) instead of "ip_addr_t" in function declarations<br  />
-Arguments:</li>
+ Arguments:</li>
 <li>local_ip: pointer to the local IP address of the connection</li>
 <li>local_port: local port number of the connection (host-byte order)</li>
 <li>remote_ip: pointer to the remote IP address of the connection</li>
 <li>remote_port: remote port number of the connection (host-byte order)<br  />
-Return value:</li>
+ Return value:</li>
 <li>the 32-bit Initial Sequence Number to use for the new TCP connection. </li>
 </ul>
 
@@ -1022,7 +1022,7 @@ Return value:</li>
       </table>
 </div><div class="memdoc">
 <p>LWIP_HOOK_VLAN_SET: Hook can be used to set prio_vid field of vlan_hdr. If you need to store data on per-netif basis to implement this callback, see <a class="el" href="group__netif__cd.html">Client data handling</a>. Called from <a class="el" href="group__ethernet.html#gac9cad5802bfa3d885f13d2ba0f40b778">ethernet_output()</a> if VLAN support (<a class="el" href="group__lwip__opts__arp.html#ga70ce0ecf56cf5fab000134e66d863f90">ETHARP_SUPPORT_VLAN</a>) is enabled.<br  />
-Signature:</p><div class="fragment"><div class="line">s32_t my_hook_vlan_set(<span class="keyword">struct</span> <a class="code hl_struct" href="structnetif.html">netif</a>* <a class="code hl_struct" href="structnetif.html">netif</a>, <span class="keyword">struct</span> <a class="code hl_struct" href="structpbuf.html">pbuf</a>* <a class="code hl_struct" href="structpbuf.html">pbuf</a>, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structeth__addr.html">eth_addr</a>* src, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structeth__addr.html">eth_addr</a>* dst, u16_t eth_type);\n</div>
+ Signature:</p><div class="fragment"><div class="line">s32_t my_hook_vlan_set(<span class="keyword">struct</span> <a class="code hl_struct" href="structnetif.html">netif</a>* <a class="code hl_struct" href="structnetif.html">netif</a>, <span class="keyword">struct</span> <a class="code hl_struct" href="structpbuf.html">pbuf</a>* <a class="code hl_struct" href="structpbuf.html">pbuf</a>, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structeth__addr.html">eth_addr</a>* src, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structeth__addr.html">eth_addr</a>* dst, u16_t eth_type);</div>
 <div class="ttc" id="astructeth__addr_html"><div class="ttname"><a href="structeth__addr.html">eth_addr</a></div><div class="ttdef"><b>Definition</b> ethernet.h:60</div></div>
 </div><!-- fragment --><p> Arguments:</p><ul>
 <li>netif: struct netif that the packet will be sent through</li>

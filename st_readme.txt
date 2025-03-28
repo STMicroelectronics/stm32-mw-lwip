@@ -47,10 +47,20 @@
   ******************************************************************************
   @endverbatim
 
-### 13-December-2024 ###
+### 06-January-2025 ###
 ========================
-  + Remove outdated doxygen_docs.zip file
-  + Regenerate documentation using Doxygen 1.12.0
+  + sys_arch.c:
+     - Add new LWIP_CHECK_MULTITHREADING flag to enable or disable core lock checking functions.
+     - Add support for recursive Mutex.
+     - Add new API sys_lock_tcpip_core to lock the lwip core, mark the current core lock holder and the lock count.
+     - Add new API sys_unlock_tcpip_core to unlock the lwip core, reset the current core lock holder and the lock count.
+     - Add new API sys_mark_tcpip_thread to mark the lwip tcpip thread ID.
+     - Add new API sys_check_core_locking to check if core locking is done correctly.
+
+### 02-February-2024 ###
+========================
+  + Upgrade to LwIP V2.2.0 version
+     - For more details about new features and bug fixes please refer to CHANGELOG.txt and UPGRADING files.
 
 ### 18-August-2023 ###
 ========================

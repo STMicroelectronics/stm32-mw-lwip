@@ -20,7 +20,7 @@ var group__mqtt =
     [ "mqtt_incoming_data_cb_t", "group__mqtt.html#gafec7e75fe6a746eef9ca411463446c81", null ],
     [ "mqtt_incoming_publish_cb_t", "group__mqtt.html#ga7116bb85255394cec4b1d9fa38842c29", null ],
     [ "mqtt_request_cb_t", "group__mqtt.html#gacad2bbe2cee76eaa120cc63e2f6094fd", [
-      [ "MQTT_DATA_FLAG_LAST", "group__mqtt.html#gga99fb83031ce9923c84392b4e92f956b5a79cd00d0a5a8df13207e0c49447df87f", null ]
+      [ "MQTT_DATA_FLAG_LAST", "group__mqtt.html#ggabc6126af1d45847bc59afa0aa3216b04a79cd00d0a5a8df13207e0c49447df87f", null ]
     ] ],
     [ "mqtt_connection_status_t", "group__mqtt.html#ga8cf0f360ab20343af37e1d124395a77d", [
       [ "MQTT_CONNECT_ACCEPTED", "group__mqtt.html#gga8cf0f360ab20343af37e1d124395a77da074dc1d289b8e8d4aad91f6a2cb93dc1", null ],

@@ -2,10 +2,12 @@ var ip4__addr_8h =
 [
     [ "ip4_addr", "structip4__addr.html", null ],
     [ "IP4_ADDR", "ip4__addr_8h.html#a58aee4166c466f9ac7035bf5cc9f9974", null ],
+    [ "ip4_addr_cmp", "ip4__addr_8h.html#a59494c562c62fdf62a6c9c6a66a50fb3", null ],
     [ "ip4_addr_copy", "ip4__addr_8h.html#a2f4e9c339e897e6ca5cb4a2f1e8394d5", null ],
     [ "ip4_addr_get_network", "ip4__addr_8h.html#a81658cb05ba504d13ee860e82dc444e9", null ],
     [ "ip4_addr_get_u32", "ip4__addr_8h.html#ad50d93464bbbda199b585c54869a3a4b", null ],
     [ "ip4_addr_isloopback", "ip4__addr_8h.html#a46dabb4df212d156004fa5afe03e2051", null ],
+    [ "ip4_addr_net_eq", "ip4__addr_8h.html#a95d05df9201602fc873a97fb61fd1134", null ],
     [ "ip4_addr_netcmp", "ip4__addr_8h.html#afd43f6ceb2df8d50c84509ad1059f514", null ],
     [ "ip4_addr_set", "ip4__addr_8h.html#a33a17a8d2025ce3715db835534868e88", null ],
     [ "ip4_addr_set_any", "ip4__addr_8h.html#afaaed3762ce8e9de14fcf73b19964567", null ],

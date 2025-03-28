@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -132,7 +132,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>User Datagram Protocol module<br  />
-</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__api.html">APIs</a> </dd></dl>
+ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__api.html">APIs</a> </dd></dl>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gac7fbda8b12b9b9360e92b51e805e799e" name="gac7fbda8b12b9b9360e92b51e805e799e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac7fbda8b12b9b9360e92b51e805e799e">&#9670;&#160;</a></span>udp_bind()</h2>
@@ -306,7 +306,7 @@ Functions</h2></td></tr>
 <p>Create a UDP PCB for specific IP type. The pcb is not active until it has either been bound to a local address or connected to a remote address. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lwip__opts__memp.html#ga2c416da481ab09bd1ba257b75a0707eb">MEMP_NUM_UDP_PCB</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td>IP address type, see <a class="el" href="group__ipaddr.html#gaf2142f0dfdcc938e2db16aa745ed585c">lwip_ip_addr_type</a> definitions. If you want to listen to IPv4 and IPv6 (dual-stack) packets, supply <a class="el" href="group__ipaddr.html#ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e">IPADDR_TYPE_ANY</a> as argument and bind to IP_ANY_TYPE. </td></tr>
+    <tr><td class="paramname">type</td><td>IP address type, see <a class="el" href="group__ipaddr.html#gaf2142f0dfdcc938e2db16aa745ed585c">lwip_ip_addr_type</a> definitions. If you want to listen to IPv4 and IPv6 (dual-stack) packets, supply <a class="el" href="group__ipaddr.html#ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e">IPADDR_TYPE_ANY</a> as argument and bind to <a class="el" href="group__ipaddr.html#gabe43b154533b73585c4e58f568370ede">IP_ANY_TYPE</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -364,8 +364,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removes and deallocates the pcb. <br  />
-</p>
+<p>Removes and deallocates the pcb.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pcb</td><td>UDP PCB to be removed. The PCB is removed from the list of UDP PCB's and the data structure is freed from memory.</td></tr>

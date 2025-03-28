@@ -8,6 +8,7 @@ var tcpip_8h =
     [ "mem_free_callback", "tcpip_8h.html#a55b4de3765c6a37b3f2b26a11603771c", null ],
     [ "pbuf_free_callback", "tcpip_8h.html#a5cdcb6b784fe0e8736a5b31a5cfbed6c", null ],
     [ "tcpip_callback", "group__lwip__os.html#gaab838fe3417ab3a1f61f0728009a0c2a", null ],
+    [ "tcpip_callback_wait", "tcpip_8h.html#a8d8a2ac0271def71a4ca31b24a31228f", null ],
     [ "tcpip_callbackmsg_delete", "group__lwip__os.html#gac5b7a59f4c3f5f721ab9ee81f231c9fd", null ],
     [ "tcpip_callbackmsg_new", "group__lwip__os.html#ga07de8751452a8886de85849f79fe23a1", null ],
     [ "tcpip_callbackmsg_trycallback", "group__lwip__os.html#ga83fe5fb2ea33e8c262567ac46f4db3f8", null ],

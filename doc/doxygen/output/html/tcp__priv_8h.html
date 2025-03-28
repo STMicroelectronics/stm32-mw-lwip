@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -180,6 +180,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa7d5d552647d567095876aab202bfd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa90f8051c9633d3017c588245cdc4014" id="r_aa90f8051c9633d3017c588245cdc4014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa90f8051c9633d3017c588245cdc4014">tcp_rst</a> (const struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *pcb, u32_t seqno, u32_t ackno, const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *local_ip, const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *remote_ip, u16_t local_port, u16_t remote_port)</td></tr>
 <tr class="separator:aa90f8051c9633d3017c588245cdc4014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf7cbc5aa473de8116dc9f00cbc5d57" id="r_a7cf7cbc5aa473de8116dc9f00cbc5d57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cf7cbc5aa473de8116dc9f00cbc5d57">tcp_rst_netif</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, u32_t seqno, u32_t ackno, const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *local_ip, const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *remote_ip, u16_t local_port, u16_t remote_port)</td></tr>
+<tr class="separator:a7cf7cbc5aa473de8116dc9f00cbc5d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd5dc2fa74855a84b2da642ba31059ea" id="r_afd5dc2fa74855a84b2da642ba31059ea"><td class="memItemLeft" align="right" valign="top">u32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5dc2fa74855a84b2da642ba31059ea">tcp_next_iss</a> (struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *pcb)</td></tr>
 <tr class="separator:afd5dc2fa74855a84b2da642ba31059ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d8bb5fc8522515aa35d305774cc5332" id="r_a0d8bb5fc8522515aa35d305774cc5332"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d8bb5fc8522515aa35d305774cc5332">tcp_keepalive</a> (struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *pcb)</td></tr>
@@ -270,7 +272,7 @@ Variables</h2></td></tr>
 <div class="line">                              ((tpcb)-&gt;unsent-&gt;len &gt;= (tpcb)-&gt;mss))) || \</div>
 <div class="line">                            ((tcp_sndbuf(tpcb) == 0) || (tcp_sndqueuelen(tpcb) &gt;= <a class="code hl_define" href="group__lwip__opts__tcp.html#ga9beaa47832ead4180981bfbf71074904">TCP_SND_QUEUELEN</a>)) \</div>
 <div class="line">                            ) ? 1 : 0)</div>
-<div class="ttc" id="agroup__lwip__opts__tcp_html_ga9beaa47832ead4180981bfbf71074904"><div class="ttname"><a href="group__lwip__opts__tcp.html#ga9beaa47832ead4180981bfbf71074904">TCP_SND_QUEUELEN</a></div><div class="ttdeci">#define TCP_SND_QUEUELEN</div><div class="ttdef"><b>Definition</b> opt.h:1322</div></div>
+<div class="ttc" id="agroup__lwip__opts__tcp_html_ga9beaa47832ead4180981bfbf71074904"><div class="ttname"><a href="group__lwip__opts__tcp.html#ga9beaa47832ead4180981bfbf71074904">TCP_SND_QUEUELEN</a></div><div class="ttdeci">#define TCP_SND_QUEUELEN</div><div class="ttdef"><b>Definition</b> opt.h:1373</div></div>
 </div><!-- fragment --><p>This is the Nagle algorithm: try to combine user data to send as few TCP segments as possible. Only send if</p><ul>
 <li>no previously transmitted data on the connection remains unacknowledged or</li>
 <li>the TF_NODELAY flag is set (nagle algorithm turned off for this pcb) or</li>
@@ -871,12 +873,73 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send a TCP RESET packet (empty segment with RST flag set) either to abort a connection or to show that there is no matching local connection for a received segment.</p>
-<p>Called by <a class="el" href="group__tcp__raw.html#ga468c2260ddb01582e966ddcf3c25ce61">tcp_abort()</a> (to abort a local connection), <a class="el" href="tcp__in_8c.html#ae70c3c99d9dd6b07f7e11f7ba5eedcb5">tcp_input()</a> (if no matching local pcb was found), tcp_listen_input() (if incoming segment has ACK flag set) and tcp_process() (received segment in the wrong state)</p>
+<p>Send a TCP RESET packet (empty segment with RST flag set) to abort a connection.</p>
+<p>Called by <a class="el" href="group__tcp__raw.html#ga468c2260ddb01582e966ddcf3c25ce61">tcp_abort()</a> (to abort a local connection), tcp_closen() (if not all data has been received by the application), tcp_timewait_input() (if a SYN is received) and tcp_process() (received segment in the wrong state).</p>
 <p>Since a RST segment is in most cases not sent for an active connection, <a class="el" href="tcp__out_8c.html#aa90f8051c9633d3017c588245cdc4014">tcp_rst()</a> has a number of arguments that are taken from a <a class="el" href="structtcp__pcb.html">tcp_pcb</a> for most other segment output functions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pcb</td><td>TCP pcb (may be NULL if no pcb is available) </td></tr>
+    <tr><td class="paramname">seqno</td><td>the sequence number to use for the outgoing segment </td></tr>
+    <tr><td class="paramname">ackno</td><td>the acknowledge number to use for the outgoing segment </td></tr>
+    <tr><td class="paramname">local_ip</td><td>the local IP address to send the segment from </td></tr>
+    <tr><td class="paramname">remote_ip</td><td>the remote IP address to send the segment to </td></tr>
+    <tr><td class="paramname">local_port</td><td>the local TCP port to send the segment from </td></tr>
+    <tr><td class="paramname">remote_port</td><td>the remote TCP port to send the segment to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7cf7cbc5aa473de8116dc9f00cbc5d57" name="a7cf7cbc5aa473de8116dc9f00cbc5d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cf7cbc5aa473de8116dc9f00cbc5d57">&#9670;&#160;</a></span>tcp_rst_netif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp_rst_netif </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u32_t</td>          <td class="paramname"><span class="paramname"><em>seqno</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u32_t</td>          <td class="paramname"><span class="paramname"><em>ackno</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>local_ip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>remote_ip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u16_t</td>          <td class="paramname"><span class="paramname"><em>local_port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u16_t</td>          <td class="paramname"><span class="paramname"><em>remote_port</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send a TCP RESET packet (empty segment with RST flag set) to show that there is no matching local connection for a received segment.</p>
+<p>Called by <a class="el" href="tcp__in_8c.html#ae70c3c99d9dd6b07f7e11f7ba5eedcb5">tcp_input()</a> (if no matching local pcb was found) and tcp_listen_input() (if incoming segment has ACK flag set).</p>
+<p>Since a RST segment is in most cases not sent for an active connection, <a class="el" href="tcp__out_8c.html#aa90f8051c9633d3017c588245cdc4014">tcp_rst()</a> has a number of arguments that are taken from a <a class="el" href="structtcp__pcb.html">tcp_pcb</a> for most other segment output functions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">netif</td><td>the netif on which to send the RST (since we have no pcb) </td></tr>
     <tr><td class="paramname">seqno</td><td>the sequence number to use for the outgoing segment </td></tr>
     <tr><td class="paramname">ackno</td><td>the acknowledge number to use for the outgoing segment </td></tr>
     <tr><td class="paramname">local_ip</td><td>the local IP address to send the segment from </td></tr>

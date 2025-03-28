@@ -1,6 +1,7 @@
 var group__lwip__opts__debugmsg =
 [
     [ "LWIP_DBG_MIN_LEVEL and LWIP_DBG_TYPES_ON values", "group__debugging__levels.html", "group__debugging__levels" ],
+    [ "ACD_DEBUG", "group__lwip__opts__debugmsg.html#ga87ff0c6077b9a36b05c3fc5b8fae8ad3", null ],
     [ "API_LIB_DEBUG", "group__lwip__opts__debugmsg.html#ga671009550216f7dc03e67ba5751e3160", null ],
     [ "API_MSG_DEBUG", "group__lwip__opts__debugmsg.html#ga4279d7ff9f986b2ff3eb068bb012b697", null ],
     [ "AUTOIP_DEBUG", "group__lwip__opts__debugmsg.html#gafaee522e7f32d81022215e1805e303a5", null ],

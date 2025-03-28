@@ -1,6 +1,7 @@
 var sys_8h =
 [
     [ "LWIP_COMPAT_MUTEX", "sys_8h.html#a7bada49634cd3b28b28bdcedd763a1e6", null ],
+    [ "LWIP_MARK_TCPIP_THREAD", "group__lwip__opts__lock.html#gab97d014f7ecf3b20f9d5abc2d0a79a3e", null ],
     [ "SYS_ARCH_DECL_PROTECT", "group__sys__prot.html#ga945395fa326214fc9736487242710a90", null ],
     [ "SYS_ARCH_PROTECT", "group__sys__prot.html#ga3d0e48feafd378e9c26c64567ecd8bab", null ],
     [ "SYS_ARCH_TIMEOUT", "sys_8h.html#ac1495030a8ab5e1f3c89e42ced527c5b", null ],

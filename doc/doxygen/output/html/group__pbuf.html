@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -547,11 +547,8 @@ MAY NOT be called on a packet queue.</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create PBUF_RAM copies of pbufs.</p>
-<p>Used to queue packets on behalf of the lwIP stack, such as ARP based queueing.</p>
-<dl class="section note"><dt>Note</dt><dd>You MUST explicitly use p = pbuf_take(p);</dd>
-<dd>
-Only one packet is copied, no packet queue!</dd></dl>
+<p>Copy the contents of one packet buffer into another.</p>
+<dl class="section note"><dt>Note</dt><dd>Only one packet is copied, no packet queue!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_to</td><td>pbuf destination of the copy </td></tr>
@@ -559,7 +556,7 @@ Only one packet is copied, no packet queue!</dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ERR_OK if pbuf was copied ERR_ARG if one of the pbufs is NULL or p_to is not big enough to hold p_from </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK if pbuf was copied ERR_ARG if one of the pbufs is NULL or p_to is not big enough to hold p_from ERR_VAL if any of the pbufs are part of a queue </dd></dl>
 
 </div>
 </div>
@@ -674,9 +671,7 @@ Argument order is shared with pbuf_copy, but different than pbuf_copy_partial.</
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of pbufs that were de-allocated from the head of the chain.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>MUST NOT be called on a packet queue (Not verified to work yet). </dd>
-<dd>
-the reference counter of a pbuf equals the number of pointers that refer to the pbuf (or into the pbuf). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>the reference counter of a pbuf equals the number of pointers that refer to the pbuf (or into the pbuf). </dd></dl>
 
 </div>
 </div>
@@ -968,7 +963,7 @@ Despite its name, pbuf_realloc cannot grow the size of a pbuf (chain). </dd></dl
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the pbuf in the queue where the offset is </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the pbuf in the queue where the offset is or NULL when the offset is too high </dd></dl>
 
 </div>
 </div>

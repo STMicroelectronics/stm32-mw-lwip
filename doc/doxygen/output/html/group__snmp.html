@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -116,10 +116,10 @@ Topics</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>SNMPv2c and SNMPv3 compatible agent<br  />
-There is also a MIB compiler and a MIB viewer in lwIP contrib repository (lwip-contrib/apps/LwipMibCompiler).<br  />
-The agent implements the most important MIB2 MIBs including IPv6 support (interfaces, UDP, TCP, SNMP, ICMP, SYSTEM). IP MIB is an older version without IPv6 statistics (TODO).<br  />
-Rewritten by Martin Hentschel <a href="#" onclick="location.href='mai'+'lto:'+'inf'+'o@'+'cl-'+'so'+'ft.'+'de'; return false;">info@<span class="obfuscator">.nosp@m.</span>cl-s<span class="obfuscator">.nosp@m.</span>oft.d<span class="obfuscator">.nosp@m.</span>e</a> and Dirk Ziegelmeier <a href="#" onclick="location.href='mai'+'lto:'+'dzi'+'eg'+'el@'+'gm'+'x.d'+'e'; return false;">dzieg<span class="obfuscator">.nosp@m.</span>el@g<span class="obfuscator">.nosp@m.</span>mx.de</a><br  />
- </p><h1>0 Agent Capabilities </h1>
+ There is also a MIB compiler and a MIB viewer in lwIP/contrib subdir (lwip/contrib/apps/LwipMibCompiler).<br  />
+ The agent implements the most important MIB2 MIBs including IPv6 support (interfaces, UDP, TCP, SNMP, ICMP, SYSTEM). IP MIB is an older version without IPv6 statistics (TODO).<br  />
+ Rewritten by Martin Hentschel <a href="#" onclick="location.href='mai'+'lto:'+'inf'+'o@'+'cl-'+'so'+'ft.'+'de'; return false;">info@<span class="obfuscator">.nosp@m.</span>cl-s<span class="obfuscator">.nosp@m.</span>oft.d<span class="obfuscator">.nosp@m.</span>e</a> and Dirk Ziegelmeier <a href="#" onclick="location.href='mai'+'lto:'+'dzi'+'eg'+'el@'+'gm'+'x.d'+'e'; return false;">dzieg<span class="obfuscator">.nosp@m.</span>el@g<span class="obfuscator">.nosp@m.</span>mx.de</a></p>
+<h1>0 Agent Capabilities </h1>
 <h2>Features: </h2>
 <ul>
 <li>SNMPv2c support.</li>
@@ -137,11 +137,11 @@ Rewritten by Martin Hentschel <a href="#" onclick="location.href='mai'+'lto:'+'i
 </ul>
 <h2>MIB compiler (code generator): </h2>
 <ul>
-<li>Provided in lwIP contrib repository.</li>
-<li>Written in C#. MIB viewer used Windows Forms.</li>
+<li>Provided in contrib dir.</li>
+<li>Written in C#. MIB viewer using Windows Forms.</li>
 <li>Developed on Windows with Visual Studio 2010.</li>
 <li>Can be compiled and used on all platforms with <a href="http://www.monodevelop.com/">http://www.monodevelop.com/</a>.</li>
-<li>Based on a heavily modified version of of SharpSnmpLib (a4bd05c6afb4) (<a href="https://sharpsnmplib.codeplex.com/SourceControl/network/forks/Nemo157/MIBParserUpdate">https://sharpsnmplib.codeplex.com/SourceControl/network/forks/Nemo157/MIBParserUpdate</a>).</li>
+<li>Based on a heavily modified version of of SharpSnmpLib (a4bd05c6afb4) (<a href="https://sharpsnmplib.codeplex.com/SourceControl/network/forks/Nemo157/MIBParserUpdate">https://sharpsnmplib.codeplex.com/SourceControl/network/forks/Nemo157/MIBParserUpdate</a>). This has been the last known revision of that code before being converted to closed source. The new code on github has completely changed, so we can not just update :-(</li>
 <li>MIB parser, C file generation framework and LWIP code generation are cleanly separated, which means the code may be useful as a base for code generation of other SNMP agents.</li>
 </ul>
 <h2>Notes: </h2>
@@ -155,7 +155,7 @@ Rewritten by Martin Hentschel <a href="#" onclick="location.href='mai'+'lto:'+'i
 <h2>MIB II </h2>
 <p>The standard lwIP stack management information base. This is a required MIB, so this is always enabled. The groups EGP, CMOT and transmission are disabled by default.</p>
 <p>Most mib-2 objects are not writable except: sysName, sysLocation, sysContact, snmpEnableAuthenTraps. Writing to or changing the ARP and IP address and route tables is not possible.</p>
-<p>Note lwIP has a very limited notion of IP routing. It currently doen't have a route table and doesn't have a notion of the U,G,H flags. Instead lwIP uses the interface list with only one default interface acting as a single gateway interface (G) for the default route.</p>
+<p>Note lwIP has a very limited notion of IP routing. It currently doesn't have a route table and doesn't have a notion of the U,G,H flags. Instead lwIP uses the interface list with only one default interface acting as a single gateway interface (G) for the default route.</p>
 <p>The agent returns a "virtual table" with the default route 0.0.0.0 for the default interface and network routes (no H) for each network interface in the netif_list. All routes are considered to be up (U).</p>
 <h2>Loading additional MIBs </h2>
 <p>MIBs can only be added in compile-time, not in run-time.</p>

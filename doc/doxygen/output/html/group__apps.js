@@ -9,5 +9,5 @@ var group__apps =
     [ "SMTP client", "group__smtp.html", "group__smtp" ],
     [ "SNMPv2c/v3 agent", "group__snmp.html", "group__snmp" ],
     [ "SNTP", "group__sntp.html", "group__sntp" ],
-    [ "TFTP server", "group__tftp.html", "group__tftp" ]
+    [ "TFTP client/server", "group__tftp.html", "group__tftp" ]
 ];

@@ -107,9 +107,8 @@ var searchData=
   ['pppos_2ec_104',['pppos.c',['../pppos_8c.html',1,'']]],
   ['pppos_2eh_105',['pppos.h',['../pppos_8h.html',1,'']]],
   ['prev_106',['prev',['../structmem.html#a9d7722ed10adf965fa98563d502f98ac',1,'mem::prev'],['../structsnmp__varbind.html#a365abcc1f80d28dc8ffd07193099c760',1,'snmp_varbind::prev'],['../structlwip__select__cb.html#a21a98e316bb7001d8750b20f5a7d0aa7',1,'lwip_select_cb::prev']]],
-  ['probes_5fsent_107',['probes_sent',['../structmdns__host.html#ac8f6e3c6e1251bf73f043e489c840922',1,'mdns_host']]],
-  ['probing_5fstate_108',['probing_state',['../structmdns__host.html#af9ced31c35de6a281e5b13f01e5aae61',1,'mdns_host']]],
-  ['proto_109',['proto',['../structmdns__service.html#aa9f2e0bb67d3848152e6076e92e8018d',1,'mdns_service']]],
-  ['protocol_110',['ZEP - ZigBee Encapsulation Protocol',['../group__zepif.html',1,'']]],
-  ['ptr_111',['ptr',['../structnetvector.html#a523362737ea7764f9aaa73a050a0b983',1,'netvector']]]
+  ['probe_5fquery_5frecv_107',['probe_query_recv',['../structmdns__outmsg.html#a4a3ee99f7c25e88f17ea912897617aa0',1,'mdns_outmsg']]],
+  ['proto_108',['proto',['../structmdns__request.html#a497e1b8f664dab9904a89e5f15f5bc60',1,'mdns_request::proto'],['../structmdns__service.html#aa9f2e0bb67d3848152e6076e92e8018d',1,'mdns_service::proto']]],
+  ['protocol_109',['ZEP - ZigBee Encapsulation Protocol',['../group__zepif.html',1,'']]],
+  ['ptr_110',['ptr',['../structnetvector.html#a523362737ea7764f9aaa73a050a0b983',1,'netvector']]]
 ];

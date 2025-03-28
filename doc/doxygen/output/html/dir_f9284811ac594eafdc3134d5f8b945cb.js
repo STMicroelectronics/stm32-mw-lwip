@@ -7,7 +7,9 @@ var dir_f9284811ac594eafdc3134d5f8b945cb =
     [ "httpd_opts.h", "httpd__opts_8h.html", "httpd__opts_8h" ],
     [ "lwiperf.h", "lwiperf_8h.html", "lwiperf_8h" ],
     [ "mdns.h", "mdns_8h.html", "mdns_8h" ],
+    [ "mdns_domain.h", "mdns__domain_8h.html", "mdns__domain_8h" ],
     [ "mdns_opts.h", "mdns__opts_8h.html", "mdns__opts_8h" ],
+    [ "mdns_out.h", "mdns__out_8h.html", "mdns__out_8h" ],
     [ "mdns_priv.h", "mdns__priv_8h.html", "mdns__priv_8h" ],
     [ "mqtt.h", "mqtt_8h.html", "mqtt_8h" ],
     [ "mqtt_opts.h", "mqtt__opts_8h.html", "mqtt__opts_8h" ],
@@ -24,6 +26,8 @@ var dir_f9284811ac594eafdc3134d5f8b945cb =
     [ "snmpv3.h", "snmpv3_8h.html", null ],
     [ "sntp.h", "sntp_8h.html", "sntp_8h" ],
     [ "sntp_opts.h", "sntp__opts_8h.html", "sntp__opts_8h" ],
+    [ "tftp_client.h", "tftp__client_8h.html", "tftp__client_8h" ],
+    [ "tftp_common.h", "tftp__common_8h.html", "tftp__common_8h" ],
     [ "tftp_opts.h", "tftp__opts_8h.html", "tftp__opts_8h" ],
     [ "tftp_server.h", "tftp__server_8h.html", "tftp__server_8h" ]
 ];

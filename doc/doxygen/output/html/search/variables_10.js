@@ -16,8 +16,7 @@ var searchData=
   ['poll_5fnfds_13',['poll_nfds',['../structlwip__select__cb.html#a39c4980c261380481f79af2b536ebfba',1,'lwip_select_cb']]],
   ['port_14',['port',['../structmdns__service.html#abbf317cde8fb7ba8d834ad9746dd780c',1,'mdns_service']]],
   ['prev_15',['prev',['../structmem.html#a9d7722ed10adf965fa98563d502f98ac',1,'mem::prev'],['../structsnmp__varbind.html#a365abcc1f80d28dc8ffd07193099c760',1,'snmp_varbind::prev'],['../structlwip__select__cb.html#a21a98e316bb7001d8750b20f5a7d0aa7',1,'lwip_select_cb::prev']]],
-  ['probes_5fsent_16',['probes_sent',['../structmdns__host.html#ac8f6e3c6e1251bf73f043e489c840922',1,'mdns_host']]],
-  ['probing_5fstate_17',['probing_state',['../structmdns__host.html#af9ced31c35de6a281e5b13f01e5aae61',1,'mdns_host']]],
-  ['proto_18',['proto',['../structmdns__service.html#aa9f2e0bb67d3848152e6076e92e8018d',1,'mdns_service']]],
-  ['ptr_19',['ptr',['../structnetvector.html#a523362737ea7764f9aaa73a050a0b983',1,'netvector']]]
+  ['probe_5fquery_5frecv_16',['probe_query_recv',['../structmdns__outmsg.html#a4a3ee99f7c25e88f17ea912897617aa0',1,'mdns_outmsg']]],
+  ['proto_17',['proto',['../structmdns__request.html#a497e1b8f664dab9904a89e5f15f5bc60',1,'mdns_request::proto'],['../structmdns__service.html#aa9f2e0bb67d3848152e6076e92e8018d',1,'mdns_service::proto']]],
+  ['ptr_18',['ptr',['../structnetvector.html#a523362737ea7764f9aaa73a050a0b983',1,'netvector']]]
 ];

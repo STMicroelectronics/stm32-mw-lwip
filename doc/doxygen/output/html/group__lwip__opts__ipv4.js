@@ -4,6 +4,7 @@ var group__lwip__opts__ipv4 =
     [ "ICMP", "group__lwip__opts__icmp.html", "group__lwip__opts__icmp" ],
     [ "DHCP", "group__lwip__opts__dhcp.html", "group__lwip__opts__dhcp" ],
     [ "AUTOIP", "group__lwip__opts__autoip.html", "group__lwip__opts__autoip" ],
+    [ "ACD", "group__lwip__opts__acd.html", "group__lwip__opts__acd" ],
     [ "IGMP", "group__lwip__opts__igmp.html", "group__lwip__opts__igmp" ],
     [ "IP_DEFAULT_TTL", "group__lwip__opts__ipv4.html#ga556b9b58fd02c0fdd126791baef77411", null ],
     [ "IP_FORWARD", "group__lwip__opts__ipv4.html#ga881d32ff5ee02af01f758953f1b51d59", null ],

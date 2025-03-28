@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initalization_0',['System initalization',['../sys_init.html',1,'']]]
+  ['initialization_0',['System initialization',['../sys_init.html',1,'']]]
 ];

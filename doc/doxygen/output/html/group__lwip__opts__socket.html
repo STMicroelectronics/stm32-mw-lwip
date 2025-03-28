@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -113,6 +113,8 @@ Macros</h2></td></tr>
 <tr class="separator:ga484c38ab08f60d5b3335d23d31f9a402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad0197c845fbb44c920b272f0fef3b57e" id="r_gad0197c845fbb44c920b272f0fef3b57e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad0197c845fbb44c920b272f0fef3b57e">LWIP_SOCKET_OFFSET</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:gad0197c845fbb44c920b272f0fef3b57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga524c013ecdd8a45a2949f2a433469e82" id="r_ga524c013ecdd8a45a2949f2a433469e82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga524c013ecdd8a45a2949f2a433469e82">LWIP_SOCKET_EXTERNAL_HEADERS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga524c013ecdd8a45a2949f2a433469e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8b9369ab260f032686a81c77c5b4db77" id="r_ga8b9369ab260f032686a81c77c5b4db77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8b9369ab260f032686a81c77c5b4db77">LWIP_TCP_KEEPALIVE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga8b9369ab260f032686a81c77c5b4db77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1162cb685f202d9b21c11344b8209a58" id="r_ga1162cb685f202d9b21c11344b8209a58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1162cb685f202d9b21c11344b8209a58">LWIP_SO_SNDTIMEO</a>&#160;&#160;&#160;0</td></tr>
@@ -274,6 +276,21 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>LWIP_SOCKET==1: Enable Socket API (require to use <a class="el" href="sockets_8c.html">sockets.c</a>) </p>
+
+</div>
+</div>
+<a id="ga524c013ecdd8a45a2949f2a433469e82" name="ga524c013ecdd8a45a2949f2a433469e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga524c013ecdd8a45a2949f2a433469e82">&#9670;&#160;</a></span>LWIP_SOCKET_EXTERNAL_HEADERS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_SOCKET_EXTERNAL_HEADERS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LWIP_SOCKET_EXTERNAL_HEADERS==1: Use external headers instead of <a class="el" href="sockets_8h.html">sockets.h</a> and inet.h. In this case, user must provide its own headers by setting the values for LWIP_SOCKET_EXTERNAL_HEADER_SOCKETS_H and LWIP_SOCKET_EXTERNAL_HEADER_INET_H to appropriate include file names and the whole content of the default <a class="el" href="sockets_8h.html">sockets.h</a> and inet.h is skipped. </p>
 
 </div>
 </div>

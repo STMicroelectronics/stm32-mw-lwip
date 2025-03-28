@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -125,6 +125,8 @@ Macros</h2></td></tr>
 <tr class="separator:gaf1ab7bb27860aa3677c387a2f3ba317b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac04b84d32251ac558f0c3a8af85ba3a5" id="r_gac04b84d32251ac558f0c3a8af85ba3a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac04b84d32251ac558f0c3a8af85ba3a5">TCP_CALCULATE_EFF_SEND_MSS</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:gac04b84d32251ac558f0c3a8af85ba3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade23373901980c6e7a43cef813386ebe" id="r_gade23373901980c6e7a43cef813386ebe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gade23373901980c6e7a43cef813386ebe">LWIP_TCP_RTO_TIME</a>&#160;&#160;&#160;3000</td></tr>
+<tr class="separator:gade23373901980c6e7a43cef813386ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga871d111968d8c6c7880ff36b93c5c4dd" id="r_ga871d111968d8c6c7880ff36b93c5c4dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga871d111968d8c6c7880ff36b93c5c4dd">TCP_SND_BUF</a>&#160;&#160;&#160;(2 * <a class="el" href="#gaf1ab7bb27860aa3677c387a2f3ba317b">TCP_MSS</a>)</td></tr>
 <tr class="separator:ga871d111968d8c6c7880ff36b93c5c4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9beaa47832ead4180981bfbf71074904" id="r_ga9beaa47832ead4180981bfbf71074904"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9beaa47832ead4180981bfbf71074904">TCP_SND_QUEUELEN</a>&#160;&#160;&#160;((4 * (<a class="el" href="#ga871d111968d8c6c7880ff36b93c5c4dd">TCP_SND_BUF</a>) + (<a class="el" href="#gaf1ab7bb27860aa3677c387a2f3ba317b">TCP_MSS</a> - 1))/(<a class="el" href="#gaf1ab7bb27860aa3677c387a2f3ba317b">TCP_MSS</a>))</td></tr>
@@ -249,6 +251,21 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>LWIP_TCP_PCB_NUM_EXT_ARGS: When this is &gt; 0, every tcp pcb (including listen pcb) includes a number of additional argument entries in an array (see tcp_ext_arg_alloc_id) </p>
+
+</div>
+</div>
+<a id="gade23373901980c6e7a43cef813386ebe" name="gade23373901980c6e7a43cef813386ebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade23373901980c6e7a43cef813386ebe">&#9670;&#160;</a></span>LWIP_TCP_RTO_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_TCP_RTO_TIME&#160;&#160;&#160;3000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LWIP_TCP_RTO_TIME: Initial TCP retransmission timeout (ms). This defaults to 3 seconds as traditionally defined in the TCP protocol. For improving timely recovery on faster networks, this value could be lowered down to 1 second (RFC 6298) </p>
 
 </div>
 </div>

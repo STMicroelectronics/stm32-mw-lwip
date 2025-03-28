@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bridgeif_5finitdata_5ft_0',['bridgeif_initdata_t',['../group__bridgeif.html#ga61c8f232a5907f3662157746e71d35cc',1,'bridgeif.h']]]
+  ['acd_5fconflict_5fcallback_5ft_0',['acd_conflict_callback_t',['../acd_8h.html#abb446404752f56b028eafa8302db955f',1,'acd.h']]],
+  ['altcp_5fallocator_5ft_1',['altcp_allocator_t',['../group__altcp.html#ga04a328f67359ee03d1ec6824978b7209',1,'altcp.h']]]
 ];

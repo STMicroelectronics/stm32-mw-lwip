@@ -20,6 +20,7 @@ var group__tcp__raw =
     [ "tcp_recv", "group__tcp__raw.html#ga8afd0b316a87a5eeff4726dc95006ed0", null ],
     [ "tcp_recved", "group__tcp__raw.html#gabdac0856a52b5789dc897d4c7137ec44", null ],
     [ "tcp_sent", "group__tcp__raw.html#ga1596332b93bb6249179f3b89f24bd808", null ],
+    [ "tcp_setprio", "group__tcp__raw.html#ga2c4234f1e95b6bde0e84d4ea97ae95bc", null ],
     [ "tcp_shutdown", "group__tcp__raw.html#ga5b94d57f1891b9287f88525a2ac561dd", null ],
     [ "tcp_write", "group__tcp__raw.html#ga6b2aa0efbf10e254930332b7c89cd8c5", null ]
 ];

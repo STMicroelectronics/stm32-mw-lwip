@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -124,8 +124,6 @@ Data Structures</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a768ab8ead892d6454709680340cd070e" id="r_a768ab8ead892d6454709680340cd070e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a768ab8ead892d6454709680340cd070e">LWIP_DNS_API_HOSTENT_STORAGE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a768ab8ead892d6454709680340cd070e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfc1e988534c0e497599b904739f92fe" id="r_acfc1e988534c0e497599b904739f92fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc1e988534c0e497599b904739f92fe">HOSTENT_STORAGE</a>&#160;&#160;&#160;static</td></tr>
-<tr class="separator:acfc1e988534c0e497599b904739f92fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -146,21 +144,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>API functions for name resolving </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="acfc1e988534c0e497599b904739f92fe" name="acfc1e988534c0e497599b904739f92fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfc1e988534c0e497599b904739f92fe">&#9670;&#160;</a></span>HOSTENT_STORAGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HOSTENT_STORAGE&#160;&#160;&#160;static</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>define "hostent" variables storage </p>
-
-</div>
-</div>
 <a id="a768ab8ead892d6454709680340cd070e" name="a768ab8ead892d6454709680340cd070e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a768ab8ead892d6454709680340cd070e">&#9670;&#160;</a></span>LWIP_DNS_API_HOSTENT_STORAGE</h2>
 
@@ -172,7 +155,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>define "hostent" variables storage: 0 if we use a static (but unprotected) set of variables for lwip_gethostbyname, 1 if we use a local storage </p>
+<p>LWIP_DNS_API_HOSTENT_STORAGE: if set to 0 (default), <a class="el" href="#abe6a6a103a2f6fa4e13098e455ac7bb3">lwip_gethostbyname()</a> returns the same global variabe for all calls (in all threads). When set to 1, your port should provide a function struct hostent* sys_thread_hostent( struct hostent* h); which have to do a copy of "h" and return a pointer ont the "per-thread" copy. </p>
 
 </div>
 </div>

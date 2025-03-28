@@ -3,6 +3,8 @@ var lwip_2etharp_8h =
     [ "etharp_q_entry", "structetharp__q__entry.html", null ],
     [ "ARP_TMR_INTERVAL", "lwip_2etharp_8h.html#aaa3d8ed1eb1129f518345e37b38cfc37", null ],
     [ "etharp_gratuitous", "lwip_2etharp_8h.html#a83947dea159baf3420922084072e631e", null ],
+    [ "etharp_acd_announce", "lwip_2etharp_8h.html#a7c41ba8b145fa4d06f8d6af3df44c4ff", null ],
+    [ "etharp_acd_probe", "lwip_2etharp_8h.html#aac7d5048a81ef1c63b18d769700f4899", null ],
     [ "etharp_cleanup_netif", "lwip_2etharp_8h.html#ae94677a2a5f3698276027c7475f6ca05", null ],
     [ "etharp_find_addr", "lwip_2etharp_8h.html#a0f8ca87c5472fa165763c8c38b76174c", null ],
     [ "etharp_get_entry", "lwip_2etharp_8h.html#ab93df7ccb26496100d45137541e863c8", null ],

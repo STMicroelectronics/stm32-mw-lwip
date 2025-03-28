@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -160,7 +160,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Prototype of a report function that is called when a session is finished. This report function can show the test results. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">arg</td><td>Report_arg from when the test was started. </td></tr>
     <tr><td class="paramname">report_type</td><td>contains the test result </td></tr>
+    <tr><td class="paramname">local_addr</td><td>The local address from the session </td></tr>
+    <tr><td class="paramname">local_port</td><td>The local port </td></tr>
+    <tr><td class="paramname">remote_addr</td><td>The remote address from the session </td></tr>
+    <tr><td class="paramname">remote_port</td><td>The remote port </td></tr>
+    <tr><td class="paramname">bytes_transferred</td><td>Total transferred bytes </td></tr>
+    <tr><td class="paramname">ms_duration</td><td>Total session duration, in milliseconds </td></tr>
+    <tr><td class="paramname">bandwidth_kbitpsec</td><td>Average bandwidth during the session, in kbps </td></tr>
   </table>
   </dd>
 </dl>

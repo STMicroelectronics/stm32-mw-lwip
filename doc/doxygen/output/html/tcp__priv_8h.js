@@ -27,6 +27,7 @@ var tcp__priv_8h =
     [ "tcp_rexmit_rto_commit", "tcp__priv_8h.html#a9ef9dc094e21bdf0779aed25ab0b08d4", null ],
     [ "tcp_rexmit_rto_prepare", "tcp__priv_8h.html#a1f318930bd6d49074343cc79c5166f39", null ],
     [ "tcp_rst", "tcp__priv_8h.html#aa90f8051c9633d3017c588245cdc4014", null ],
+    [ "tcp_rst_netif", "tcp__priv_8h.html#a7cf7cbc5aa473de8116dc9f00cbc5d57", null ],
     [ "tcp_seg_copy", "tcp__priv_8h.html#a9384b436de95d5bf8550438b9d3c8cd4", null ],
     [ "tcp_seg_free", "tcp__priv_8h.html#ac6283651b26f74dba2444159aee88b20", null ],
     [ "tcp_segs_free", "tcp__priv_8h.html#a3d9bb9809769197bce9b2499d55cf28c", null ],

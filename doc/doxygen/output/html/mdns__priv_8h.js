@@ -1,7 +1,11 @@
 var mdns__priv_8h =
 [
-    [ "mdns_compress_domain", "mdns__priv_8h.html#ab72e48cf076afd1e3a08030d1d0bff9e", null ],
-    [ "mdns_domain_add_label", "mdns__priv_8h.html#a17db69fa887515374452b945e959bbf9", null ],
-    [ "mdns_domain_eq", "mdns__priv_8h.html#a52d8f70432ae998814f16b18431213cd", null ],
-    [ "mdns_readname", "mdns__priv_8h.html#ab5f49d9356a76879e0e6a14eb0643b23", null ]
+    [ "mdns_request", "structmdns__request.html", "structmdns__request" ],
+    [ "mdns_service", "structmdns__service.html", "structmdns__service" ],
+    [ "mdns_outpacket", "structmdns__outpacket.html", "structmdns__outpacket" ],
+    [ "mdns_outmsg", "structmdns__outmsg.html", "structmdns__outmsg" ],
+    [ "mdns_delayed_msg", "structmdns__delayed__msg.html", "structmdns__delayed__msg" ],
+    [ "mdns_host", "structmdns__host.html", "structmdns__host" ],
+    [ "get_mdns_pcb", "mdns__priv_8h.html#aa31b798a5fb96b6ef0dde5d4f32371af", null ],
+    [ "netif_mdns_data", "mdns__priv_8h.html#af15fa5b6331bec605f68f53cb87f58fa", null ]
 ];

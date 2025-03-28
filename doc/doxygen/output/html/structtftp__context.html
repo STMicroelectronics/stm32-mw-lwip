@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -99,11 +99,11 @@ $(function(){initNavTree('structtftp__context.html',''); initResizable(true); })
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">tftp_context Struct Reference<div class="ingroups"><a class="el" href="group__apps.html">Applications</a> &raquo; <a class="el" href="group__tftp.html">TFTP server</a></div></div></div>
+  <div class="headertitle"><div class="title">tftp_context Struct Reference<div class="ingroups"><a class="el" href="group__apps.html">Applications</a> &raquo; <a class="el" href="group__tftp.html">TFTP client/server</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;tftp_server.h&gt;</code></p>
+<p><code>#include &lt;tftp_common.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -115,6 +115,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a748e37df0c8b84b3adda78d603b9033c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e6e4ec803ec9597822923369701754d" id="r_a9e6e4ec803ec9597822923369701754d"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e6e4ec803ec9597822923369701754d">write</a> )(void *handle, struct <a class="el" href="structpbuf.html">pbuf</a> *p)</td></tr>
 <tr class="separator:a9e6e4ec803ec9597822923369701754d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39cbb84a9c0eaa8ea62d183ba8214519" id="r_a39cbb84a9c0eaa8ea62d183ba8214519"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39cbb84a9c0eaa8ea62d183ba8214519">error</a> )(void *handle, int err, const char *msg, int size)</td></tr>
+<tr class="separator:a39cbb84a9c0eaa8ea62d183ba8214519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>TFTP context containing callback functions for TFTP transfers </p>
@@ -132,7 +134,30 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Close file handle </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a> </td></tr>
+    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a>/tftp_put()/tftp_get() </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39cbb84a9c0eaa8ea62d183ba8214519" name="a39cbb84a9c0eaa8ea62d183ba8214519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39cbb84a9c0eaa8ea62d183ba8214519">&#9670;&#160;</a></span>error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* tftp_context::error) (void *handle, int err, const char *msg, int size)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Error indication from client or response from server </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>File handle set by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a>/tftp_get()/tftp_put() </td></tr>
+    <tr><td class="paramname">err</td><td>error code from client or server </td></tr>
+    <tr><td class="paramname">msg</td><td>error message from client or server </td></tr>
+    <tr><td class="paramname">size</td><td>size of msg </td></tr>
   </table>
   </dd>
 </dl>
@@ -150,7 +175,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Open file for read/write. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Open file for read/write (server mode only). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fname</td><td>Filename </td></tr>
     <tr><td class="paramname">mode</td><td>Mode string from TFTP RFC 1350 (netascii, octet, mail) </td></tr>
@@ -175,7 +200,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Read from file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a> </td></tr>
+    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a>/tftp_put()/tftp_get() </td></tr>
     <tr><td class="paramname">buf</td><td>Target buffer to copy read data to </td></tr>
     <tr><td class="paramname">bytes</td><td>Number of bytes to copy to buf </td></tr>
   </table>
@@ -198,7 +223,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Write to file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a> </td></tr>
+    <tr><td class="paramname">handle</td><td>File handle returned by <a class="el" href="#a65d6359e2aac571813c05c61676c01a1">open()</a>/tftp_put()/tftp_get() </td></tr>
     <tr><td class="paramname">pbuf</td><td>PBUF adjusted such that payload pointer points to the beginning of write data. In other words, TFTP headers are stripped off. </td></tr>
   </table>
   </dd>
@@ -208,7 +233,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/include/lwip/apps/<a class="el" href="tftp__server_8h.html">tftp_server.h</a></li>
+<li>src/include/lwip/apps/<a class="el" href="tftp__common_8h.html">tftp_common.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,6 @@
 var altcp__tls__mbedtls__opts_8h =
 [
+    [ "ALTCP_MBEDTLS_AUTHMODE", "altcp__tls__mbedtls__opts_8h.html#a12aba61586bd71cb42b0925b9211b366", null ],
     [ "ALTCP_MBEDTLS_DEBUG", "altcp__tls__mbedtls__opts_8h.html#a7727456eeb0b3311213936413d238989", null ],
     [ "ALTCP_MBEDTLS_LIB_DEBUG", "altcp__tls__mbedtls__opts_8h.html#a12262be84ab6a04e2aff7ca152328308", null ],
     [ "ALTCP_MBEDTLS_LIB_DEBUG_LEVEL_MIN", "altcp__tls__mbedtls__opts_8h.html#ad8561bbfabb4ec81ad1c4d7304d16bb5", null ],

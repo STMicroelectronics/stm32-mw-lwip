@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -122,9 +122,9 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Multicast listener discovery for IPv6. Aims to be compliant with RFC 2710. No support for MLDv2.<br  />
-Note: The allnodes (ff01::1, ff02::1) group is assumed be received by your netif since it must always be received for correct IPv6 operation (e.g. SLAAC). Ensure the netif filters are configured accordingly!<br  />
-The netif flags also need NETIF_FLAG_MLD6 flag set to enable MLD6 on a netif ("netif-&gt;flags |= NETIF_FLAG_MLD6;").<br  />
-To be called from TCPIP thread. </p>
+ Note: The allnodes (ff01::1, ff02::1) group is assumed be received by your netif since it must always be received for correct IPv6 operation (e.g. SLAAC). Ensure the netif filters are configured accordingly!<br  />
+ The netif flags also need NETIF_FLAG_MLD6 flag set to enable MLD6 on a netif ("netif-&gt;flags |= NETIF_FLAG_MLD6;").<br  />
+ To be called from TCPIP thread. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga02a2259082f22c5989a3c929be95e641" name="ga02a2259082f22c5989a3c929be95e641"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga02a2259082f22c5989a3c929be95e641">&#9670;&#160;</a></span>netif_mld6_data</h2>
@@ -141,10 +141,10 @@ To be called from TCPIP thread. </p>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((<span class="keyword">struct </span><a class="code hl_struct" href="structmld__group.html">mld_group</a> *)<a class="code hl_define" href="group__netif__cd.html#ga4bce01ddbf0fd70cb88431f773c91bc5">netif_get_client_data</a>(<a class="code hl_struct" href="structnetif.html">netif</a>, LWIP_NETIF_CLIENT_DATA_INDEX_MLD6))</div>
-<div class="ttc" id="agroup__netif__cd_html_ga4bce01ddbf0fd70cb88431f773c91bc5"><div class="ttname"><a href="group__netif__cd.html#ga4bce01ddbf0fd70cb88431f773c91bc5">netif_get_client_data</a></div><div class="ttdeci">#define netif_get_client_data(netif, id)</div><div class="ttdef"><b>Definition</b> netif.h:237</div></div>
+<div class="ttc" id="agroup__netif__cd_html_ga4bce01ddbf0fd70cb88431f773c91bc5"><div class="ttname"><a href="group__netif__cd.html#ga4bce01ddbf0fd70cb88431f773c91bc5">netif_get_client_data</a></div><div class="ttdeci">#define netif_get_client_data(netif, id)</div><div class="ttdef"><b>Definition</b> netif.h:240</div></div>
 <div class="ttc" id="astructmld__group_html"><div class="ttname"><a href="structmld__group.html">mld_group</a></div><div class="ttdef"><b>Definition</b> mld6.h:58</div></div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
-</div><!-- fragment --><p>Get list head of MLD6 groups for netif. Note: The allnodes group IP is NOT in the list, since it must always be received for correct IPv6 operation. </p><dl class="section see"><dt>See also</dt><dd>netif_set_mld_mac_filter() </dd></dl>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
+</div><!-- fragment --><p>Get list head of MLD6 groups for netif. Note: The allnodes group IP is NOT in the list, since it must always be received for correct IPv6 operation. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__netif.html#ga97f30bb5542e4c07d3b32e3c754e104c">netif_set_mld_mac_filter()</a> </dd></dl>
 
 </div>
 </div>

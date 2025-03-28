@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -430,11 +430,16 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">name</td><td>a string representation of the DNS host name to query </td></tr>
     <tr><td class="paramname">addr</td><td>a preallocated ip_addr_t where to store the resolved IP address </td></tr>
-    <tr><td class="paramname">dns_addrtype</td><td>IP address type (IPv4 / IPv6) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ERR_OK: resolving succeeded ERR_MEM: memory error, try again later ERR_ARG: dns client not initialized or invalid hostname ERR_VAL: dns server response was invalid </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dns_addrtype</td><td>IP address type (IPv4 / IPv6) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

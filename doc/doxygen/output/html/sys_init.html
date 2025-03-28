@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>lwIP: System initalization</title>
+<title>lwIP: System initialization</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -97,7 +97,7 @@ $(function(){initNavTree('sys_init.html',''); initResizable(true); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">System initalization</div></div>
+  <div class="headertitle"><div class="title">System initialization</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>A truly complete and generic sequence for initializing the lwIP stack cannot be given because it depends on additional initializations for your runtime environment (e.g. timers).</p>
@@ -112,7 +112,7 @@ $(function(){initNavTree('sys_init.html',''); initResizable(true); });
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> netif_if_init(<span class="keyword">struct</span> <a class="code hl_struct" href="structnetif.html">netif</a> *<a class="code hl_struct" href="structnetif.html">netif</a>)</div>
 <div class="line">{</div>
 <div class="line">  u8_t i;</div>
-<div class="line">  </div>
+<div class="line"> </div>
 <div class="line">  <span class="keywordflow">for</span> (i = 0; i &lt; ETHARP_HWADDR_LEN; i++) {</div>
 <div class="line">    <a class="code hl_struct" href="structnetif.html">netif</a>-&gt;<a class="code hl_variable" href="structnetif.html#aee967965d999fc1a4c40a66709304e69">hwaddr</a>[i] = some_eth_addr[i];</div>
 <div class="line">  }</div>
@@ -121,8 +121,8 @@ $(function(){initNavTree('sys_init.html',''); initResizable(true); });
 <div class="line">}</div>
 <div class="ttc" id="agroup__infrastructure__errors_html_gaf02d9da80fd66b4f986d2c53d7231ddb"><div class="ttname"><a href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a></div><div class="ttdeci">s8_t err_t</div><div class="ttdef"><b>Definition</b> err.h:96</div></div>
 <div class="ttc" id="agroup__infrastructure__errors_html_ggae2e66c7d13afc90ffecd6151680fbadcaa26c163b80b1f6786ca81dadc14b00fb"><div class="ttname"><a href="group__infrastructure__errors.html#ggae2e66c7d13afc90ffecd6151680fbadcaa26c163b80b1f6786ca81dadc14b00fb">ERR_OK</a></div><div class="ttdeci">@ ERR_OK</div><div class="ttdef"><b>Definition</b> err.h:55</div></div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
-<div class="ttc" id="astructnetif_html_aee967965d999fc1a4c40a66709304e69"><div class="ttname"><a href="structnetif.html#aee967965d999fc1a4c40a66709304e69">netif::hwaddr</a></div><div class="ttdeci">u8_t hwaddr[6U]</div><div class="ttdef"><b>Definition</b> netif.h:341</div></div>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
+<div class="ttc" id="astructnetif_html_aee967965d999fc1a4c40a66709304e69"><div class="ttname"><a href="structnetif.html#aee967965d999fc1a4c40a66709304e69">netif::hwaddr</a></div><div class="ttdeci">u8_t hwaddr[6U]</div><div class="ttdef"><b>Definition</b> netif.h:350</div></div>
 </div><!-- fragment --><p>For Ethernet drivers, the input function pointer must point to the lwIP function <a class="el" href="group__lwip__nosys.html#ga6a10c58b82c56d02c48b3cfa2c2494ff">ethernet_input()</a> declared in "netif/etharp.h". Other drivers must use <a class="el" href="group__lwip__nosys.html#ga3c420dab0c6760df099a2d688fa42a26">ip_input()</a> declared in "lwip/ip.h".</p>
 <ul>
 <li><a class="el" href="group__netif.html#gac90f290edd005238d62aa94c4ac9dea3">netif_set_default(struct netif *netif)</a> Registers the default network interface.</li>

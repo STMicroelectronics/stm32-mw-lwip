@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -107,8 +107,8 @@ $(function(){initNavTree('group__lwip__opts__dhcp.html',''); initResizable(true)
 Macros</h2></td></tr>
 <tr class="memitem:ga8a6ec62dc121064ac591b1fd8567bee9" id="r_ga8a6ec62dc121064ac591b1fd8567bee9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8a6ec62dc121064ac591b1fd8567bee9">LWIP_DHCP</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga8a6ec62dc121064ac591b1fd8567bee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab2d91de7b2fce879b0a213682e1b0b69" id="r_gab2d91de7b2fce879b0a213682e1b0b69"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab2d91de7b2fce879b0a213682e1b0b69">DHCP_DOES_ARP_CHECK</a>&#160;&#160;&#160;(<a class="el" href="#ga8a6ec62dc121064ac591b1fd8567bee9">LWIP_DHCP</a> &amp;&amp; <a class="el" href="group__lwip__opts__arp.html#ga9609a014bba4638cc191d6a8f9556c87">LWIP_ARP</a>)</td></tr>
-<tr class="separator:gab2d91de7b2fce879b0a213682e1b0b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd0c82329fccb78342e3eef98233aa55" id="r_gadd0c82329fccb78342e3eef98233aa55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadd0c82329fccb78342e3eef98233aa55">LWIP_DHCP_DOES_ACD_CHECK</a>&#160;&#160;&#160;<a class="el" href="#ga8a6ec62dc121064ac591b1fd8567bee9">LWIP_DHCP</a></td></tr>
+<tr class="separator:gadd0c82329fccb78342e3eef98233aa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3c2983cbd228011dd3e18cb417e7e423" id="r_ga3c2983cbd228011dd3e18cb417e7e423"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3c2983cbd228011dd3e18cb417e7e423">LWIP_DHCP_BOOTP_FILE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga3c2983cbd228011dd3e18cb417e7e423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2cc18315edcd5ffc083d1256f7d22a83" id="r_ga2cc18315edcd5ffc083d1256f7d22a83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2cc18315edcd5ffc083d1256f7d22a83">LWIP_DHCP_GET_NTP_SRV</a>&#160;&#160;&#160;0</td></tr>
@@ -117,24 +117,11 @@ Macros</h2></td></tr>
 <tr class="separator:ga9d014e3f7dc9e1e7c7decd8652ba65e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga60ccc20fbb08be24b5d5f599dd47a6a6" id="r_ga60ccc20fbb08be24b5d5f599dd47a6a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga60ccc20fbb08be24b5d5f599dd47a6a6">LWIP_DHCP_MAX_DNS_SERVERS</a>&#160;&#160;&#160;<a class="el" href="group__lwip__opts__dns.html#ga9f9881c887a8aceb9765820c2dbdf292">DNS_MAX_SERVERS</a></td></tr>
 <tr class="separator:ga60ccc20fbb08be24b5d5f599dd47a6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6b030f8e828666953661578f936e605" id="r_gad6b030f8e828666953661578f936e605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad6b030f8e828666953661578f936e605">LWIP_DHCP_DISCOVER_ADD_HOSTNAME</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:gad6b030f8e828666953661578f936e605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gab2d91de7b2fce879b0a213682e1b0b69" name="gab2d91de7b2fce879b0a213682e1b0b69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab2d91de7b2fce879b0a213682e1b0b69">&#9670;&#160;</a></span>DHCP_DOES_ARP_CHECK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DHCP_DOES_ARP_CHECK&#160;&#160;&#160;(<a class="el" href="#ga8a6ec62dc121064ac591b1fd8567bee9">LWIP_DHCP</a> &amp;&amp; <a class="el" href="group__lwip__opts__arp.html#ga9609a014bba4638cc191d6a8f9556c87">LWIP_ARP</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>DHCP_DOES_ARP_CHECK==1: Do an ARP check on the offered address. </p>
-
-</div>
-</div>
 <a id="ga8a6ec62dc121064ac591b1fd8567bee9" name="ga8a6ec62dc121064ac591b1fd8567bee9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8a6ec62dc121064ac591b1fd8567bee9">&#9670;&#160;</a></span>LWIP_DHCP</h2>
 
@@ -162,6 +149,36 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>LWIP_DHCP_BOOTP_FILE==1: Store offered_si_addr and boot_file_name. </p>
+
+</div>
+</div>
+<a id="gad6b030f8e828666953661578f936e605" name="gad6b030f8e828666953661578f936e605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6b030f8e828666953661578f936e605">&#9670;&#160;</a></span>LWIP_DHCP_DISCOVER_ADD_HOSTNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_DHCP_DISCOVER_ADD_HOSTNAME&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LWIP_DHCP_DISCOVER_ADD_HOSTNAME: Set to 1 to include hostname opt in discover packets. If the hostname is not set in the DISCOVER packet, then some servers might issue an OFFER with hostname configured and consequently reject the REQUEST with any other hostname. </p>
+
+</div>
+</div>
+<a id="gadd0c82329fccb78342e3eef98233aa55" name="gadd0c82329fccb78342e3eef98233aa55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd0c82329fccb78342e3eef98233aa55">&#9670;&#160;</a></span>LWIP_DHCP_DOES_ACD_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_DHCP_DOES_ACD_CHECK&#160;&#160;&#160;<a class="el" href="#ga8a6ec62dc121064ac591b1fd8567bee9">LWIP_DHCP</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LWIP_DHCP_DOES_ACD_CHECK==1: Perform address conflict detection on the dhcp address. </p>
 
 </div>
 </div>

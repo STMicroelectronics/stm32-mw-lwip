@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -138,6 +138,8 @@ Functions</h2></td></tr>
 <tr class="separator:gaeb7b3c7414c76ad8dde14d2fba6cb020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaab838fe3417ab3a1f61f0728009a0c2a" id="r_gaab838fe3417ab3a1f61f0728009a0c2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lwip__os.html#gaab838fe3417ab3a1f61f0728009a0c2a">tcpip_callback</a> (<a class="el" href="#a35203296bb838f3b493839ffc6e7285d">tcpip_callback_fn</a> function, void *ctx)</td></tr>
 <tr class="separator:gaab838fe3417ab3a1f61f0728009a0c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d8a2ac0271def71a4ca31b24a31228f" id="r_a8d8a2ac0271def71a4ca31b24a31228f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d8a2ac0271def71a4ca31b24a31228f">tcpip_callback_wait</a> (<a class="el" href="#a35203296bb838f3b493839ffc6e7285d">tcpip_callback_fn</a> function, void *ctx)</td></tr>
+<tr class="separator:a8d8a2ac0271def71a4ca31b24a31228f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07de8751452a8886de85849f79fe23a1" id="r_ga07de8751452a8886de85849f79fe23a1"><td class="memItemLeft" align="right" valign="top">struct tcpip_callback_msg *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lwip__os.html#ga07de8751452a8886de85849f79fe23a1">tcpip_callbackmsg_new</a> (<a class="el" href="#a35203296bb838f3b493839ffc6e7285d">tcpip_callback_fn</a> function, void *ctx)</td></tr>
 <tr class="separator:ga07de8751452a8886de85849f79fe23a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac5b7a59f4c3f5f721ab9ee81f231c9fd" id="r_gac5b7a59f4c3f5f721ab9ee81f231c9fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lwip__os.html#gac5b7a59f4c3f5f721ab9ee81f231c9fd">tcpip_callbackmsg_delete</a> (struct tcpip_callback_msg *msg)</td></tr>
@@ -279,6 +281,36 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ERR_OK if callback could be enqueued, an err_t if not </dd></dl>
+
+</div>
+</div>
+<a id="a8d8a2ac0271def71a4ca31b24a31228f" name="a8d8a2ac0271def71a4ca31b24a31228f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d8a2ac0271def71a4ca31b24a31228f">&#9670;&#160;</a></span>tcpip_callback_wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> tcpip_callback_wait </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a35203296bb838f3b493839ffc6e7285d">tcpip_callback_fn</a></td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sends a message to TCPIP thread to call a function. Caller thread blocks until the function returns. It is recommended to use LWIP_TCPIP_CORE_LOCKING (preferred) or LWIP_NETCONN_SEM_PER_THREAD. If not, a semaphore is created and destroyed on every call which is usually an expensive/slow operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>the function to call </td></tr>
+    <tr><td class="paramname">ctx</td><td>parameter passed to f </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK if the function was called, another err_t if not </dd></dl>
 
 </div>
 </div>

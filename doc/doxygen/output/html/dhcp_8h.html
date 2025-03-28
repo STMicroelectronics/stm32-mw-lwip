@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -99,6 +99,7 @@ $(function(){initNavTree('dhcp_8h.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">dhcp.h File Reference</div></div>
 </div><!--header-->
@@ -106,6 +107,7 @@ $(function(){initNavTree('dhcp_8h.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="opt_8h.html">lwip/opt.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="netif_8h.html">lwip/netif.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="udp_8h.html">lwip/udp.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="acd_8h.html">lwip/acd.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -117,6 +119,11 @@ Macros</h2></td></tr>
 <tr class="separator:a7a26209f52eebe8ded457ae141df403f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa92284faa099dac4331c1fc0b997dabc" id="r_aa92284faa099dac4331c1fc0b997dabc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92284faa099dac4331c1fc0b997dabc">dhcp_remove_struct</a>(<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:aa92284faa099dac4331c1fc0b997dabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa85d661c7e160921c0497e7baa892b67" id="r_aa85d661c7e160921c0497e7baa892b67"><td class="memItemLeft" align="right" valign="top">typedef u16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa85d661c7e160921c0497e7baa892b67">dhcp_timeout_t</a></td></tr>
+<tr class="separator:aa85d661c7e160921c0497e7baa892b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -136,10 +143,8 @@ Functions</h2></td></tr>
 <tr class="separator:gaf7cd42b9f220446b6a597d3474da6ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd7fcc7e0799e313885fc7fd9d4992ad" id="r_gabd7fcc7e0799e313885fc7fd9d4992ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhcp4.html#gabd7fcc7e0799e313885fc7fd9d4992ad">dhcp_inform</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:gabd7fcc7e0799e313885fc7fd9d4992ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04f3824720223c439165243527906002" id="r_a04f3824720223c439165243527906002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04f3824720223c439165243527906002">dhcp_network_changed</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
-<tr class="separator:a04f3824720223c439165243527906002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc0a94e0b94f13c5d302018f7ecb535" id="r_a1fc0a94e0b94f13c5d302018f7ecb535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0a94e0b94f13c5d302018f7ecb535">dhcp_arp_reply</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *addr)</td></tr>
-<tr class="separator:a1fc0a94e0b94f13c5d302018f7ecb535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd33722859054ea932ff05ff62dedaa" id="r_a2fd33722859054ea932ff05ff62dedaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fd33722859054ea932ff05ff62dedaa">dhcp_network_changed_link_up</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
+<tr class="separator:a2fd33722859054ea932ff05ff62dedaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae24a2529372218327ab9cb6592041c85" id="r_ae24a2529372218327ab9cb6592041c85"><td class="memItemLeft" align="right" valign="top">u8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24a2529372218327ab9cb6592041c85">dhcp_supplied_address</a> (const struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:ae24a2529372218327ab9cb6592041c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7480883d64f3d6f083c8aa933b5e3cb" id="r_ad7480883d64f3d6f083c8aa933b5e3cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7480883d64f3d6f083c8aa933b5e3cb">dhcp_coarse_tmr</a> (void)</td></tr>
@@ -210,42 +215,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="group__netif__cd.html#ga5ce61a277e1951183f7b7d03742c231f">netif_set_client_data</a>(<a class="code hl_struct" href="structnetif.html">netif</a>, LWIP_NETIF_CLIENT_DATA_INDEX_DHCP, NULL)</div>
-<div class="ttc" id="agroup__netif__cd_html_ga5ce61a277e1951183f7b7d03742c231f"><div class="ttname"><a href="group__netif__cd.html#ga5ce61a277e1951183f7b7d03742c231f">netif_set_client_data</a></div><div class="ttdeci">#define netif_set_client_data(netif, id, data)</div><div class="ttdef"><b>Definition</b> netif.h:233</div></div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
+<div class="ttc" id="agroup__netif__cd_html_ga5ce61a277e1951183f7b7d03742c231f"><div class="ttname"><a href="group__netif__cd.html#ga5ce61a277e1951183f7b7d03742c231f">netif_set_client_data</a></div><div class="ttdeci">#define netif_set_client_data(netif, id, data)</div><div class="ttdef"><b>Definition</b> netif.h:236</div></div>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
 </div><!-- fragment --><p>Remove a struct dhcp previously set to the netif using <a class="el" href="group__dhcp4.html#ga43812097832716a462c660eb59cc1bf8">dhcp_set_struct()</a> </p>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1fc0a94e0b94f13c5d302018f7ecb535" name="a1fc0a94e0b94f13c5d302018f7ecb535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fc0a94e0b94f13c5d302018f7ecb535">&#9670;&#160;</a></span>dhcp_arp_reply()</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aa85d661c7e160921c0497e7baa892b67" name="aa85d661c7e160921c0497e7baa892b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85d661c7e160921c0497e7baa892b67">&#9670;&#160;</a></span>dhcp_timeout_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dhcp_arp_reply </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
+          <td class="memname">typedef u16_t <a class="el" href="#aa85d661c7e160921c0497e7baa892b67">dhcp_timeout_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Match an ARP reply with the offered IP address: check whether the offered IP address is not in use using ARP</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">netif</td><td>the network interface on which the reply was received </td></tr>
-    <tr><td class="paramname">addr</td><td>The IP address we received a reply from </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Define DHCP_TIMEOUT_SIZE_T in <a class="el" href="opt_8h.html">opt.h</a> if you want use a different integer than u16_t. Especially useful if DHCP_COARSE_TIMER_SECS is in smaller units, so timeouts easily reach UINT16_MAX and more </p>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="ad7480883d64f3d6f083c8aa933b5e3cb" name="ad7480883d64f3d6f083c8aa933b5e3cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7480883d64f3d6f083c8aa933b5e3cb">&#9670;&#160;</a></span>dhcp_coarse_tmr()</h2>
 
@@ -283,14 +275,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a04f3824720223c439165243527906002" name="a04f3824720223c439165243527906002"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04f3824720223c439165243527906002">&#9670;&#160;</a></span>dhcp_network_changed()</h2>
+<a id="a2fd33722859054ea932ff05ff62dedaa" name="a2fd33722859054ea932ff05ff62dedaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd33722859054ea932ff05ff62dedaa">&#9670;&#160;</a></span>dhcp_network_changed_link_up()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dhcp_network_changed </td>
+          <td class="memname">void dhcp_network_changed_link_up </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span></td><td>)</td>
           <td></td>

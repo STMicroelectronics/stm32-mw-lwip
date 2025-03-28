@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -115,6 +115,8 @@ Macros</h2></td></tr>
 <tr class="separator:ga520858778b84d4d2fa125294c0f119e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaba2d4cfe4c1f5bdbe37b339084a7d466" id="r_gaba2d4cfe4c1f5bdbe37b339084a7d466"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaba2d4cfe4c1f5bdbe37b339084a7d466">LWIP_HTTPD_SSI_BY_FILE_EXTENSION</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:gaba2d4cfe4c1f5bdbe37b339084a7d466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga006baa7219cff5ee02f5a14ef7d7c89d" id="r_ga006baa7219cff5ee02f5a14ef7d7c89d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga006baa7219cff5ee02f5a14ef7d7c89d">LWIP_HTTPD_SSI_EXTENSIONS</a>&#160;&#160;&#160;&quot;.shtml&quot;, &quot;.shtm&quot;, &quot;.ssi&quot;, &quot;.xml&quot;, &quot;.json&quot;</td></tr>
+<tr class="separator:ga006baa7219cff5ee02f5a14ef7d7c89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacbea06ce33933e3ef2f2f1834a21cc2c" id="r_gacbea06ce33933e3ef2f2f1834a21cc2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacbea06ce33933e3ef2f2f1834a21cc2c">LWIP_HTTPD_SUPPORT_POST</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:gacbea06ce33933e3ef2f2f1834a21cc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3167d52d20cf90857e2c809b92458bf0" id="r_ga3167d52d20cf90857e2c809b92458bf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3167d52d20cf90857e2c809b92458bf0">LWIP_HTTPD_SSI_MULTIPART</a>&#160;&#160;&#160;0</td></tr>
@@ -175,6 +177,8 @@ Macros</h2></td></tr>
 <tr class="separator:ga1ee8d7c975c7e3d1c9d9dd9b43660c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaedd0fa3d356170d8ca3557acb410fd7c" id="r_gaedd0fa3d356170d8ca3557acb410fd7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaedd0fa3d356170d8ca3557acb410fd7c">LWIP_HTTPD_FILE_STATE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:gaedd0fa3d356170d8ca3557acb410fd7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3648a9fdefe3ab1c890b715a4786429" id="r_gaa3648a9fdefe3ab1c890b715a4786429"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa3648a9fdefe3ab1c890b715a4786429">LWIP_HTTPD_FILE_EXTENSION</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:gaa3648a9fdefe3ab1c890b715a4786429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e5de8515c89af12277e4cb011165103" id="r_ga6e5de8515c89af12277e4cb011165103"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e5de8515c89af12277e4cb011165103">HTTPD_PRECALCULATED_CHECKSUM</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga6e5de8515c89af12277e4cb011165103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga51cb673cb5cc362acc409f23c1e0a331" id="r_ga51cb673cb5cc362acc409f23c1e0a331"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga51cb673cb5cc362acc409f23c1e0a331">LWIP_HTTPD_FS_ASYNC_READ</a>&#160;&#160;&#160;0</td></tr>
@@ -468,6 +472,21 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="gaa3648a9fdefe3ab1c890b715a4786429" name="gaa3648a9fdefe3ab1c890b715a4786429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa3648a9fdefe3ab1c890b715a4786429">&#9670;&#160;</a></span>LWIP_HTTPD_FILE_EXTENSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_HTTPD_FILE_EXTENSION&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set this to 1 to add the pextension field to the fs_file structure. This is included here to retain compatibility with legacy code that relies on the presence of the pextension field. New code should use LWIP_HTTPD_FILE_STATE instead. This option may be removed in a future version of lwip. </p>
+
+</div>
+</div>
 <a id="gaedd0fa3d356170d8ca3557acb410fd7c" name="gaedd0fa3d356170d8ca3557acb410fd7c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaedd0fa3d356170d8ca3557acb410fd7c">&#9670;&#160;</a></span>LWIP_HTTPD_FILE_STATE</h2>
 
@@ -619,7 +638,7 @@ Macros</h2></td></tr>
 <p>A downside of the current SSI implementation is that persistent connections don't work, as the file length is not known in advance (and httpd currently relies on the Content-Length header for persistent connections).</p>
 <p>To save memory, the maximum tag length is limited (</p><dl class="section see"><dt>See also</dt><dd>LWIP_HTTPD_MAX_TAG_NAME_LEN). To save memory, the maximum insertion string length is limited (</dd>
 <dd>
-LWIP_HTTPD_MAX_TAG_INSERT_LEN). If this is not enought, <a class="el" href="#ga3167d52d20cf90857e2c809b92458bf0">LWIP_HTTPD_SSI_MULTIPART</a> can be used. </dd></dl>
+LWIP_HTTPD_MAX_TAG_INSERT_LEN). If this is not enough, <a class="el" href="#ga3167d52d20cf90857e2c809b92458bf0">LWIP_HTTPD_SSI_MULTIPART</a> can be used. </dd></dl>
 
 </div>
 </div>
@@ -634,8 +653,23 @@ LWIP_HTTPD_MAX_TAG_INSERT_LEN). If this is not enought, <a class="el" href="#ga3
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set this to 0 to prevent parsing the file extension at runtime to decide if a file should be scanned for SSI tags or not. Default is 1 (file extensions are checked using the g_pcSSIExtensions array) Set to 2 to override this runtime test function.</p>
+<p>Set this to 0 to prevent parsing the file extension at runtime to decide if a file should be scanned for SSI tags or not. Default is 1 (file extensions are checked using the g_pcSSIExtensions array) Set to 2 to override this runtime test function. In this case, you have to provide an external function that does the check: u8_t http_uri_is_ssi(struct fs_file *file, const char *uri)</p>
 <p>This is enabled by default, but if you only use a newer version of makefsdata supporting the "-ssi" option, this info is already present in </p>
+
+</div>
+</div>
+<a id="ga006baa7219cff5ee02f5a14ef7d7c89d" name="ga006baa7219cff5ee02f5a14ef7d7c89d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga006baa7219cff5ee02f5a14ef7d7c89d">&#9670;&#160;</a></span>LWIP_HTTPD_SSI_EXTENSIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LWIP_HTTPD_SSI_EXTENSIONS&#160;&#160;&#160;&quot;.shtml&quot;, &quot;.shtm&quot;, &quot;.ssi&quot;, &quot;.xml&quot;, &quot;.json&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is a list of file extensions handled as SSI files. This define is used to initialize a 'const char *const[]'. It is only used if LWIP_HTTPD_SSI_BY_FILE_EXTENSION != 0. </p>
 
 </div>
 </div>

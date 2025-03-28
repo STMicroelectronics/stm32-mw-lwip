@@ -4,6 +4,8 @@ var etharp_8c =
     [ "ARP_MAXPENDING", "etharp_8c.html#a0a03fea13e060da5a53a10a75a96def9", null ],
     [ "ETHARP_FLAG_TRY_HARD", "etharp_8c.html#a96f8787ca623e704da1d32ca7dd6d6d9", null ],
     [ "etharp_state", "etharp_8c.html#ae95dee9363e6d3417298e07380b2d383", null ],
+    [ "etharp_acd_announce", "etharp_8c.html#a7c41ba8b145fa4d06f8d6af3df44c4ff", null ],
+    [ "etharp_acd_probe", "etharp_8c.html#aac7d5048a81ef1c63b18d769700f4899", null ],
     [ "etharp_cleanup_netif", "etharp_8c.html#ae94677a2a5f3698276027c7475f6ca05", null ],
     [ "etharp_find_addr", "etharp_8c.html#a0f8ca87c5472fa165763c8c38b76174c", null ],
     [ "etharp_get_entry", "etharp_8c.html#ab93df7ccb26496100d45137541e863c8", null ],

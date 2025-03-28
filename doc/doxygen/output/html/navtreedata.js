@@ -29,11 +29,12 @@ var NAVTREE =
     [ "Upgrading", "upgrading.html", null ],
     [ "Changelog", "changelog.html", null ],
     [ "How to contribute to lwIP", "contrib.html", null ],
+    [ "CMake build system", "cmake.html", null ],
     [ "Common pitfalls", "pitfalls.html", null ],
     [ "Debugging memory pool sizes", "mem_err.html", null ],
     [ "Reporting bugs", "bugs.html", null ],
     [ "Zero-copy RX", "zerocopyrx.html", null ],
-    [ "System initalization", "sys_init.html", null ],
+    [ "System initialization", "sys_init.html", null ],
     [ "Multithreading", "multithreading.html", null ],
     [ "Optimization hints", "optimization.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
@@ -62,18 +63,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"altcp_8c.html",
-"functions_c.html",
-"group__httpd.html#gac364305cee969a0be43c071722b136e6",
-"group__lwip__opts__dhcpv6.html#ga5d08f76a7472daa7bcfe17343243bd77",
-"group__lwip__opts__tcp.html#gaf1b6a015d29fea67b906c276e1e8314f",
-"group__pbuf.html#gaba88511dee3df4b631fde691f421320d",
-"group__zepif.html",
-"lowpan6__ble_8h.html#a6ae90ad69f5d901eb44cf87b9120cd9a",
-"pbuf_8h.html#a426883d928f8f3e8fd066e616159d78f",
-"sockets_8c.html#ade85c68b6673296c8fb67127b93fa4c1",
-"structnetbios__hdr.html",
-"tcp_8c.html#a3d9bb9809769197bce9b2499d55cf28c"
+"acd_8c.html",
+"ethip6_8h.html#ab5326546d33174f91f1fb0cc6d398bfd",
+"group__httpc.html#ga0452eb8007dbb5f139ec992e58e560dd",
+"group__lwip__opts__debugmsg.html#ga2960ae20008f05da8cc0714f36365642",
+"group__lwip__opts__stats.html#ga0173549afa76553583e5a02c6a791218",
+"group__netif__flags.html#gab47d7d130693dc155f480a5bf447725e",
+"group__sys__nonstandard.html#ga997dcc49451121d4ed755b33bc7bd26a",
+"ip6__addr_8h.html#a6c46d12fa7d36c47b629d0ccdefa114b",
+"memp_8c.html#ab6bfb9562c3a77e329a888e59ef0ace3",
+"slipif_8h.html#a198967c11f79cffc32192710294e8826",
+"structip6__hdr.html#af9cbfa5fa280a7a982a1c6268fa13a5a",
+"structpbuf.html#a5e5763c94fd18d78937b0b58ce7df341",
+"tcp__priv_8h.html#a8181bc316fdf61b85f787c5cadfcd249"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

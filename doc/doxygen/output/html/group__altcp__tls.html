@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -105,8 +105,8 @@ $(function(){initNavTree('group__altcp__tls.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf6ed13271394371cc89d70ef5128c411" id="r_gaf6ed13271394371cc89d70ef5128c411"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf6ed13271394371cc89d70ef5128c411">altcp_tls_create_config_server</a> (uint8_t cert_count)</td></tr>
-<tr class="separator:gaf6ed13271394371cc89d70ef5128c411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa37649bf24ebea235a8e3e8f50b9831f" id="r_gaa37649bf24ebea235a8e3e8f50b9831f"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa37649bf24ebea235a8e3e8f50b9831f">altcp_tls_create_config_server</a> (u8_t cert_count)</td></tr>
+<tr class="separator:gaa37649bf24ebea235a8e3e8f50b9831f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae6f52370b62b0f4ba8d373c5186c9e7e" id="r_gae6f52370b62b0f4ba8d373c5186c9e7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae6f52370b62b0f4ba8d373c5186c9e7e">altcp_tls_config_server_add_privkey_cert</a> (struct altcp_tls_config *config, const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
 <tr class="separator:gae6f52370b62b0f4ba8d373c5186c9e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga60b4635c80b832a8c3b332fdede69d5e" id="r_ga60b4635c80b832a8c3b332fdede69d5e"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga60b4635c80b832a8c3b332fdede69d5e">altcp_tls_create_config_server_privkey_cert</a> (const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
@@ -115,6 +115,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga7b3c11c8a273d68acc332c55e6b38170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4dccbd861c03a9c09eae6799da004597" id="r_ga4dccbd861c03a9c09eae6799da004597"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4dccbd861c03a9c09eae6799da004597">altcp_tls_create_config_client_2wayauth</a> (const u8_t *ca, size_t ca_len, const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
 <tr class="separator:ga4dccbd861c03a9c09eae6799da004597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f60b12a6a4440214b7bcf2e3ba43126" id="r_ga1f60b12a6a4440214b7bcf2e3ba43126"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1f60b12a6a4440214b7bcf2e3ba43126">altcp_tls_configure_alpn_protocols</a> (struct altcp_tls_config *conf, const char **protos)</td></tr>
+<tr class="separator:ga1f60b12a6a4440214b7bcf2e3ba43126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8fb8a92fa3f84170050ddab2888b9145" id="r_ga8fb8a92fa3f84170050ddab2888b9145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8fb8a92fa3f84170050ddab2888b9145">altcp_tls_free_config</a> (struct altcp_tls_config *conf)</td></tr>
 <tr class="separator:ga8fb8a92fa3f84170050ddab2888b9145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga75675ccec142d17fc0695b425f3ec1c2" id="r_ga75675ccec142d17fc0695b425f3ec1c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga75675ccec142d17fc0695b425f3ec1c2">altcp_tls_free_entropy</a> (void)</td></tr>
@@ -127,6 +129,14 @@ Functions</h2></td></tr>
 <tr class="separator:gab0bdfd2ede0df4d47b6e12ccac2b14bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga85d20b4dc321342cf09ad93086309bb7" id="r_ga85d20b4dc321342cf09ad93086309bb7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga85d20b4dc321342cf09ad93086309bb7">altcp_tls_context</a> (struct altcp_pcb *conn)</td></tr>
 <tr class="separator:ga85d20b4dc321342cf09ad93086309bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6c3cf72fcd29e6ea4c74181370420c3" id="r_gae6c3cf72fcd29e6ea4c74181370420c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae6c3cf72fcd29e6ea4c74181370420c3">altcp_tls_init_session</a> (struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:gae6c3cf72fcd29e6ea4c74181370420c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga827c76a0bddc4923b9a17c813e13891e" id="r_ga827c76a0bddc4923b9a17c813e13891e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga827c76a0bddc4923b9a17c813e13891e">altcp_tls_get_session</a> (struct altcp_pcb *conn, struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:ga827c76a0bddc4923b9a17c813e13891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aed4aa55d0e1b15f4118863cea06d18" id="r_ga4aed4aa55d0e1b15f4118863cea06d18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4aed4aa55d0e1b15f4118863cea06d18">altcp_tls_set_session</a> (struct altcp_pcb *conn, struct altcp_tls_session *from)</td></tr>
+<tr class="separator:ga4aed4aa55d0e1b15f4118863cea06d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga906eefcef66e9dd2b43c3392704905f5" id="r_ga906eefcef66e9dd2b43c3392704905f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga906eefcef66e9dd2b43c3392704905f5">altcp_tls_free_session</a> (struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:ga906eefcef66e9dd2b43c3392704905f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This file contains function prototypes for a TLS layer. A port to ARM mbedtls is provided in the apps/ tree (LWIP_ALTCP_TLS_MBEDTLS option). </p>
@@ -149,7 +159,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create new ALTCP_TLS layer pcb and its inner tcp pcb. Same as <a class="el" href="#gab6a717446af931949bc3e0daceb090c8">altcp_tls_new</a> but this allocator function fits to altcp_allocator_t / altcp_new.<br  />
+<p>Create new ALTCP_TLS layer pcb and its inner tcp pcb. Same as <a class="el" href="#gab6a717446af931949bc3e0daceb090c8">altcp_tls_new</a> but this allocator function fits to <a class="el" href="group__altcp.html#ga04a328f67359ee03d1ec6824978b7209">altcp_allocator_t</a> / <a class="el" href="group__altcp.html#ga6b0fc20cce40364aa821c07dc34cb908">altcp_new</a>.<br  />
  'arg' must contain a struct altcp_tls_config *.</p>
 <p>This standard allocator function creates an altcp pcb for TLS over TCP </p>
 
@@ -199,6 +209,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Add a certificate to an ALTCP_TLS server configuration handle </p>
+
+</div>
+</div>
+<a id="ga1f60b12a6a4440214b7bcf2e3ba43126" name="ga1f60b12a6a4440214b7bcf2e3ba43126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f60b12a6a4440214b7bcf2e3ba43126">&#9670;&#160;</a></span>altcp_tls_configure_alpn_protocols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int altcp_tls_configure_alpn_protocols </td>
+          <td>(</td>
+          <td class="paramtype">struct altcp_tls_config *</td>          <td class="paramname"><span class="paramname"><em>conf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char **</td>          <td class="paramname"><span class="paramname"><em>protos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configure ALPN TLS extension Example:<br  />
+ static const char *g_alpn_protocols[] = { "x-amzn-mqtt-ca", NULL };<br  />
+ tls_config = altcp_tls_create_config_client(ca, ca_len);<br  />
+ altcp_tls_conf_alpn_protocols(tls_config, g_alpn_protocols);<br  />
+ </p>
 
 </div>
 </div>
@@ -294,8 +330,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaf6ed13271394371cc89d70ef5128c411" name="gaf6ed13271394371cc89d70ef5128c411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf6ed13271394371cc89d70ef5128c411">&#9670;&#160;</a></span>altcp_tls_create_config_server()</h2>
+<a id="gaa37649bf24ebea235a8e3e8f50b9831f" name="gaa37649bf24ebea235a8e3e8f50b9831f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa37649bf24ebea235a8e3e8f50b9831f">&#9670;&#160;</a></span>altcp_tls_create_config_server()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +339,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">struct altcp_tls_config * altcp_tls_create_config_server </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cert_count</em></span></td><td>)</td>
+          <td class="paramtype">u8_t</td>          <td class="paramname"><span class="paramname"><em>cert_count</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -350,7 +386,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create an ALTCP_TLS server configuration handle with one certificate (short version of calling <a class="el" href="#gaf6ed13271394371cc89d70ef5128c411">altcp_tls_create_config_server</a> and <a class="el" href="#gae6f52370b62b0f4ba8d373c5186c9e7e">altcp_tls_config_server_add_privkey_cert</a>) </p>
+<p>Create an ALTCP_TLS server configuration handle with one certificate (short version of calling <a class="el" href="#gaa37649bf24ebea235a8e3e8f50b9831f">altcp_tls_create_config_server</a> and <a class="el" href="#gae6f52370b62b0f4ba8d373c5186c9e7e">altcp_tls_config_server_add_privkey_cert</a>) </p>
 
 </div>
 </div>
@@ -390,6 +426,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga906eefcef66e9dd2b43c3392704905f5" name="ga906eefcef66e9dd2b43c3392704905f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga906eefcef66e9dd2b43c3392704905f5">&#9670;&#160;</a></span>altcp_tls_free_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void altcp_tls_free_session </td>
+          <td>(</td>
+          <td class="paramtype">struct altcp_tls_session *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Free allocated data inside a TLS session buffer. Real type depends on port (e.g. mbedtls use mbedtls_ssl_session) </p>
+
+</div>
+</div>
+<a id="ga827c76a0bddc4923b9a17c813e13891e" name="ga827c76a0bddc4923b9a17c813e13891e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga827c76a0bddc4923b9a17c813e13891e">&#9670;&#160;</a></span>altcp_tls_get_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> altcp_tls_get_session </td>
+          <td>(</td>
+          <td class="paramtype">struct altcp_pcb *</td>          <td class="paramname"><span class="paramname"><em>conn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct altcp_tls_session *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Save current connected session to reuse it later. Should be called after <a class="el" href="group__altcp.html#gafaf1d533e4e89dc249a3f931afa93492">altcp_connect()</a> succeeded. Return error if saving session fail. Real type depends on port (e.g. mbedtls use mbedtls_ssl_session) </p>
+
+</div>
+</div>
+<a id="gae6c3cf72fcd29e6ea4c74181370420c3" name="gae6c3cf72fcd29e6ea4c74181370420c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6c3cf72fcd29e6ea4c74181370420c3">&#9670;&#160;</a></span>altcp_tls_init_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void altcp_tls_init_session </td>
+          <td>(</td>
+          <td class="paramtype">struct altcp_tls_session *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialise a TLS session buffer. Real type depends on port (e.g. mbedtls use mbedtls_ssl_session) </p>
+
+</div>
+</div>
 <a id="gab6a717446af931949bc3e0daceb090c8" name="gab6a717446af931949bc3e0daceb090c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab6a717446af931949bc3e0daceb090c8">&#9670;&#160;</a></span>altcp_tls_new()</h2>
 
@@ -410,6 +504,28 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Create new ALTCP_TLS pcb and its inner tcp pcb</p>
 <p>This standard allocator function creates an altcp pcb for TLS over TCP </p>
+
+</div>
+</div>
+<a id="ga4aed4aa55d0e1b15f4118863cea06d18" name="ga4aed4aa55d0e1b15f4118863cea06d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4aed4aa55d0e1b15f4118863cea06d18">&#9670;&#160;</a></span>altcp_tls_set_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> altcp_tls_set_session </td>
+          <td>(</td>
+          <td class="paramtype">struct altcp_pcb *</td>          <td class="paramname"><span class="paramname"><em>conn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct altcp_tls_session *</td>          <td class="paramname"><span class="paramname"><em>from</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Restore a previously saved session. Must be called before <a class="el" href="group__altcp.html#gafaf1d533e4e89dc249a3f931afa93492">altcp_connect()</a>. Return error if cannot restore session. Real type depends on port (e.g. mbedtls use mbedtls_ssl_session) </p>
 
 </div>
 </div>

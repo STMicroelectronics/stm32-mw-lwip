@@ -1,7 +1,6 @@
 var netdb_8c =
 [
     [ "gethostbyname_r_helper", "structgethostbyname__r__helper.html", null ],
-    [ "HOSTENT_STORAGE", "netdb_8c.html#acfc1e988534c0e497599b904739f92fe", null ],
     [ "LWIP_DNS_API_HOSTENT_STORAGE", "netdb_8c.html#a768ab8ead892d6454709680340cd070e", null ],
     [ "lwip_freeaddrinfo", "netdb_8c.html#a7f65ff5982a0743849a644ef2cd15ef5", null ],
     [ "lwip_getaddrinfo", "netdb_8c.html#af356989c172a51187e22b557f22d4165", null ],

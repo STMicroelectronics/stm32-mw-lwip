@@ -6,6 +6,7 @@ var group__lwip__opts__tcp =
     [ "LWIP_TCP", "group__lwip__opts__tcp.html#gaa4ed98deb97b77c633cb8870f34c71e9", null ],
     [ "LWIP_TCP_MAX_SACK_NUM", "group__lwip__opts__tcp.html#gaaac0e9f559a8e3c251f3504cebcf44dc", null ],
     [ "LWIP_TCP_PCB_NUM_EXT_ARGS", "group__lwip__opts__tcp.html#ga40b1cdad52eaa91a3f5c242fc92ee223", null ],
+    [ "LWIP_TCP_RTO_TIME", "group__lwip__opts__tcp.html#gade23373901980c6e7a43cef813386ebe", null ],
     [ "LWIP_TCP_SACK_OUT", "group__lwip__opts__tcp.html#gaf1b6a015d29fea67b906c276e1e8314f", null ],
     [ "LWIP_TCP_TIMESTAMPS", "group__lwip__opts__tcp.html#ga249bc450bb818cf2ef3cf1472ff354fd", null ],
     [ "LWIP_WND_SCALE", "group__lwip__opts__tcp.html#ga88dbbfeeeb41b129fdc8235fc08bb530", null ],

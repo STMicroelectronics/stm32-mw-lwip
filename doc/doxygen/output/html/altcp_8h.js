@@ -1,5 +1,6 @@
 var altcp_8h =
 [
+    [ "altcp_allocator_t", "group__altcp.html#ga04a328f67359ee03d1ec6824978b7209", null ],
     [ "altcp_abort", "group__altcp.html#ga7f6fab99fed448385a76b4a5100796ab", null ],
     [ "altcp_accept", "group__altcp.html#ga7c4cd0b1179a53b1a223936ba2270bf9", null ],
     [ "altcp_arg", "group__altcp.html#ga197a33af038556a04d8f27c7033d771f", null ],

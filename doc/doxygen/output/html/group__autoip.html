@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -107,6 +107,8 @@ $(function(){initNavTree('group__autoip.html',''); initResizable(true); });
 Functions</h2></td></tr>
 <tr class="memitem:ga2122c0b2518b371559fef5ec1d2aed90" id="r_ga2122c0b2518b371559fef5ec1d2aed90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2122c0b2518b371559fef5ec1d2aed90">autoip_set_struct</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, struct <a class="el" href="structautoip.html">autoip</a> *<a class="el" href="structautoip.html">autoip</a>)</td></tr>
 <tr class="separator:ga2122c0b2518b371559fef5ec1d2aed90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0c98035795500ede464aa4af2515f30" id="r_gac0c98035795500ede464aa4af2515f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac0c98035795500ede464aa4af2515f30">autoip_remove_struct</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
+<tr class="separator:gac0c98035795500ede464aa4af2515f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1461f5826ebefc050e0d63013818d1e8" id="r_ga1461f5826ebefc050e0d63013818d1e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1461f5826ebefc050e0d63013818d1e8">autoip_start</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:ga1461f5826ebefc050e0d63013818d1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga58a4dce658dd1263e84eb982f62587d4" id="r_ga58a4dce658dd1263e84eb982f62587d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga58a4dce658dd1263e84eb982f62587d4">autoip_stop</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
@@ -114,7 +116,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>AUTOIP related functions USAGE:</p>
-<p>define <a class="el" href="group__lwip__opts__autoip.html#gaaf1b3a089827223589baf1b7f4f57069">LWIP_AUTOIP</a> 1 in your lwipopts.h Options: AUTOIP_TMR_INTERVAL msecs, I recommend a value of 100. The value must divide 1000 with a remainder almost 0. Possible values are 1000, 500, 333, 250, 200, 166, 142, 125, 111, 100 ....</p>
+<p>define <a class="el" href="group__lwip__opts__autoip.html#gaaf1b3a089827223589baf1b7f4f57069">LWIP_AUTOIP</a> 1 in your lwipopts.h</p>
 <p>Without DHCP:</p><ul>
 <li>Call <a class="el" href="#ga1461f5826ebefc050e0d63013818d1e8">autoip_start()</a> after <a class="el" href="group__netif.html#ga22055759a25f5d6cea7e7deab0a07434">netif_add()</a>.</li>
 </ul>
@@ -124,6 +126,30 @@ Functions</h2></td></tr>
 </ul>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__netifapi__autoip.html">AUTOIP</a> </dd></dl>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gac0c98035795500ede464aa4af2515f30" name="gac0c98035795500ede464aa4af2515f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0c98035795500ede464aa4af2515f30">&#9670;&#160;</a></span>autoip_remove_struct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void autoip_remove_struct </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove a struct autoip previously set to the netif using <a class="el" href="#ga2122c0b2518b371559fef5ec1d2aed90">autoip_set_struct()</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">netif</td><td>the netif for which to set the struct autoip </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga2122c0b2518b371559fef5ec1d2aed90" name="ga2122c0b2518b371559fef5ec1d2aed90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga2122c0b2518b371559fef5ec1d2aed90">&#9670;&#160;</a></span>autoip_set_struct()</h2>
 

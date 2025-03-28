@@ -6,6 +6,7 @@ var snmp__msg_8c =
     [ "snmp_set_community", "group__snmp__core.html#ga30cc587a260757fdb2b81d462f430ef1", null ],
     [ "snmp_set_community_trap", "group__snmp__traps.html#ga5631711f357b6610be7e93b1c6d87760", null ],
     [ "snmp_set_community_write", "group__snmp__core.html#ga341461766863cff46a44e5f431f2da01", null ],
+    [ "snmp_set_inform_callback", "group__snmp__core.html#ga323ed081cc9903ceb6ebb26a046e0838", null ],
     [ "snmp_set_write_callback", "group__snmp__core.html#gaff6a6b39322e92862ab55cfcddfe254b", null ],
     [ "snmp_varbind_length", "snmp__msg_8c.html#ac1f684dada963f68b71a04a702f28fe5", null ],
     [ "snmp_community", "snmp__msg_8c.html#ac6f810ab812c44c6ca1df1fdf926a9f6", null ],

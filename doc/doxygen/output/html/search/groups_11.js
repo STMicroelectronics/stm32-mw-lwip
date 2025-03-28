@@ -4,7 +4,7 @@ var searchData=
   ['sections_1',['Critical sections',['../group__sys__prot.html',1,'']]],
   ['semaphores_2',['Semaphores',['../group__sys__sem.html',1,'']]],
   ['sequential_20style_20apis_3',['Sequential-style APIs',['../group__sequential__api.html',1,'']]],
-  ['server_4',['server',['../group__httpd.html',1,'HTTP server'],['../group__iperf.html',1,'Iperf server'],['../group__tftp.html',1,'TFTP server']]],
+  ['server_4',['server',['../group__httpd.html',1,'HTTP server'],['../group__iperf.html',1,'Iperf server'],['../group__tftp.html',1,'TFTP client/server']]],
   ['slip_5',['SLIP',['../group__slipif.html',1,'']]],
   ['smtp_20client_6',['SMTP client',['../group__smtp.html',1,'']]],
   ['snmp_20mib2_20callbacks_7',['SNMP MIB2 callbacks',['../group__lwip__opts__mib2.html',1,'']]],

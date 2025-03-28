@@ -1,6 +1,11 @@
 var group__altcp =
 [
     [ "TLS layer", "group__altcp__tls.html", "group__altcp__tls" ],
+    [ "altcp_allocator_s", "structaltcp__allocator__s.html", [
+      [ "alloc", "structaltcp__allocator__s.html#aaf07ebf181a11d0320381ef46d40e687", null ],
+      [ "arg", "structaltcp__allocator__s.html#a8d8aa48e9a105e9d25ad4b90d259d0b1", null ]
+    ] ],
+    [ "altcp_allocator_t", "group__altcp.html#ga04a328f67359ee03d1ec6824978b7209", null ],
     [ "altcp_abort", "group__altcp.html#ga7f6fab99fed448385a76b4a5100796ab", null ],
     [ "altcp_accept", "group__altcp.html#ga7c4cd0b1179a53b1a223936ba2270bf9", null ],
     [ "altcp_arg", "group__altcp.html#ga197a33af038556a04d8f27c7033d771f", null ],

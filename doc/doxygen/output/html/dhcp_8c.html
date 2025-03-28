@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -100,8 +100,7 @@ $(function(){initNavTree('dhcp_8c.html',''); initResizable(true); });
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">dhcp.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -114,6 +113,7 @@ $(function(){initNavTree('dhcp_8c.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="def_8h.html">lwip/def.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dhcp_8h.html">lwip/dhcp.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="autoip_8h.html">lwip/autoip.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="acd_8h.html">lwip/acd.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="dns_8h.html">lwip/dns.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lwip_2etharp_8h.html">lwip/etharp.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="prot_2dhcp_8h.html">lwip/prot/dhcp.h</a>&quot;</code><br />
@@ -123,6 +123,10 @@ $(function(){initNavTree('dhcp_8c.html',''); initResizable(true); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:aa29d020558b37b29d5d5ae50dfeb0c88" id="r_aa29d020558b37b29d5d5ae50dfeb0c88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa29d020558b37b29d5d5ae50dfeb0c88">DHCP_ADD_EXTRA_REQUEST_OPTIONS</a></td></tr>
+<tr class="separator:aa29d020558b37b29d5d5ae50dfeb0c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f306da575f8a437996d073b374df82" id="r_a33f306da575f8a437996d073b374df82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33f306da575f8a437996d073b374df82">SET_TIMEOUT_FROM_OFFERED</a>(result,  offered,  min,  max)</td></tr>
+<tr class="separator:a33f306da575f8a437996d073b374df82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6de9c5120654454a330bf5de53c4835" id="r_ad6de9c5120654454a330bf5de53c4835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6de9c5120654454a330bf5de53c4835">DHCP_CREATE_RAND_XID</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:ad6de9c5120654454a330bf5de53c4835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63e9ec4517b80d8576f218d905e31a9b" id="r_a63e9ec4517b80d8576f218d905e31a9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e9ec4517b80d8576f218d905e31a9b">DHCP_MAX_MSG_LEN</a>(<a class="el" href="structnetif.html">netif</a>)</td></tr>
@@ -149,10 +153,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga0c50968d9811aa2aa67fadc0885d744f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd7fcc7e0799e313885fc7fd9d4992ad" id="r_gabd7fcc7e0799e313885fc7fd9d4992ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhcp4.html#gabd7fcc7e0799e313885fc7fd9d4992ad">dhcp_inform</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:gabd7fcc7e0799e313885fc7fd9d4992ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04f3824720223c439165243527906002" id="r_a04f3824720223c439165243527906002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04f3824720223c439165243527906002">dhcp_network_changed</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
-<tr class="separator:a04f3824720223c439165243527906002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc0a94e0b94f13c5d302018f7ecb535" id="r_a1fc0a94e0b94f13c5d302018f7ecb535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0a94e0b94f13c5d302018f7ecb535">dhcp_arp_reply</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *addr)</td></tr>
-<tr class="separator:a1fc0a94e0b94f13c5d302018f7ecb535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd33722859054ea932ff05ff62dedaa" id="r_a2fd33722859054ea932ff05ff62dedaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fd33722859054ea932ff05ff62dedaa">dhcp_network_changed_link_up</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
+<tr class="separator:a2fd33722859054ea932ff05ff62dedaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga583eb8d58f5e96b7dea717948578a947" id="r_ga583eb8d58f5e96b7dea717948578a947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhcp4.html#ga583eb8d58f5e96b7dea717948578a947">dhcp_renew</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:ga583eb8d58f5e96b7dea717948578a947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf7cd42b9f220446b6a597d3474da6ece" id="r_gaf7cd42b9f220446b6a597d3474da6ece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dhcp4.html#gaf7cd42b9f220446b6a597d3474da6ece">dhcp_release_and_stop</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
@@ -163,17 +165,25 @@ Functions</h2></td></tr>
 <tr class="separator:ga93f6bf21086dc9b10c0bec4676f97312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae24a2529372218327ab9cb6592041c85" id="r_ae24a2529372218327ab9cb6592041c85"><td class="memItemLeft" align="right" valign="top">u8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24a2529372218327ab9cb6592041c85">dhcp_supplied_address</a> (const struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:ae24a2529372218327ab9cb6592041c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a5abd232496063bddcbc6692c0e8f9c1f" id="r_a5abd232496063bddcbc6692c0e8f9c1f"><td class="memItemLeft" align="right" valign="top">u32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5abd232496063bddcbc6692c0e8f9c1f">dhcp_rx_options_val</a> [DHCP_OPTION_IDX_MAX]</td></tr>
-<tr class="separator:a5abd232496063bddcbc6692c0e8f9c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058b71e1d26b3758b29d16d9f892c8cc" id="r_a058b71e1d26b3758b29d16d9f892c8cc"><td class="memItemLeft" align="right" valign="top">u8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058b71e1d26b3758b29d16d9f892c8cc">dhcp_rx_options_given</a> [DHCP_OPTION_IDX_MAX]</td></tr>
-<tr class="separator:a058b71e1d26b3758b29d16d9f892c8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Dynamic Host Configuration Protocol client </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aa29d020558b37b29d5d5ae50dfeb0c88" name="aa29d020558b37b29d5d5ae50dfeb0c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d020558b37b29d5d5ae50dfeb0c88">&#9670;&#160;</a></span>DHCP_ADD_EXTRA_REQUEST_OPTIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHCP_ADD_EXTRA_REQUEST_OPTIONS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DHCP_ADD_EXTRA_REQUEST_OPTIONS: Additional options added to the list of options that the client requests from the servers (opt 55: DHCP_OPTION_PARAMETER_REQUEST_LIST) If additional options are requested, define this macro as a comma separated list, with leading comma. This macro is useful for example when requested vendor specific ids (VCI/VSI options), here is an example of requesting the VSI option (option 43) (yes, the notation is a bit strange, but it works :) (NOTE: the space between # and define is required because of doxygen...) </p><h1>define DHCP_ADD_EXTRA_REQUEST_OPTIONS ,43</h1>
+
+</div>
+</div>
 <a id="ad6de9c5120654454a330bf5de53c4835" name="ad6de9c5120654454a330bf5de53c4835"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6de9c5120654454a330bf5de53c4835">&#9670;&#160;</a></span>DHCP_CREATE_RAND_XID</h2>
 
@@ -204,8 +214,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(<a class="code hl_struct" href="structnetif.html">netif</a>-&gt;<a class="code hl_variable" href="structnetif.html#aca7d56b4e0f822b0ced2885f222b8d48">mtu</a>)</div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
-<div class="ttc" id="astructnetif_html_aca7d56b4e0f822b0ced2885f222b8d48"><div class="ttname"><a href="structnetif.html#aca7d56b4e0f822b0ced2885f222b8d48">netif::mtu</a></div><div class="ttdeci">u16_t mtu</div><div class="ttdef"><b>Definition</b> netif.h:335</div></div>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
+<div class="ttc" id="astructnetif_html_aca7d56b4e0f822b0ced2885f222b8d48"><div class="ttname"><a href="structnetif.html#aca7d56b4e0f822b0ced2885f222b8d48">netif::mtu</a></div><div class="ttdeci">u16_t mtu</div><div class="ttdef"><b>Definition</b> netif.h:344</div></div>
 </div><!-- fragment --><p>Default for DHCP_GLOBAL_XID is 0xABCD0000 This can be changed by defining DHCP_GLOBAL_XID and DHCP_GLOBAL_XID_HEADER, e.g. #define DHCP_GLOBAL_XID_HEADER "stdlib.h" #define DHCP_GLOBAL_XID rand() DHCP_OPTION_MAX_MSG_SIZE is set to the MTU MTU is checked to be big enough in dhcp_start </p>
 
 </div>
@@ -222,6 +232,56 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Minimum length for reply before packet is parsed </p>
+
+</div>
+</div>
+<a id="a33f306da575f8a437996d073b374df82" name="a33f306da575f8a437996d073b374df82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f306da575f8a437996d073b374df82">&#9670;&#160;</a></span>SET_TIMEOUT_FROM_OFFERED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET_TIMEOUT_FROM_OFFERED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>offered</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> { \</div>
+<div class="line">  u32_t timeout = (offered + <a class="code hl_define" href="dhcp_8h.html#a3751cc5daa0875d415ebacd8ad675f1e">DHCP_COARSE_TIMER_SECS</a> / 2) / <a class="code hl_define" href="dhcp_8h.html#a3751cc5daa0875d415ebacd8ad675f1e">DHCP_COARSE_TIMER_SECS</a>;  \</div>
+<div class="line">  if (timeout &gt; max) {    \</div>
+<div class="line">    timeout = max;        \</div>
+<div class="line">  }                       \</div>
+<div class="line">  if (timeout == min) {   \</div>
+<div class="line">    timeout = 1;          \</div>
+<div class="line">  } \</div>
+<div class="line">  result = (<a class="code hl_typedef" href="dhcp_8h.html#aa85d661c7e160921c0497e7baa892b67">dhcp_timeout_t</a>)timeout; \</div>
+<div class="line">} <span class="keywordflow">while</span>(0)</div>
+<div class="ttc" id="adhcp_8h_html_a3751cc5daa0875d415ebacd8ad675f1e"><div class="ttname"><a href="dhcp_8h.html#a3751cc5daa0875d415ebacd8ad675f1e">DHCP_COARSE_TIMER_SECS</a></div><div class="ttdeci">#define DHCP_COARSE_TIMER_SECS</div><div class="ttdef"><b>Definition</b> dhcp.h:65</div></div>
+<div class="ttc" id="adhcp_8h_html_aa85d661c7e160921c0497e7baa892b67"><div class="ttname"><a href="dhcp_8h.html#aa85d661c7e160921c0497e7baa892b67">dhcp_timeout_t</a></div><div class="ttdeci">u16_t dhcp_timeout_t</div><div class="ttdef"><b>Definition</b> dhcp.h:61</div></div>
+</div><!-- fragment --><p>DHCP_DEFINE_CUSTOM_TIMEOUTS: if this is defined then you can customize various DHCP timeouts using these macros:</p><ul>
+<li>DHCP_SET_TIMEOUT_FROM_OFFERED_T0_LEASE() to adjust the t0 lease timeout from the offered value</li>
+<li>DHCP_SET_TIMEOUT_FROM_OFFERED_T1_RENEW() same for t1 renew</li>
+<li>DHCP_SET_TIMEOUT_FROM_OFFERED_T2_REBIND() same for t2 rebind</li>
+<li>DHCP_NEXT_TIMEOUT_THRESHOLD to adjust the period of the next timeout</li>
+<li>DHCP_REQUEST_BACKOFF_SEQUENCE to adjust back-off times based on DHCP request attempts </li>
+</ul>
 
 </div>
 </div>
@@ -242,35 +302,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a1fc0a94e0b94f13c5d302018f7ecb535" name="a1fc0a94e0b94f13c5d302018f7ecb535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fc0a94e0b94f13c5d302018f7ecb535">&#9670;&#160;</a></span>dhcp_arp_reply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dhcp_arp_reply </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Match an ARP reply with the offered IP address: check whether the offered IP address is not in use using ARP</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">netif</td><td>the network interface on which the reply was received </td></tr>
-    <tr><td class="paramname">addr</td><td>The IP address we received a reply from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ad7480883d64f3d6f083c8aa933b5e3cb" name="ad7480883d64f3d6f083c8aa933b5e3cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7480883d64f3d6f083c8aa933b5e3cb">&#9670;&#160;</a></span>dhcp_coarse_tmr()</h2>
 
@@ -308,14 +339,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a04f3824720223c439165243527906002" name="a04f3824720223c439165243527906002"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04f3824720223c439165243527906002">&#9670;&#160;</a></span>dhcp_network_changed()</h2>
+<a id="a2fd33722859054ea932ff05ff62dedaa" name="a2fd33722859054ea932ff05ff62dedaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd33722859054ea932ff05ff62dedaa">&#9670;&#160;</a></span>dhcp_network_changed_link_up()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dhcp_network_changed </td>
+          <td class="memname">void dhcp_network_changed_link_up </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span></td><td>)</td>
           <td></td>
@@ -349,37 +380,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if DHCP supplied netif-&gt;<a class="el" href="structip__addr.html">ip_addr</a> (states BOUND or RENEWING), 0 otherwise </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a058b71e1d26b3758b29d16d9f892c8cc" name="a058b71e1d26b3758b29d16d9f892c8cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a058b71e1d26b3758b29d16d9f892c8cc">&#9670;&#160;</a></span>dhcp_rx_options_given</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">u8_t dhcp_rx_options_given[DHCP_OPTION_IDX_MAX]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Holds a flag which option was received and is contained in dhcp_rx_options_val, only valid while in dhcp_recv.  </p>
-
-</div>
-</div>
-<a id="a5abd232496063bddcbc6692c0e8f9c1f" name="a5abd232496063bddcbc6692c0e8f9c1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5abd232496063bddcbc6692c0e8f9c1f">&#9670;&#160;</a></span>dhcp_rx_options_val</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">u32_t dhcp_rx_options_val[DHCP_OPTION_IDX_MAX]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Holds the decoded option values, only valid while in dhcp_recv.  </p>
 
 </div>
 </div>

@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -133,6 +133,8 @@ Functions</h2></td></tr>
 <tr class="separator:gabdac0856a52b5789dc897d4c7137ec44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9a31deea4cadacd39f9485f37cfdd012" id="r_ga9a31deea4cadacd39f9485f37cfdd012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9a31deea4cadacd39f9485f37cfdd012">tcp_connect</a> (struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *pcb, const <a class="el" href="group__ipaddr.html#ga335a8c9df66319e88a1a529047ce0a1e">ip_addr_t</a> *ipaddr, u16_t port, <a class="el" href="tcp_8h.html#a939867106bd492caf2d85852fb7f6ae8">tcp_connected_fn</a> connected)</td></tr>
 <tr class="separator:ga9a31deea4cadacd39f9485f37cfdd012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c4234f1e95b6bde0e84d4ea97ae95bc" id="r_ga2c4234f1e95b6bde0e84d4ea97ae95bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2c4234f1e95b6bde0e84d4ea97ae95bc">tcp_setprio</a> (struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *pcb, u8_t prio)</td></tr>
+<tr class="separator:ga2c4234f1e95b6bde0e84d4ea97ae95bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e00c668b99d92113cd595647702be83" id="r_ga2e00c668b99d92113cd595647702be83"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2e00c668b99d92113cd595647702be83">tcp_new</a> (void)</td></tr>
 <tr class="separator:ga2e00c668b99d92113cd595647702be83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga89f6955b7248c76a073cd1be461aeb5b" id="r_ga89f6955b7248c76a073cd1be461aeb5b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga89f6955b7248c76a073cd1be461aeb5b">tcp_new_ip_type</a> (u8_t type)</td></tr>
@@ -156,9 +158,10 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Transmission Control Protocol for IP<br  />
-</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__api.html">APIs</a></dd></dl>
+ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__api.html">APIs</a></dd></dl>
 <p>Common functions for the TCP implementation, such as functions for manipulating the data structures and the TCP timer functions. TCP functions related to input and output is found in <a class="el" href="tcp__in_8c.html">tcp_in.c</a> and <a class="el" href="tcp__out_8c.html">tcp_out.c</a> respectively.<br  />
- </p><h2>TCP connection setup </h2>
+</p>
+<h2>TCP connection setup </h2>
 <p>The functions used for setting up connections is similar to that of the sequential API and of the BSD socket API. A new TCP connection identifier (i.e., a protocol control block - PCB) is created with the <a class="el" href="#ga2e00c668b99d92113cd595647702be83">tcp_new()</a> function. This PCB can then be either set to listen for new incoming connections or be explicitly connected to another host.</p><ul>
 <li><a class="el" href="#ga2e00c668b99d92113cd595647702be83">tcp_new()</a></li>
 <li><a class="el" href="#gacf5aa67bd7fc66fef43f77a55a1201ee">tcp_bind()</a></li>
@@ -449,7 +452,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">pcb</td><td>the <a class="el" href="structtcp__pcb.html">tcp_pcb</a> used to establish the connection </td></tr>
     <tr><td class="paramname">ipaddr</td><td>the remote ip address to connect to </td></tr>
     <tr><td class="paramname">port</td><td>the remote tcp port to connect to </td></tr>
-    <tr><td class="paramname">connected</td><td>callback function to call when connected (on error, the err calback will be called) </td></tr>
+    <tr><td class="paramname">connected</td><td>callback function to call when connected (on error, the err callback will be called) </td></tr>
   </table>
   </dd>
 </dl>
@@ -594,7 +597,7 @@ Functions</h2></td></tr>
 <p>Creates a new TCP protocol control block but doesn't place it on any of the TCP PCB lists. The pcb is not put on any list until binding using <a class="el" href="#gacf5aa67bd7fc66fef43f77a55a1201ee">tcp_bind()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__lwip__opts__memp.html#ga04fba6a249123513271dccb4ec26aa5a">MEMP_NUM_TCP_PCB_LISTEN</a> and <a class="el" href="group__lwip__opts__memp.html#ga73beecc19cfbc3114768f9b32b2cd70e">MEMP_NUM_TCP_PCB</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td>IP address type, see <a class="el" href="group__ipaddr.html#gaf2142f0dfdcc938e2db16aa745ed585c">lwip_ip_addr_type</a> definitions. If you want to listen to IPv4 and IPv6 (dual-stack) connections, supply <a class="el" href="group__ipaddr.html#ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e">IPADDR_TYPE_ANY</a> as argument and bind to IP_ANY_TYPE. </td></tr>
+    <tr><td class="paramname">type</td><td>IP address type, see <a class="el" href="group__ipaddr.html#gaf2142f0dfdcc938e2db16aa745ed585c">lwip_ip_addr_type</a> definitions. If you want to listen to IPv4 and IPv6 (dual-stack) connections, supply <a class="el" href="group__ipaddr.html#ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e">IPADDR_TYPE_ANY</a> as argument and bind to <a class="el" href="group__ipaddr.html#gabe43b154533b73585c4e58f568370ede">IP_ANY_TYPE</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -742,6 +745,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga2c4234f1e95b6bde0e84d4ea97ae95bc" name="ga2c4234f1e95b6bde0e84d4ea97ae95bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c4234f1e95b6bde0e84d4ea97ae95bc">&#9670;&#160;</a></span>tcp_setprio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tcp_setprio </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structtcp__pcb.html">tcp_pcb</a> *</td>          <td class="paramname"><span class="paramname"><em>pcb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u8_t</td>          <td class="paramname"><span class="paramname"><em>prio</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the priority of a connection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pcb</td><td>the <a class="el" href="structtcp__pcb.html">tcp_pcb</a> to manipulate </td></tr>
+    <tr><td class="paramname">prio</td><td>new priority </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga5b94d57f1891b9287f88525a2ac561dd" name="ga5b94d57f1891b9287f88525a2ac561dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5b94d57f1891b9287f88525a2ac561dd">&#9670;&#160;</a></span>tcp_shutdown()</h2>
 
@@ -765,7 +797,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Causes all or part of a full-duplex connection of this PCB to be shut down. This doesn't deallocate the PCB unless shutting down both sides! Shutting down both sides is the same as calling tcp_close, so if it succeds (i.e. returns ER_OK), the PCB must not be referenced any more!</p>
+<p>Causes all or part of a full-duplex connection of this PCB to be shut down. This doesn't deallocate the PCB unless shutting down both sides! Shutting down both sides is the same as calling tcp_close, so if it succeeds (i.e. returns ER_OK), the PCB must not be referenced any more!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pcb</td><td>PCB to shutdown </td></tr>

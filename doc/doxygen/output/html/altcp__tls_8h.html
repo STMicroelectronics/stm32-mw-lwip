@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -104,11 +104,12 @@ $(function(){initNavTree('altcp__tls_8h.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="opt_8h.html">lwip/opt.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="altcp_8h.html">lwip/altcp.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="altcp__tls__mbedtls__opts_8h.html">lwip/apps/altcp_tls_mbedtls_opts.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf6ed13271394371cc89d70ef5128c411" id="r_gaf6ed13271394371cc89d70ef5128c411"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#gaf6ed13271394371cc89d70ef5128c411">altcp_tls_create_config_server</a> (uint8_t cert_count)</td></tr>
-<tr class="separator:gaf6ed13271394371cc89d70ef5128c411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa37649bf24ebea235a8e3e8f50b9831f" id="r_gaa37649bf24ebea235a8e3e8f50b9831f"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#gaa37649bf24ebea235a8e3e8f50b9831f">altcp_tls_create_config_server</a> (u8_t cert_count)</td></tr>
+<tr class="separator:gaa37649bf24ebea235a8e3e8f50b9831f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae6f52370b62b0f4ba8d373c5186c9e7e" id="r_gae6f52370b62b0f4ba8d373c5186c9e7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#gae6f52370b62b0f4ba8d373c5186c9e7e">altcp_tls_config_server_add_privkey_cert</a> (struct altcp_tls_config *config, const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
 <tr class="separator:gae6f52370b62b0f4ba8d373c5186c9e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga60b4635c80b832a8c3b332fdede69d5e" id="r_ga60b4635c80b832a8c3b332fdede69d5e"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga60b4635c80b832a8c3b332fdede69d5e">altcp_tls_create_config_server_privkey_cert</a> (const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
@@ -117,6 +118,8 @@ Functions</h2></td></tr>
 <tr class="separator:ga7b3c11c8a273d68acc332c55e6b38170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4dccbd861c03a9c09eae6799da004597" id="r_ga4dccbd861c03a9c09eae6799da004597"><td class="memItemLeft" align="right" valign="top">struct altcp_tls_config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga4dccbd861c03a9c09eae6799da004597">altcp_tls_create_config_client_2wayauth</a> (const u8_t *ca, size_t ca_len, const u8_t *privkey, size_t privkey_len, const u8_t *privkey_pass, size_t privkey_pass_len, const u8_t *cert, size_t cert_len)</td></tr>
 <tr class="separator:ga4dccbd861c03a9c09eae6799da004597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f60b12a6a4440214b7bcf2e3ba43126" id="r_ga1f60b12a6a4440214b7bcf2e3ba43126"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga1f60b12a6a4440214b7bcf2e3ba43126">altcp_tls_configure_alpn_protocols</a> (struct altcp_tls_config *conf, const char **protos)</td></tr>
+<tr class="separator:ga1f60b12a6a4440214b7bcf2e3ba43126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8fb8a92fa3f84170050ddab2888b9145" id="r_ga8fb8a92fa3f84170050ddab2888b9145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga8fb8a92fa3f84170050ddab2888b9145">altcp_tls_free_config</a> (struct altcp_tls_config *conf)</td></tr>
 <tr class="separator:ga8fb8a92fa3f84170050ddab2888b9145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga75675ccec142d17fc0695b425f3ec1c2" id="r_ga75675ccec142d17fc0695b425f3ec1c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga75675ccec142d17fc0695b425f3ec1c2">altcp_tls_free_entropy</a> (void)</td></tr>
@@ -129,6 +132,14 @@ Functions</h2></td></tr>
 <tr class="separator:gab0bdfd2ede0df4d47b6e12ccac2b14bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga85d20b4dc321342cf09ad93086309bb7" id="r_ga85d20b4dc321342cf09ad93086309bb7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga85d20b4dc321342cf09ad93086309bb7">altcp_tls_context</a> (struct altcp_pcb *conn)</td></tr>
 <tr class="separator:ga85d20b4dc321342cf09ad93086309bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6c3cf72fcd29e6ea4c74181370420c3" id="r_gae6c3cf72fcd29e6ea4c74181370420c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#gae6c3cf72fcd29e6ea4c74181370420c3">altcp_tls_init_session</a> (struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:gae6c3cf72fcd29e6ea4c74181370420c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga827c76a0bddc4923b9a17c813e13891e" id="r_ga827c76a0bddc4923b9a17c813e13891e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga827c76a0bddc4923b9a17c813e13891e">altcp_tls_get_session</a> (struct altcp_pcb *conn, struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:ga827c76a0bddc4923b9a17c813e13891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aed4aa55d0e1b15f4118863cea06d18" id="r_ga4aed4aa55d0e1b15f4118863cea06d18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga4aed4aa55d0e1b15f4118863cea06d18">altcp_tls_set_session</a> (struct altcp_pcb *conn, struct altcp_tls_session *from)</td></tr>
+<tr class="separator:ga4aed4aa55d0e1b15f4118863cea06d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga906eefcef66e9dd2b43c3392704905f5" id="r_ga906eefcef66e9dd2b43c3392704905f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__altcp__tls.html#ga906eefcef66e9dd2b43c3392704905f5">altcp_tls_free_session</a> (struct altcp_tls_session *dest)</td></tr>
+<tr class="separator:ga906eefcef66e9dd2b43c3392704905f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Application layered TCP/TLS connection API (to be used from TCPIP thread) </p>

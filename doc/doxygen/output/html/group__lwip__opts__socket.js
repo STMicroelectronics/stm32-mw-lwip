@@ -9,6 +9,7 @@ var group__lwip__opts__socket =
     [ "LWIP_SO_SNDRCVTIMEO_NONSTANDARD", "group__lwip__opts__socket.html#ga5b115bacb569763d8a3889a12229e942", null ],
     [ "LWIP_SO_SNDTIMEO", "group__lwip__opts__socket.html#ga1162cb685f202d9b21c11344b8209a58", null ],
     [ "LWIP_SOCKET", "group__lwip__opts__socket.html#ga1cb62ce61ac39d7d6728ae5d3d3b927f", null ],
+    [ "LWIP_SOCKET_EXTERNAL_HEADERS", "group__lwip__opts__socket.html#ga524c013ecdd8a45a2949f2a433469e82", null ],
     [ "LWIP_SOCKET_OFFSET", "group__lwip__opts__socket.html#gad0197c845fbb44c920b272f0fef3b57e", null ],
     [ "LWIP_SOCKET_POLL", "group__lwip__opts__socket.html#ga6c14d705e3321429683f24de9f5a7200", null ],
     [ "LWIP_SOCKET_SELECT", "group__lwip__opts__socket.html#ga68417078b71b0be9735256f52933dcdb", null ],

@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -140,6 +140,10 @@ Functions</h2></td></tr>
 <tr class="separator:a3e56faced96841e615f88dd57d1b2b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae94677a2a5f3698276027c7475f6ca05" id="r_ae94677a2a5f3698276027c7475f6ca05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae94677a2a5f3698276027c7475f6ca05">etharp_cleanup_netif</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:ae94677a2a5f3698276027c7475f6ca05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7d5048a81ef1c63b18d769700f4899" id="r_aac7d5048a81ef1c63b18d769700f4899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac7d5048a81ef1c63b18d769700f4899">etharp_acd_probe</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *ipaddr)</td></tr>
+<tr class="separator:aac7d5048a81ef1c63b18d769700f4899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c41ba8b145fa4d06f8d6af3df44c4ff" id="r_a7c41ba8b145fa4d06f8d6af3df44c4ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c41ba8b145fa4d06f8d6af3df44c4ff">etharp_acd_announce</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>, const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *ipaddr)</td></tr>
+<tr class="separator:a7c41ba8b145fa4d06f8d6af3df44c4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a540a5506979693ef9ac4496db9bfa7d6" id="r_a540a5506979693ef9ac4496db9bfa7d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a540a5506979693ef9ac4496db9bfa7d6">etharp_input</a> (struct <a class="el" href="structpbuf.html">pbuf</a> *p, struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
 <tr class="separator:a540a5506979693ef9ac4496db9bfa7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -176,13 +180,73 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a3e56faced96841e615f88dd57d1b2b15">etharp_request</a>((<a class="code hl_struct" href="structnetif.html">netif</a>), netif_ip4_addr(<a class="code hl_struct" href="structnetif.html">netif</a>))</div>
-<div class="ttc" id="alwip_2etharp_8h_html_a3e56faced96841e615f88dd57d1b2b15"><div class="ttname"><a href="#a3e56faced96841e615f88dd57d1b2b15">etharp_request</a></div><div class="ttdeci">err_t etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)</div><div class="ttdef"><b>Definition</b> etharp.c:1206</div></div>
-<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:260</div></div>
+<div class="ttc" id="alwip_2etharp_8h_html_a3e56faced96841e615f88dd57d1b2b15"><div class="ttname"><a href="#a3e56faced96841e615f88dd57d1b2b15">etharp_request</a></div><div class="ttdeci">err_t etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)</div><div class="ttdef"><b>Definition</b> etharp.c:1207</div></div>
+<div class="ttc" id="astructnetif_html"><div class="ttname"><a href="structnetif.html">netif</a></div><div class="ttdef"><b>Definition</b> netif.h:269</div></div>
 </div><!-- fragment --><p>For Ethernet network interfaces, we might want to send "gratuitous ARP"; this is an ARP packet sent by a node in order to spontaneously cause other nodes to update an entry in their ARP cache. From RFC 3220 "IP Mobility Support for IPv4" section 4.6. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a7c41ba8b145fa4d06f8d6af3df44c4ff" name="a7c41ba8b145fa4d06f8d6af3df44c4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c41ba8b145fa4d06f8d6af3df44c4ff">&#9670;&#160;</a></span>etharp_acd_announce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> etharp_acd_announce </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>ipaddr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send an ARP request packet announcing an ipaddr. Used to send announce messages for address conflict detection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">netif</td><td>the lwip network interface on which to send the request </td></tr>
+    <tr><td class="paramname">ipaddr</td><td>the IP address to announce </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK if the request has been sent ERR_MEM if the ARP packet couldn't be allocated any other err_t on failure </dd></dl>
+
+</div>
+</div>
+<a id="aac7d5048a81ef1c63b18d769700f4899" name="aac7d5048a81ef1c63b18d769700f4899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac7d5048a81ef1c63b18d769700f4899">&#9670;&#160;</a></span>etharp_acd_probe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> etharp_acd_probe </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="ip4__addr_8h.html#a3d3b45daffbc15d65da236e31e621b7e">ip4_addr_t</a> *</td>          <td class="paramname"><span class="paramname"><em>ipaddr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send an ARP request packet probing for an ipaddr. Used to send probe messages for address conflict detection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">netif</td><td>the lwip network interface on which to send the request </td></tr>
+    <tr><td class="paramname">ipaddr</td><td>the IP address to probe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK if the request has been sent ERR_MEM if the ARP packet couldn't be allocated any other err_t on failure </dd></dl>
+
+</div>
+</div>
 <a id="ae94677a2a5f3698276027c7475f6ca05" name="ae94677a2a5f3698276027c7475f6ca05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae94677a2a5f3698276027c7475f6ca05">&#9670;&#160;</a></span>etharp_cleanup_netif()</h2>
 

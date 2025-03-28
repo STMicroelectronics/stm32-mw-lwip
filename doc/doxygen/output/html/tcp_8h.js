@@ -23,9 +23,9 @@ var tcp_8h =
     [ "tcp_connect", "group__tcp__raw.html#ga9a31deea4cadacd39f9485f37cfdd012", null ],
     [ "tcp_err", "group__tcp__raw.html#gae1346c4e34d3bc7c01e1b47142ab3121", null ],
     [ "tcp_ext_arg_alloc_id", "group__tcp__raw__extargs.html#ga4836e0b4f66439493e106a50400d1616", null ],
-    [ "tcp_ext_arg_get", "group__tcp__raw__extargs.html#gadc7aa96ddd15fb6598523068b89f8855", null ],
-    [ "tcp_ext_arg_set", "group__tcp__raw__extargs.html#ga58500cb2ce22438e16a37373595af318", null ],
-    [ "tcp_ext_arg_set_callbacks", "group__tcp__raw__extargs.html#ga36e60dc02bfe0437c8da368a62e2f316", null ],
+    [ "tcp_ext_arg_get", "group__tcp__raw__extargs.html#ga7499018469cd9c3dc6a15ad91c338e56", null ],
+    [ "tcp_ext_arg_set", "group__tcp__raw__extargs.html#gaf5c2397b2d85b3a902584fb64cdb961e", null ],
+    [ "tcp_ext_arg_set_callbacks", "group__tcp__raw__extargs.html#gaacea54ce1154e7ae8ef0199ff1c5bdc5", null ],
     [ "tcp_listen_with_backlog", "group__tcp__raw.html#ga77bb2ca7f053e73545d36b745f236d54", null ],
     [ "tcp_listen_with_backlog_and_err", "group__tcp__raw.html#ga8883f9735809f1679d744bc48f1c674a", null ],
     [ "tcp_new", "group__tcp__raw.html#ga2e00c668b99d92113cd595647702be83", null ],
@@ -35,7 +35,7 @@ var tcp_8h =
     [ "tcp_recv", "group__tcp__raw.html#ga8afd0b316a87a5eeff4726dc95006ed0", null ],
     [ "tcp_recved", "group__tcp__raw.html#gabdac0856a52b5789dc897d4c7137ec44", null ],
     [ "tcp_sent", "group__tcp__raw.html#ga1596332b93bb6249179f3b89f24bd808", null ],
-    [ "tcp_setprio", "tcp_8h.html#a2c4234f1e95b6bde0e84d4ea97ae95bc", null ],
+    [ "tcp_setprio", "group__tcp__raw.html#ga2c4234f1e95b6bde0e84d4ea97ae95bc", null ],
     [ "tcp_shutdown", "group__tcp__raw.html#ga5b94d57f1891b9287f88525a2ac561dd", null ],
     [ "tcp_write", "group__tcp__raw.html#ga6b2aa0efbf10e254930332b7c89cd8c5", null ]
 ];

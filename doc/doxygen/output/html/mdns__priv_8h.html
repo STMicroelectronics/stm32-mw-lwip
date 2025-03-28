@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">lwIP<span id="projectnumber">&#160;2.1.3</span>
+   <div id="projectname">lwIP<span id="projectnumber">&#160;2.2.0</span>
    </div>
    <div id="projectbrief">Lightweight IP stack</div>
   </td>
@@ -98,158 +98,81 @@ $(function(){initNavTree('mdns__priv_8h.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">mdns_priv.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="mdns__opts_8h.html">lwip/apps/mdns_opts.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="mdns_8h.html">lwip/apps/mdns.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mdns__opts_8h.html">lwip/apps/mdns_opts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pbuf_8h.html">lwip/pbuf.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__request.html">mdns_request</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__service.html">mdns_service</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__outpacket.html">mdns_outpacket</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__outmsg.html">mdns_outmsg</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__delayed__msg.html">mdns_delayed_msg</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmdns__host.html">mdns_host</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17db69fa887515374452b945e959bbf9" id="r_a17db69fa887515374452b945e959bbf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17db69fa887515374452b945e959bbf9">mdns_domain_add_label</a> (struct mdns_domain *domain, const char *label, u8_t len)</td></tr>
-<tr class="separator:a17db69fa887515374452b945e959bbf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5f49d9356a76879e0e6a14eb0643b23" id="r_ab5f49d9356a76879e0e6a14eb0643b23"><td class="memItemLeft" align="right" valign="top">u16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5f49d9356a76879e0e6a14eb0643b23">mdns_readname</a> (struct <a class="el" href="structpbuf.html">pbuf</a> *p, u16_t offset, struct mdns_domain *domain)</td></tr>
-<tr class="separator:ab5f49d9356a76879e0e6a14eb0643b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52d8f70432ae998814f16b18431213cd" id="r_a52d8f70432ae998814f16b18431213cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52d8f70432ae998814f16b18431213cd">mdns_domain_eq</a> (struct mdns_domain *a, struct mdns_domain *b)</td></tr>
-<tr class="separator:a52d8f70432ae998814f16b18431213cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab72e48cf076afd1e3a08030d1d0bff9e" id="r_ab72e48cf076afd1e3a08030d1d0bff9e"><td class="memItemLeft" align="right" valign="top">u16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab72e48cf076afd1e3a08030d1d0bff9e">mdns_compress_domain</a> (struct <a class="el" href="structpbuf.html">pbuf</a> *<a class="el" href="structpbuf.html">pbuf</a>, u16_t *offset, struct mdns_domain *domain)</td></tr>
-<tr class="separator:ab72e48cf076afd1e3a08030d1d0bff9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af15fa5b6331bec605f68f53cb87f58fa" id="r_af15fa5b6331bec605f68f53cb87f58fa"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structmdns__host.html">mdns_host</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af15fa5b6331bec605f68f53cb87f58fa">netif_mdns_data</a> (struct <a class="el" href="structnetif.html">netif</a> *<a class="el" href="structnetif.html">netif</a>)</td></tr>
+<tr class="separator:af15fa5b6331bec605f68f53cb87f58fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa31b798a5fb96b6ef0dde5d4f32371af" id="r_aa31b798a5fb96b6ef0dde5d4f32371af"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structudp__pcb.html">udp_pcb</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa31b798a5fb96b6ef0dde5d4f32371af">get_mdns_pcb</a> (void)</td></tr>
+<tr class="separator:aa31b798a5fb96b6ef0dde5d4f32371af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MDNS responder private definitions </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab72e48cf076afd1e3a08030d1d0bff9e" name="ab72e48cf076afd1e3a08030d1d0bff9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab72e48cf076afd1e3a08030d1d0bff9e">&#9670;&#160;</a></span>mdns_compress_domain()</h2>
+<a id="aa31b798a5fb96b6ef0dde5d4f32371af" name="aa31b798a5fb96b6ef0dde5d4f32371af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa31b798a5fb96b6ef0dde5d4f32371af">&#9670;&#160;</a></span>get_mdns_pcb()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">u16_t mdns_compress_domain </td>
+          <td class="memname">struct <a class="el" href="structudp__pcb.html">udp_pcb</a> * get_mdns_pcb </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structpbuf.html">pbuf</a> *</td>          <td class="paramname"><span class="paramname"><em>pbuf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">u16_t *</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct mdns_domain *</td>          <td class="paramname"><span class="paramname"><em>domain</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return bytes needed to write before jump for best result of compressing supplied domain against domain in outpacket starting at specified offset. If a match is found, offset is updated to where to jump to </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pbuf</td><td>Pointer to pbuf with the partially constructed DNS packet </td></tr>
-    <tr><td class="paramname">offset</td><td>Start position of a domain written earlier. If this location is suitable for compression, the pointer is updated to where in the domain to jump to. </td></tr>
-    <tr><td class="paramname">domain</td><td>The domain to write </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes to write of the new domain before writing a jump to the offset. If compression can not be done against this previous domain name, the full new domain length is returned. </dd></dl>
+<p>Construction to access the mdns udp pcb.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structudp__pcb.html">udp_pcb</a> struct of mdns </dd></dl>
 
 </div>
 </div>
-<a id="a17db69fa887515374452b945e959bbf9" name="a17db69fa887515374452b945e959bbf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17db69fa887515374452b945e959bbf9">&#9670;&#160;</a></span>mdns_domain_add_label()</h2>
+<a id="af15fa5b6331bec605f68f53cb87f58fa" name="af15fa5b6331bec605f68f53cb87f58fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af15fa5b6331bec605f68f53cb87f58fa">&#9670;&#160;</a></span>netif_mdns_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__infrastructure__errors.html#gaf02d9da80fd66b4f986d2c53d7231ddb">err_t</a> mdns_domain_add_label </td>
+          <td class="memname">struct <a class="el" href="structmdns__host.html">mdns_host</a> * netif_mdns_data </td>
           <td>(</td>
-          <td class="paramtype">struct mdns_domain *</td>          <td class="paramname"><span class="paramname"><em>domain</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">struct <a class="el" href="structnetif.html">netif</a> *</td>          <td class="paramname"><span class="paramname"><em>netif</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">u8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add a label part to a domain </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Construction to make mdns struct accessible from <a class="el" href="mdns__out_8c.html">mdns_out.c</a> TODO: can we add the mdns struct to the netif like we do for dhcp, autoip,...? Then this is not needed any more.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">domain</td><td>The domain to add a label to </td></tr>
-    <tr><td class="paramname">label</td><td>The label to add, like &lt;hostname&gt;, 'local', 'com' or '' </td></tr>
-    <tr><td class="paramname">len</td><td>The length of the label </td></tr>
+    <tr><td class="paramname">netif</td><td>The network interface </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ERR_OK on success, an err_t otherwise if label too long </dd></dl>
-
-</div>
-</div>
-<a id="a52d8f70432ae998814f16b18431213cd" name="a52d8f70432ae998814f16b18431213cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52d8f70432ae998814f16b18431213cd">&#9670;&#160;</a></span>mdns_domain_eq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int mdns_domain_eq </td>
-          <td>(</td>
-          <td class="paramtype">struct mdns_domain *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct mdns_domain *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return 1 if contents of domains match (case-insensitive) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>Domain name to compare 1 </td></tr>
-    <tr><td class="paramname">b</td><td>Domain name to compare 2 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if domains are equal ignoring case, 0 otherwise </dd></dl>
-
-</div>
-</div>
-<a id="ab5f49d9356a76879e0e6a14eb0643b23" name="ab5f49d9356a76879e0e6a14eb0643b23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5f49d9356a76879e0e6a14eb0643b23">&#9670;&#160;</a></span>mdns_readname()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">u16_t mdns_readname </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structpbuf.html">pbuf</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">u16_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct mdns_domain *</td>          <td class="paramname"><span class="paramname"><em>domain</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read possibly compressed domain name from packet buffer </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>The packet </td></tr>
-    <tr><td class="paramname">offset</td><td>start position of domain name in packet </td></tr>
-    <tr><td class="paramname">domain</td><td>The domain name destination </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The new offset after the domain, or MDNS_READNAME_ERROR if reading failed </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>mdns struct </dd></dl>
 
 </div>
 </div>
