@@ -164,10 +164,10 @@ extern const ip_addr_t ip_addr_any_type;
 /** @ingroup ipaddr */
 #define ip_addr_set_zero(ipaddr)     do{ \
   ip6_addr_set_zero(ip_2_ip6(ipaddr)); IP_SET_TYPE(ipaddr, 0); }while(0)
-/** @ingroup ipaddr */
+/** @ingroup ip5addr */
 #define ip_addr_set_zero_ip4(ipaddr)     do{ \
   ip6_addr_set_zero(ip_2_ip6(ipaddr)); IP_SET_TYPE(ipaddr, IPADDR_TYPE_V4); }while(0)
-/** @ingroup ipaddr */
+/** @ingroup ip6addr */
 #define ip_addr_set_zero_ip6(ipaddr)     do{ \
   ip6_addr_set_zero(ip_2_ip6(ipaddr)); IP_SET_TYPE(ipaddr, IPADDR_TYPE_V6); }while(0)
 /** @ingroup ipaddr */

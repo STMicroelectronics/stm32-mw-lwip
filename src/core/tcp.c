@@ -1638,7 +1638,7 @@ tcp_seg_free(struct tcp_seg *seg)
 }
 
 /**
- * @ingroup tcp_raw
+ * @ingroup tcp
  * Sets the priority of a connection.
  *
  * @param pcb the tcp_pcb to manipulate
