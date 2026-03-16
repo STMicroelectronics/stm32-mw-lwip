@@ -1,0 +1,130 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:4a30aba8-4e1e-4921-af4b-c94024c5eb23",
+    "version": 1,
+    "metadata": {
+        "timestamp": "2026-02-11T14:35:34Z",
+        "tools": [
+            {
+                "vendor": "Black Duck",
+                "name": "Hub",
+                "version": "2025.10.0"
+            },
+            {
+                "vendor": "CycloneDX",
+                "name": "cyclonedx-core-java",
+                "version": "5.0.5"
+            }
+        ],
+        "authors": [
+            {
+                "name": "STMicroelectronics NV"
+            }
+        ],
+        "component": {
+            "type": "application",
+            "bom-ref": "5973903b-50d1-4d99-9ee1-5faed9f97e83",
+            "supplier": {
+                "name": ""
+            },
+            "name": "LwIP",
+            "version": "2.0.0",
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause"
+                    }
+                }
+            ],
+            "pedigree": {
+                "notes": "BSD 3-clause \"New\" or \"Revised\" License"
+            },
+            "properties": [
+                {
+                    "name": "BlackDuck-Component",
+                    "value": "4cfd184e-ad3b-4cfc-91a0-dbed1f1831fd"
+                },
+                {
+                    "name": "BlackDuck-ComponentVersion",
+                    "value": "5973903b-50d1-4d99-9ee1-5faed9f97e83"
+                }
+            ]
+        }
+    },
+    "components": [
+        {
+            "type": "library",
+            "bom-ref": "247d8f9e-66d6-4466-a505-46b672d43bde",
+            "supplier": {
+                "name": "Organization: gnu"
+            },
+            "author": "Swedish Institute of Computer Science",
+            "name": "lwIP",
+            "version": "STABLE-2_2_1_RELEASE",
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause"
+                    }
+                }
+            ],
+            "pedigree": {
+                "notes": "BSD 3-clause \"New\" or \"Revised\" License"
+            },
+            "properties": [
+                {
+                    "name": "BlackDuck-Component",
+                    "value": "40803671-18fe-4932-b028-2ff083483d0b"
+                },
+                {
+                    "name": "BlackDuck-ComponentVersion",
+                    "value": "247d8f9e-66d6-4466-a505-46b672d43bde"
+                },
+                {
+                    "name": "BlackDuck-ComponentOrigin",
+                    "value": "fba8a842-4491-4576-be6d-f2421a182f27"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "bom-ref": "00a2bbbe-e55c-463d-b701-eeb6d58029ff",
+            "supplier": {
+                "name": ""
+            },
+            "author": "STMicroelectronics",
+            "name": "lwIP_STM32",
+            "version": "0.10.0",
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause"
+                    }
+                }
+            ],
+            "pedigree": {
+                "notes": "BSD 3-clause \"New\" or \"Revised\" License"
+            },
+            "properties": [
+                {
+                    "name": "BlackDuck-Component",
+                    "value": "06d97f3d-1016-4307-96c0-519ac6d96fd9"
+                },
+                {
+                    "name": "BlackDuck-ComponentVersion",
+                    "value": "00a2bbbe-e55c-463d-b701-eeb6d58029ff"
+                }
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "5973903b-50d1-4d99-9ee1-5faed9f97e83",
+            "dependsOn": [
+                "247d8f9e-66d6-4466-a505-46b672d43bde",
+                "00a2bbbe-e55c-463d-b701-eeb6d58029ff"
+            ]
+        }
+    ]
+}

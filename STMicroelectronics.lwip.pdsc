@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stm32="https://developer.st.com/schemas/stm32cube/1.0.0" schemaVersion="1.7.55" xsi:noNamespaceSchemaLocation="PACK.xsd" xsi:schemaLocation="https://developer.st.com/schemas/stm32cube/1.0.0 stm32cube.xsd" Dvendor="STMicroelectronics:13" Dname="STM32*">
+  <vendor>STMicroelectronics</vendor>
+  <name>lwip</name>
+  <description>Lightweight TCP-IP stack</description>
+  <url>https://developer.st.com/st-pack-server/api/v1/pack/</url>
+  <repository type="git">https://github.com/STMicroelectronics/stm32-mw-lwip/tree/hal2</repository>
+  <license>LICENSE.md</license>
+  <environments>
+    <environment name="STM32Cube">
+      <stm32:pack type="MW" friendlyName="lwip" shortDesc="LwIP Middleware">
+        <relocation-info parent="middleware"/>
+      </stm32:pack>
+    </environment>
+  </environments>
+  <changelogs>
+    <changelog id="Release Notes" name="ST_Release_Notes.html"/>
+  </changelogs>
+  <ECCN>
+    <ECCN-EU>NEC</ECCN-EU>
+    <ECCN-US>EAR99</ECCN-US>
+  </ECCN>
+  <releases>
+    <release date="2026-03-13" version="2.0.0">
+      - First Official release of LwIP SW Pack.
+        This pack is based on LwIP V2.2.1 version.
+    </release>
+  </releases>
+  <keywords>
+    <keyword>ST</keyword>
+    <keyword>STMicroelectronics</keyword>
+    <keyword>Cortex M</keyword>
+    <keyword>Middleware</keyword>
+    <keyword>lwip</keyword>
+  </keywords>
+  <taxonomy>
+    <description Cclass="Network">Network</description>
+  </taxonomy>
+  <conditions>
+    <condition id="RTOS condition">
+      <description>RTOS condition</description>
+      <require Cclass="RTOS" Cgroup="FreeRTOS" Csub="Core"/>
+    </condition>
+    <condition id="lwip condition">
+      <description>lwip condition</description>
+      <require Cclass="Network" Cgroup="LwIP" Csub="Core"/>
+    </condition>
+  </conditions>
+  <generators>
+    <!-- This generator is launched if any component referencing this generator by 'id' is selected and the specified <gpdsc> file does not exist -->
+    <generator id="lwip_mx2codegen">
+      <description>ST Microelectronics: STM32 Cube Code Generator for LwIP Pack</description>
+      <exe>
+        <command host="win">.config/gen_code.bat</command>
+        <command host="linux">.config/gen_code.sh</command>
+        <command host="mac">.config/gen_code.sh</command>
+        <!-- $S = Device Family Pack base folder -->
+        <argument>$S</argument>
+        <!-- D = Device (Dname/Dvariant as configured by environment) -->
+        <argument>$D</argument>
+        <!-- Project path and project name (as configured by environment) -->
+        <argument>$P</argument>
+        <argument>#P</argument>
+        <!-- #name of the gpdsc template contained in this PACK and aligned with GPDSC name-->
+        <argument>STMicroelectronics.lwip.gpdsc.hbs</argument>
+        <!-- passing the generator name-->
+        <argument>lwip_mx2codegen</argument>
+        <argument>$G</argument>
+        <!-- Flag to indicate that this Generator is dry-run capable  -->
+        <argument mode="dry-run">--dry-run</argument>
+      </exe>
+      <!-- workingDir></workingDir -->
+      <!-- path is specified either absolute or relative to PDSC or GPDSC file. If not specified it is the project directory configured by the environment -->
+      <gpdsc name="$P/STMicroelectronics.lwip.gpdsc"/>
+    </generator>
+  </generators>
+  <components>
+    <component Cclass="Network" Cgroup="LwIP" Csub="Core" Cversion="2.0.0" maxInstances="1">
+      <description>LwIP Core component</description>
+      <files>
+        <file category="doc" name="README"/>
+        <file category="source" name="src/core/altcp.c"/>
+        <file category="source" name="src/core/altcp_alloc.c"/>
+        <file category="source" name="src/core/altcp_tcp.c"/>
+        <file category="source" name="src/core/def.c"/>
+        <file category="source" name="src/core/dns.c"/>
+        <file category="header" name="src/include/lwip/dns.h"/>
+        <file category="source" name="src/core/inet_chksum.c"/>
+        <file category="source" name="src/core/init.c"/>
+        <file category="source" name="src/core/ip.c"/>
+        <file category="source" name="src/core/ipv4/acd.c"/>
+        <file category="source" name="src/core/ipv4/autoip.c"/>
+        <file category="source" name="src/core/ipv4/dhcp.c"/>
+        <file category="header" name="src/include/lwip/dhcp.h"/>
+        <file category="source" name="src/core/ipv4/etharp.c"/>
+        <file category="source" name="src/core/ipv4/icmp.c"/>
+        <file category="source" name="src/core/ipv4/igmp.c"/>
+        <file category="source" name="src/core/ipv4/ip4.c"/>
+        <file category="source" name="src/core/ipv4/ip4_addr.c"/>
+        <file category="source" name="src/core/ipv4/ip4_frag.c"/>
+        <file category="source" name="src/core/ipv6/dhcp6.c"/>
+        <file category="header" name="src/include/lwip/dhcp6.h"/>
+        <file category="source" name="src/core/ipv6/ethip6.c"/>
+        <file category="source" name="src/core/ipv6/icmp6.c"/>
+        <file category="source" name="src/core/ipv6/inet6.c"/>
+        <file category="source" name="src/core/ipv6/ip6.c"/>
+        <file category="source" name="src/core/ipv6/ip6_addr.c"/>
+        <file category="source" name="src/core/ipv6/ip6_frag.c"/>
+        <file category="source" name="src/core/ipv6/mld6.c"/>
+        <file category="source" name="src/core/ipv6/nd6.c"/>
+        <file category="source" name="src/core/mem.c"/>
+        <file category="source" name="src/core/memp.c"/>
+        <file category="source" name="src/core/netif.c"/>
+        <file category="header" name="src/include/lwip/netif.h"/>
+        <file category="source" name="src/core/pbuf.c"/>
+        <file category="source" name="src/core/raw.c"/>
+        <file category="source" name="src/core/stats.c"/>
+        <file category="source" name="src/core/sys.c"/>
+        <file category="source" name="src/core/tcp.c"/>
+        <file category="source" name="src/core/tcp_in.c"/>
+        <file category="source" name="src/core/tcp_out.c"/>
+        <file category="source" name="src/core/timeouts.c"/>
+        <file category="source" name="src/core/udp.c"/>
+        <file category="source" name="src/netif/ethernet.c"/>
+        <file category="header" name="src/include/netif/ethernet.h"/>
+        <file category="source" condition="RTOS condition" name="ports/freertos/arch/sys_arch.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/api_lib.c"/>
+        <file category="header" condition="RTOS condition" name="src/include/lwip/api.h"/>
+        <file category="source" condition="RTOS condition" name="src/api/api_msg.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/err.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/if_api.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/netbuf.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/netdb.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/netifapi.c"/>
+        <file category="source" condition="RTOS condition" name="src/api/sockets.c"/>
+        <file category="header" condition="RTOS condition" name="src/include/lwip/sockets.h"/>
+        <file category="source" condition="RTOS condition" name="src/api/tcpip.c"/>
+        <file category="header" condition="RTOS condition" name="src/include/lwip/tcpip.h"/>
+        <file category="include" name="src/include/"/>
+        <file category="include" name="src/include/compat/"/>
+        <file category="include" name="src/include/compat/posix/"/>
+        <file category="include" name="src/include/compat/posix/arpa/"/>
+        <file category="include" name="src/include/compat/posix/net/"/>
+        <file category="include" name="src/include/compat/posix/sys/"/>
+        <file category="include" name="src/include/compat/stdc/"/>
+        <file category="include" name="src/include/lwip/"/>
+        <file category="include" name="src/include/lwip/apps/"/>
+        <file category="include" name="src/include/lwip/priv/"/>
+        <file category="include" name="src/include/lwip/prot/"/>
+        <file category="include" name="src/include/netif/"/>
+        <file category="include" name="ports/"/>
+        <file category="include" name="ports/common/"/>
+        <file category="include" name="ports/common/arch/"/>
+        <file category="include" condition="RTOS condition" name="ports/freertos/"/>
+        <file category="include" condition="RTOS condition" name="ports/freertos/arch/"/>
+        <file category="doc" name="SW_Security_Level.md"/>
+        <file category="other" name="src/include/lwip/init.h.cmake.in"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="SNTP" Cversion="2.0.0" condition="lwip condition" maxInstances="1">
+      <description>LwIP SNTP component</description>
+      <files>
+        <file category="source" name="src/apps/sntp/sntp.c"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="MDNS" Cversion="2.0.0" condition="lwip condition" maxInstances="1">
+      <description>LwIP MDNS component</description>
+      <files>
+        <file category="source" name="src/apps/mdns/mdns.c"/>
+        <file category="source" name="src/apps/mdns/mdns_domain.c"/>
+        <file category="source" name="src/apps/mdns/mdns_out.c"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="LWIPERF" Cversion="2.0.0" condition="lwip condition" maxInstances="1">
+      <description>LwIP LWIPERF component</description>
+      <files>
+        <file category="source" name="src/apps/lwiperf/lwiperf.c"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="STM32 ETH Interface FreeRTOS" Cversion="2.0.0" condition="lwip condition" maxInstances="1">
+      <description>LwIP STM32 ETH Interface FreeRTOS</description>
+      <files>
+        <file category="source" name="interfaces/ethernet/eth_interface_freertos.c"/>
+        <file category="header" name="interfaces/ethernet/eth_interface_freertos.h"/>
+      </files>
+    </component>
+    <component generator="lwip_mx2codegen" Cclass="Network" Cgroup="STM32CubeMX2 Config" Csub="LwIP" Cversion="2.0.0" condition="lwip condition">
+      <description>STM32Cube Configuration and Code Generation for LwIP network stack</description>
+      <environments>
+        <environment name="STM32Cube">
+        </environment>
+      </environments>
+      <files>
+        <file category="genAsset" name=".config/gen_code.bat"/>
+        <file category="genAsset" name=".config/gen_code.sh"/>
+        <file category="genAsset" name=".config/STMicroelectronics.lwip.gpdsc.hbs"/>
+        <file category="genAsset" name=".config/lwip_config_parameters.json"/>
+        <file category="genAsset" name=".config/template/helpers/common_helpers.js"/>
+        <file category="genAsset" name=".config/template/license/mx_lwip_license_template.md.hbs"/>
+        <file category="genAsset" name=".config/template/lwipopts_template.h.hbs"/>
+        <file category="genAsset" name=".config/template/mx_lwip_phy_template.h.hbs"/>
+        <file category="genAsset" name=".config/template/mx_lwip_template.h.hbs"/>
+        <file category="genAsset" name=".config/template/mx_lwip_template.c.hbs"/>
+        <file category="genAsset" name=".config/template/partials/LICENSE_partial.hbs"/>
+      </files>
+    </component>
+  </components>
+</package>
