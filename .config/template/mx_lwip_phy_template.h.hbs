@@ -1,0 +1,53 @@
+{{!--
+  ******************************************************************************
+  * @file    mx_lwip_phy_template.h.hbs
+  * @brief   Template for LwIP generated PHY interface file.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+~--}}
+{{assign "lwipFilter" (JSONparse '{"cgroup": "STM32CubeMX2 Config", "csub": "LwIP"}')~}}
+{{assign 'lwip_context' (@root.SWConfigurationAPI.getInstancesConfiguration @root.lwipFilter)~}}
+{{assign 'lwip_cxt' @root.lwip_context.[0].settings.parameters~}}
+{{log "LwIP Config template lwip_cxt:" (toJSON @root.lwip_cxt)~}}
+/**
+  ******************************************************************************
+  * @file           : mx_lwip_phy.h
+  * @brief          : LwIP STM32 ethernet phy interface.
+{{> LICENSE}}
+
+
+#ifndef MX_LWIP_PHY_H
+#define MX_LWIP_PHY_H
+
+/* Includes ------------------------------------------------------------------*/
+{{#with @root.lwip_cxt~}}
+{{#each interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+#include "mx_phy{{resources_allocation.eth_config.phy_instance_name}}.h"
+{{/if}}
+{{/each}}
+{{/with}}
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+/* Exported types ------------------------------------------------------------*/
+/* Exported constants --------------------------------------------------------*/
+/* Exported macros -----------------------------------------------------------*/
+/* Exported functions --------------------------------------------------------*/
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* MX_LWIP_PHY_H */

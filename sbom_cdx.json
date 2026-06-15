@@ -1,10 +1,10 @@
 {
     "bomFormat": "CycloneDX",
     "specVersion": "1.5",
-    "serialNumber": "urn:uuid:4a30aba8-4e1e-4921-af4b-c94024c5eb23",
+    "serialNumber": "urn:uuid:7cf635e2-3f97-4bad-a71b-760d98a60889",
     "version": 1,
     "metadata": {
-        "timestamp": "2026-02-11T14:35:34Z",
+        "timestamp": "2026-03-18T16:37:52Z",
         "tools": [
             {
                 "vendor": "Black Duck",
@@ -24,12 +24,12 @@
         ],
         "component": {
             "type": "application",
-            "bom-ref": "5973903b-50d1-4d99-9ee1-5faed9f97e83",
+            "bom-ref": "ddd8dc3b-0ea9-40eb-afce-af18b366e50d",
             "supplier": {
                 "name": ""
             },
             "name": "LwIP",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "licenses": [
                 {
                     "license": {
@@ -47,7 +47,7 @@
                 },
                 {
                     "name": "BlackDuck-ComponentVersion",
-                    "value": "5973903b-50d1-4d99-9ee1-5faed9f97e83"
+                    "value": "ddd8dc3b-0ea9-40eb-afce-af18b366e50d"
                 }
             ]
         }
@@ -89,13 +89,13 @@
         },
         {
             "type": "library",
-            "bom-ref": "00a2bbbe-e55c-463d-b701-eeb6d58029ff",
+            "bom-ref": "e0983bd3-542a-4f99-b18a-83c3347b5496",
             "supplier": {
                 "name": ""
             },
             "author": "STMicroelectronics",
             "name": "lwIP_STM32",
-            "version": "0.10.0",
+            "version": "2.0.1",
             "licenses": [
                 {
                     "license": {
@@ -113,17 +113,17 @@
                 },
                 {
                     "name": "BlackDuck-ComponentVersion",
-                    "value": "00a2bbbe-e55c-463d-b701-eeb6d58029ff"
+                    "value": "e0983bd3-542a-4f99-b18a-83c3347b5496"
                 }
             ]
         }
     ],
     "dependencies": [
         {
-            "ref": "5973903b-50d1-4d99-9ee1-5faed9f97e83",
+            "ref": "ddd8dc3b-0ea9-40eb-afce-af18b366e50d",
             "dependsOn": [
                 "247d8f9e-66d6-4466-a505-46b672d43bde",
-                "00a2bbbe-e55c-463d-b701-eeb6d58029ff"
+                "e0983bd3-542a-4f99-b18a-83c3347b5496"
             ]
         }
     ]

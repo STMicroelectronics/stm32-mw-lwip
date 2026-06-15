@@ -1,0 +1,40 @@
+{{assign "lwipFilter" (JSONparse '{"cgroup": "STM32CubeMX2 Config", "csub": "LwIP"}')~}}
+{{assign 'lwip_context' (@root.SWConfigurationAPI.getInstancesConfiguration @root.lwipFilter)~}}
+{{assign 'lwip_cxt' @root.lwip_context.[0].settings.parameters~}}
+{{#if @root.lwip_cxt.core.applicative.generate_lwipopts_user_h~}}
+{{!--
+  ******************************************************************************
+  * @file    lwipopts_user_template.h.hbs
+  * @brief   Template for optional LwIP user overrides.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+~--}}
+/**
+  ******************************************************************************
+  * @file  lwipopts_user.h
+  * @brief User overrides for LwIP options
+{{> LICENSE}}
+
+#ifndef LWIPOPTS_USER_H
+#define LWIPOPTS_USER_H
+
+/*
+ * Define here any LwIP option that should override the defaults from lwipopts.h.
+ * This file is generated once as a configuration file and can then be customized.
+ */
+
+/* Example:
+#define MEM_SIZE 32768
+*/
+
+#endif /* LWIPOPTS_USER_H */
+{{/if}}

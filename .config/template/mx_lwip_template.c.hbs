@@ -1,0 +1,304 @@
+{{!--
+  ******************************************************************************
+  * @file    mx_lwip_template.c.hbs
+  * @brief   Template for LwIP generated initialisation file.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+~--}}
+{{assign "lwipFilter" (JSONparse '{"cgroup": "STM32CubeMX2 Config", "csub": "LwIP"}')~}}
+{{assign 'lwip_context' (@root.SWConfigurationAPI.getInstancesConfiguration @root.lwipFilter)~}}
+{{assign 'lwip_cxt' @root.lwip_context.[0].settings.parameters~}}
+{{log "LwIP Config template lwip_cxt:" (toJSON @root.lwip_cxt)~}}
+{{assign 'use_ethernet_interface' false~}}
+{{#if (helper_lwip_has_ethernet_interface @root.lwip_cxt.interfaces.network_interfaces)}}
+  {{assign 'use_ethernet_interface' true~}}
+{{/if}}
+/**
+  ******************************************************************************
+  * @file           : mx_lwip.c
+  * @brief          : LwIP STM32 interface initialization.
+{{> LICENSE}}
+
+{{#with @root.lwip_cxt~}}
+
+/* Includes ------------------------------------------------------------------*/
+#include "mx_lwip.h"
+#include "lwip/api.h"
+#include "lwip/netif.h"
+#include "lwip/pbuf.h"
+#include "lwip/etharp.h"
+#if LWIP_IPV6 && LWIP_ETHERNET
+#include "lwip/ethip6.h"
+#endif /* LWIP_IPV6 && LWIP_ETHERNET */
+#include "lwip/memp.h"
+#include "lwip/netifapi.h"
+{{#if (eq core.basic.freertos true)}}
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+{{/if}}
+#include "stdbool.h"
+#include "string.h"
+{{#each @root.lwip_cxt.interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+#include "mx_{{lowercase resources_allocation.eth_config.eth_instance.selection}}.h"
+#include "mx_phy{{resources_allocation.eth_config.phy_instance_name}}.h"
+{{/if}}
+{{/each}}
+
+/* Private defines -----------------------------------------------------------*/
+{{#each @root.lwip_cxt.interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+#define ETH_INTERFACE_{{add @index 1}}_RX_CHANNEL {{resources_allocation.eth_config.rx_channel}}
+#define ETH_INTERFACE_{{add @index 1}}_TX_CHANNEL {{resources_allocation.eth_config.tx_channel}}
+#define ETH_INTERFACE_{{add @index 1}}_NETIF_HOSTNAME_PREFIX "stm32_host_mx_{{add @index 1}}"
+#define ETH_INTERFACE_{{add @index 1}}_NETIF_NAME            "{{#if (eq (add @index 1) 10)}}10{{else}}0{{add @index 1}}{{/if}}"
+{{#if logical_config.vlan_enabled}}
+#define ETH_INTERFACE_{{add @index 1}}_VLAN_ID {{logical_config.vlan_id}}U
+{{else}}
+#define ETH_INTERFACE_{{add @index 1}}_VLAN_ID 0U
+{{/if}}
+
+{{/if}}
+{{/each}}
+{{#if (eq @root.use_ethernet_interface true)}}
+#define ETH_INTERFACE_DESC_SIZE_ALIGN_BYTE 1
+
+#define ETH_INTERFACE_MAX_HOSTNAME_LEN     64
+
+#ifndef MX_PHY_INTERFACE_VERSION
+#error "MX PHY interface not defined"
+#endif
+
+#if (MX_PHY_INTERFACE_VERSION != 1)
+#error "MX PHY interface version incompatible"
+#endif
+
+{{/if}}
+{{#if (eq core.applicative.generate_srand_code true)}}
+#define HAL_RNG_TIMEOUT_MS                 1000
+
+{{/if}}
+/* Private typedef -----------------------------------------------------------*/
+
+/* Private variables ---------------------------------------------------------*/
+{{#each @root.lwip_cxt.interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+lwip_eth_interface_netif_context_t netif_context_{{add @index 1}};
+TaskHandle_t xLinkMonitorTaskHandle{{add @index 1}};
+lwip_eth_interface_hardware_t eth_interface_hardware_{{add @index 1}};
+char netif_{{add @index 1}}_hostname[ETH_INTERFACE_MAX_HOSTNAME_LEN] = {0};
+{{/if}}
+{{/each}}
+{{#if @root.lwip_cxt.core.applicative.sntp_client}}
+static void(*sntp_set_system_time_fn)(u32_t sec, u32_t usec) = NULL;
+{{/if}}
+
+/* Private function prototypes -----------------------------------------------*/
+static err_t mx_lwip_igmp_mac_filter(struct netif *netif,
+                                     const ip4_addr_t *group,
+                                     enum netif_mac_filter_action action);
+
+/* Functions Definition ------------------------------------------------------*/
+
+static err_t mx_lwip_igmp_mac_filter(struct netif *netif,
+                                     const ip4_addr_t *group,
+                                     enum netif_mac_filter_action action)
+{
+  (void) netif;
+  (void) group;
+  (void) action;
+  return ERR_OK;
+}
+
+/**
+  * @brief  LwIP initialisation function.
+  * @param  none
+  * @retval none
+  */
+err_t mx_lwip_init(void)
+{
+  err_t err = ERR_OK;
+{{#if (eq core.applicative.generate_lwip_init_code true)}}
+{{#if (eq @root.lwip_cxt.core.applicative.generate_srand_code true)}}
+  hal_status_t hal_status;
+  uint32_t random = 0;
+{{/if}}
+
+{{#if (eq @root.lwip_cxt.core.basic.standalone 'RTOS')}}
+  tcpip_init(NULL, NULL);
+
+{{/if}}
+{{#if (eq @root.use_ethernet_interface true)}}
+  err = lwip_eth_interface_init();
+
+{{/if}}
+{{#if (eq @root.lwip_cxt.core.applicative.generate_srand_code true)}}
+  if (err == ERR_OK)
+  {
+    mx_rng_init();
+    /* Set the C library random seed from HAL_RNG_GenerateRandomNumber(). */
+    /* This keeps random TCP port allocation non-deterministic. */
+    hal_status = HAL_RNG_GenerateRandomNumber(mx_rng_gethandle(), &random, 1, HAL_RNG_TIMEOUT_MS);
+    if (hal_status == HAL_OK)
+    {
+      srand(random);
+    }
+    else
+    {
+      err = ERR_IF;
+    }
+  }
+{{/if}}
+{{/if}} {{!core.applicative.generate_lwip_init_code}}
+  return err;
+}
+
+err_t mx_lwip_deinit(void)
+{
+  err_t err = ERR_OK;
+
+{{#if (eq core.applicative.generate_lwip_init_code true)}}
+{{#if (eq @root.use_ethernet_interface true)}}
+  err = lwip_eth_interface_deinit();
+
+{{/if}}
+{{/if}}
+  return err;
+}
+
+{{#if core.applicative.generate_lwip_init_code}}
+{{#each @root.lwip_cxt.interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+err_t mx_lwip_init_interface_{{add @index 1}}(struct netif *p_netif)
+{
+  lwip_eth_interface_netif_context_t *p_netif_context = NULL;
+  mx_phy_status_t phy_status;
+  hal_eth_config_t eth_config;
+
+  if (p_netif == NULL || (p_netif->state == NULL))
+  {
+    return ERR_VAL;
+  }
+
+  phy_status = mx_phy{{resources_allocation.eth_config.phy_instance_name}}_init();
+  if (phy_status != MX_PHY_STATUS_OK)
+  {
+    LWIP_ASSERT("phy init failed", false);
+    return ERR_MEM;
+  }
+
+  p_netif_context = (lwip_eth_interface_netif_context_t *)(p_netif->state);
+
+  memset(p_netif_context, 0, sizeof(lwip_eth_interface_netif_context_t));
+
+  /* Save the netif pointer. */
+  p_netif_context->p_netif = p_netif;
+
+  /* Configure VLAN ID. */
+  p_netif_context->vlan_id = ETH_INTERFACE_{{add @index 1}}_VLAN_ID;
+
+  /* Configure hardware interface. */
+  eth_interface_hardware_{{add @index 1}}.p_phy = mx_phy{{resources_allocation.eth_config.phy_instance_name}}_get_interface();
+  eth_interface_hardware_{{add @index 1}}.p_eth = mx_{{lowercase resources_allocation.eth_config.eth_instance.selection}}_gethandle();
+  p_netif_context->p_hardware = &eth_interface_hardware_{{add @index 1}};
+
+  /* Configure channels. */
+  p_netif_context->tx_channel_id = ETH_INTERFACE_{{add @index 1}}_TX_CHANNEL;
+  p_netif_context->rx_channel_id = ETH_INTERFACE_{{add @index 1}}_RX_CHANNEL;
+
+  /* Set output() for frames with unknown destination MAC address. */
+  p_netif->output = etharp_output;
+
+#if LWIP_IPV6
+  p_netif->output_ip6 = ethip6_output;
+  p_netif->ip6_autoconfig_enabled = 1;
+#endif /* LWIP_IPV6 */
+
+  /* Set linkoutput() for frames with known destination MAC address. */
+  p_netif->linkoutput = lwip_eth_interface_low_level_output;
+
+  /* Set the maximum transfer unit. */
+  p_netif->mtu = (u16_t) HAL_ETH_MAX_PAYLOAD_SIZE_BYTE;
+
+  /* Set Ethernet capabilities. */
+  p_netif->flags = (u8_t)(NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_ETHERNET);
+
+#if LWIP_IGMP
+  p_netif->flags |= NETIF_FLAG_IGMP;
+  netif_set_igmp_mac_filter(p_netif, mx_lwip_igmp_mac_filter);
+#endif /* LWIP_IGMP */
+
+#if LWIP_NETIF_HOSTNAME
+  HAL_ETH_GetConfig(p_netif_context->p_hardware->p_eth, &eth_config);
+  /* Initialize interface host name using the MAC address suffix. */
+  snprintf(netif_{{add @index 1}}_hostname, sizeof(netif_{{add @index 1}}_hostname),
+           "%s-%02x%02x%02x%02x%02x%02x",
+           ETH_INTERFACE_{{add @index 1}}_NETIF_HOSTNAME_PREFIX,
+           eth_config.mac_addr[0], eth_config.mac_addr[1], eth_config.mac_addr[2],
+           eth_config.mac_addr[3], eth_config.mac_addr[4], eth_config.mac_addr[5]);
+  netif_set_hostname(p_netif, netif_{{add @index 1}}_hostname);
+#else
+  (void) eth_config;
+#endif /* LWIP_NETIF_HOSTNAME */
+
+  /* Initialize interface name. */
+  p_netif->name[0] = ETH_INTERFACE_{{add @index 1}}_NETIF_NAME[0];
+  p_netif->name[1] = ETH_INTERFACE_{{add @index 1}}_NETIF_NAME[1];
+
+  return lwip_eth_interface_low_level_init(p_netif);
+}
+
+void mx_lwip_deinit_interface_{{add @index 1}}(struct netif *p_netif)
+{
+  err_t err;
+
+  err = lwip_eth_interface_low_level_deinit(p_netif);
+  if (err == ERR_OK)
+  {
+    memset(&netif_context_{{add @index 1}}, 0, sizeof(lwip_eth_interface_netif_context_t));
+    (void) mx_phy{{resources_allocation.eth_config.phy_instance_name}}_deinit();
+  }
+}
+
+lwip_eth_interface_netif_context_t *mx_lwip_get_interface_context_{{add @index 1}}(void)
+{
+  return &netif_context_{{add @index 1}};
+}
+
+{{/if}}
+{{/each}}
+{{/if }} {{!core.applicative.generate_lwip_init_code}}
+
+{{#if @root.lwip_cxt.core.applicative.sntp_client}}
+void mx_lwip_sntp_register_set_system_time_fn(void(*fn)(u32_t sec, u32_t usec))
+{
+  sntp_set_system_time_fn = fn;
+}
+
+/**
+ * @brief This function is called by the SNTP client when a time update is received.
+ * It is registered to the lwIP SNTP client via SNTP_SET_SYSTEM_TIME_US in lwipopts.h.
+ *
+ * @param sec Seconds since the Unix epoch.
+ * @param usec Microseconds part.
+ */
+void mx_lwip_sntp_set_system_time(u32_t sec, u32_t usec)
+{
+  if (sntp_set_system_time_fn != NULL)
+  {
+    sntp_set_system_time_fn(sec, usec);
+  }
+}
+
+{{/if}}
+{{~/with~}}{{! with @root.lwip_cxt }}

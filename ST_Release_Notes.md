@@ -23,6 +23,86 @@ The STM32Cube embedded software offer provides ready-to-use software components 
 
 # Update History
 
+<label for="collapse-section-2.1.0" aria-hidden="true">__2.1.0 / 12-June-2026__</label>
+<div>
+
+## Main changes
+
+- Add configuration and code generation in CubeMX2.
+- Add Common and RTOS port components.
+- This pack is based on LwIP V2.2.1 version.
+
+## Contents
+
+- Support for STM32 Ethernet interface.
+
+## Known Limitations
+
+- None.
+
+## Development toolchains and compilers
+
+- IAR Embedded Workbench for ARM (EWARM) toolchain V9.60.3 + ST-LINK
+- MDK-ARM Keil uVision V5.42
+- STM32CubeIDE for Visual Studio Code (GCC13 compiler)
+- STM32CubeMX2 1.0.1
+
+## Supported devices and boards
+
+- STM32C5 Series.
+
+## Backward compatibility
+
+- None
+
+## Dependencies
+
+- STM32C5xx HAL Drivers V2.1.0
+- FreeRTOS SW Pack V2.1.0
+- LAN8742 Part Drivers V2.0.1
+
+</div>
+
+<label for="collapse-section-2.0.1" aria-hidden="true">__2.0.1 / 11-April-2026__</label>
+<div>
+
+## Main changes
+
+- Maintenance release of LwIP SW Pack.
+
+  This pack is based on LwIP V2.2.1 version.
+
+## Contents
+
+- Support for STM32 Ethernet interface.
+
+## Known Limitations
+
+- None.
+
+## Development toolchains and compilers
+
+- IAR Embedded Workbench for ARM (EWARM) toolchain V9.60.3 + ST-LINK
+- MDK-ARM Keil uVision V5.42
+- STM32CubeIDE for Visual Studio Code (GCC13 compiler)
+
+## Supported devices and boards
+
+- STM32C5 Series.
+- STM32V8 Series.
+
+## Backward compatibility
+
+- None
+
+## Dependencies
+
+- STM32C5xx HAL Drivers V2.0.0
+- LAN8742 Part Drivers V2.0.0
+- FreeRTOS SW Pack V2.0.0
+
+</div>
+
 <label for="collapse-section-2.0.0" aria-hidden="true">__2.0.0 / 13-March-2026__</label>
 <div>
 
@@ -37,7 +117,7 @@ The STM32Cube embedded software offer provides ready-to-use software components 
 - Support for STM32 Ethernet interface.
 
 ## Known Limitations
-  
+
 - None.
 
 ## Development toolchains and compilers

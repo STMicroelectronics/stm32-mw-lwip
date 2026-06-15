@@ -1,0 +1,604 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "version": "2.1.0",
+  "type": "object",
+  "grammarVersion": "3.8.0",
+  "componentid": "LwIP system:STM32 MX Config:LwIP Init",
+  "functions": [
+    {
+      "path": ".config/template/helpers/lwip_helpers.js",
+      "accessor": "lwip"
+    }
+  ],
+  "properties": {
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "object",
+          "title": "General information",
+          "properties": {
+            "version": {
+              "title": "Version",
+              "type": "string",
+              "default": "2.2.1",
+              "actions": [
+                {
+                  "type": "disable",
+                  "condition": "true",
+                  "message": "LwIP middleware version. Can not be changed."
+                }
+              ]
+            }
+          }
+        },
+        "profile": {
+          "title": "Profile",
+          "type": "object",
+          "properties": {
+            "profile_type": {
+              "title": "Profile selection",
+              "type": "string",
+              "oneOf": [
+                {
+                  "title": "Default",
+                  "const": "DEFAULT"
+                },
+                {
+                  "title": "Low footprint",
+                  "const": "LOW_FOOTPRINT",
+                  "actions": [
+                    {
+                      "type": "disable",
+                      "condition": "true",
+                      "message": "Not yet available."
+                    }
+                  ]
+                },
+                {
+                  "title": "High performance",
+                  "const": "HIGH_PERFORMANCE",
+                  "actions": [
+                    {
+                      "type": "disable",
+                      "condition": "true",
+                      "message": "Not yet available."
+                    }
+                  ]
+                }
+              ],
+              "default": "DEFAULT"
+            }
+          }
+        },
+        "core": {
+          "type": "object",
+          "title": "Core",
+          "properties": {
+            "basic": {
+              "title": "Main features",
+              "type": "object",
+              "properties": {
+                "standalone": {
+                  "type": "string",
+                  "title": "Operating system",
+                  "description": "When set to 'RTOS', the RTOS support code is included (threads, mailboxes, semaphores, ...). Netconn and Socket APIs require OS support to be enabled.",
+                  "default": "RTOS",
+                  "oneOf": [
+                    {
+                      "title": "No OS",
+                      "const": "No_OS"
+                    },
+                    {
+                      "title": "RTOS",
+                      "const": "RTOS"
+                    }
+                  ]
+                },
+                "freertos": {
+                  "type": "boolean",
+                  "title": "FreeRTOS support",
+                  "description": "If OS support is enabled and this option is enabled, use the FreeRTOS support component for OS functions. The FreeRTOS middleware must be activated in the project.",
+                  "default": true,
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "($core.basic.standalone === 'RTOS') && $get('swproject.hasRTOSenabled')",
+                      "message": "Enable this option after OS mode is enabled and the FreeRTOS middleware is activated in the project."
+                    }
+                  ]
+                },
+                "LWIP_SOCKET": {
+                  "title": "LWIP_SOCKET",
+                  "description": "Enable BSD sockets API.",
+                  "type": "boolean",
+                  "default": false,
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.standalone === 'RTOS'",
+                      "message": "BSD sockets API is available only when OS mode is enabled."
+                    }
+                  ]
+                },
+                "LWIP_NETCONN": {
+                  "title": "LWIP_NETCONN",
+                  "description": "Enable NETCONN API.",
+                  "type": "boolean",
+                  "default": false,
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.standalone === 'RTOS'",
+                      "message": "NETCONN API is available only when OS mode is enabled."
+                    }
+                  ]
+                },
+                "LWIP_TCP": {
+                  "title": "LWIP_TCP",
+                  "description": "Enable TCP.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "tcp_config": {
+                  "title": "TCP",
+                  "type": "object",
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.LWIP_TCP",
+                      "message": "This section is available when TCP support is enabled."
+                    }
+                  ],
+                  "properties": {
+                    "MEMP_NUM_TCP_PCB": {
+                      "title": "MEMP_NUM_TCP_PCB",
+                      "description": "The number of simultaneously active TCP connections.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 4
+                    },
+                    "MEMP_NUM_TCP_PCB_LISTEN": {
+                      "title": "MEMP_NUM_TCP_PCB_LISTEN",
+                      "description": "The number of listening TCP connections.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 4
+                    },
+                    "MEMP_NUM_TCP_SEG": {
+                      "title": "MEMP_NUM_TCP_SEG",
+                      "description": "The number of simultaneously queued TCP segments.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 16
+                    },
+                    "TCP_WND": {
+                      "title": "TCP_WND",
+                      "description": "The TCP window size (in units of MSS).",
+                      "type": "integer",
+                      "minimum": 2,
+                      "default": 3
+                    }
+                  }
+                },
+                "LWIP_UDP": {
+                  "title": "LWIP_UDP",
+                  "description": "Enable UDP.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "udp_config": {
+                  "title": "UDP",
+                  "type": "object",
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.LWIP_UDP",
+                      "message": "This section is available when UDP support is enabled."
+                    }
+                  ],
+                  "properties": {
+                    "MEMP_NUM_UDP_PCB": {
+                      "title": "MEMP_NUM_UDP_PCB",
+                      "description": "The number of UDP protocol control blocks. One per active UDP connection.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 4
+                    }
+                  }
+                },
+                "LWIP_ARP": {
+                  "title": "LWIP_ARP",
+                  "description": "Enable Address Resolution Protocol for ethernet/IP.",
+                  "type": "boolean",
+                  "default": true
+                },
+                "LWIP_IPV4": {
+                  "title": "LWIP_IPV4",
+                  "description": "Enable Internet Protocol version 4.",
+                  "type": "boolean",
+                  "default": true
+                },
+                "ipv4_config": {
+                  "title": "Ipv4",
+                  "type": "object",
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.LWIP_IPV4",
+                      "message": "This section is available when IPv4 support is enabled."
+                    }
+                  ],
+                  "properties": {
+                    "LWIP_ICMP": {
+                      "title": "LWIP_ICMP",
+                      "description": "Enable Internet Control Message Protocol for IPv4.",
+                      "type": "boolean",
+                      "default": true
+                    },
+                    "LWIP_DHCP": {
+                      "title": "LWIP_DHCP",
+                      "description": "Enable DHCP for IPv4.",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                },
+                "LWIP_IPV6": {
+                  "title": "LWIP_IPV6",
+                  "description": "Enable Internet Protocol version 6.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "LWIP_DNS": {
+                  "title": "LWIP_DNS",
+                  "description": "Enable Domain Name System.",
+                  "type": "boolean",
+                  "default": false,
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "($core.basic.LWIP_IPV4 || $core.basic.LWIP_IPV6) && $core.basic.LWIP_UDP",
+                      "message": "DNS can be enabled when IP support is enabled and UDP is enabled."
+                    }
+                  ]
+                },
+                "memory": {
+                  "title": "Memory",
+                  "type": "object",
+                  "properties": {
+                    "MEM_SIZE": {
+                      "title": "MEM_SIZE",
+                      "description": "The size of LwIP heap memory. Used in particular for transmission buffers. If the application will send a lot of data that needs to be copied, this must be set high.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 16384
+                    },
+                    "MEM_ALIGNMENT": {
+                      "title": "MEM_ALIGNMENT",
+                      "description": "The alignment of the buffers addresses. It must correspond to a multiple of the CPU alignment (4 bytes), the STM32 Ethernet interface bus width (AHB bus: 4 bytes, AXI bus: 8 bytes), and the data cache line size if enabled (32 bytes).",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 4
+                    },
+                    "MEMP_NUM_SYS_TIMEOUT": {
+                      "title": "MEMP_NUM_SYS_TIMEOUT",
+                      "description": "The number of simultaneously active timeouts.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 17
+                    },
+                    "MEMP_NUM_NETCONN": {
+                      "title": "MEMP_NUM_NETCONN",
+                      "description": "The number of struct netconns (if using netconn API).",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 8,
+                      "actions": [
+                      {
+                        "type": "enable",
+                        "condition": "$core.basic.LWIP_NETCONN",
+                        "message": "This option is available when NETCONN API is enabled."
+                      }
+                      ]
+                    },
+                    "MEMP_NUM_TCPIP_MSG_INPKT": {
+                      "title": "MEMP_NUM_TCPIP_MSG_INPKT",
+                      "description": "The number of simultaneously queued incoming packets.",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 8
+                    },
+                    "PBUF_POOL_SIZE": {
+                      "title": "PBUF_POOL_SIZE",
+                      "description": "The number of buffers in the pbuf pool (used for reception buffers).",
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 20
+                    }
+                  }
+                }
+              }
+            },
+            "advanced": {
+              "title": "Advanced features",
+              "type": "object",
+              "properties": {
+                "LWIP_MDNS_RESPONDER": {
+                  "title": "LWIP_MDNS_RESPONDER",
+                  "description": "Enable mDNS responder.",
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            },
+            "applicative": {
+              "title": "Applicative",
+              "type": "object",
+              "properties": {
+                "generate_lwip_init_code": {
+                  "title": "Generate initialization code",
+                  "description": "Generate the application code that initializes the LwIP stack in main task within the app_lwip_init function when an operating system is selected.",
+                  "type": "boolean",
+                  "default": true,
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.basic.freertos",
+                      "message": "This option is available when FreeRTOS is enabled."
+                    }
+                  ]
+                },
+                "sntp_client": {
+                  "title": "SNTP client",
+                  "description": "Add component and code for the SNTP client (Simple Network Time Protocol).",
+                  "type": "boolean",
+                  "default": false
+                },
+                "lwiperf_enabled": {
+                  "type": "boolean",
+                  "title": "Lwiperf",
+                  "description": "Add IPerf component.",
+                  "default": false
+                },
+                "mdns_enabled": {
+                  "type": "boolean",
+                  "title": "Mdns",
+                  "description": "Add mDNS component.",
+                  "default": false
+                },
+                "generate_lwipopts_user_h": {
+                  "title": "Generate lwipopts_user.h",
+                  "description": "Generate the optional user override header lwipopts_user.h and include it from lwipopts.h. The file is exposed as a configuration file in the GPDSC so it is copied once and can be customized later.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "generate_srand_code": {
+                  "title": "Generate random seed initialisation code",
+                  "description": "Generate code to initialize the C library rand() function with random value obtained from RNG peripheral. Useful to have random TCP port numbers. The RNG peripheral must be enabled and configured for this option to be effective.",
+                  "type": "boolean",
+                  "default": true
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "type": "object",
+          "title": "Interfaces",
+          "properties": {
+            "network_interfaces": {
+              "type": "array",
+              "title": "Network interfaces",
+              "minItems": 1,
+              "maxItems": 1,
+              "strictMaxItems": true,
+              "items": {
+                "type": "object",
+                "title": "Interface",
+                "properties": {
+                  "logical_config": {
+                    "title": "Interface logical configuration",
+                    "type": "object",
+                    "properties": {
+                      "interface_type": {
+                        "type": "string",
+                        "title": "Interface type",
+                        "description": "select interface type",
+                        "oneOf": [
+                          {
+                            "title": "Ethernet",
+                            "const": "ETH"
+                          },
+                          {
+                            "title": "Custom",
+                            "const": "CUSTOM"
+                          }
+                        ],
+                        "default": "ETH",
+                        "variables": [
+                          {
+                            "on": "update-value",
+                            "condition": "$item.logical_config.interface_type === 'ETH'",
+                            "name": "lwip_ethernet_interface",
+                            "semaphore": true
+                          },
+                          {
+                            "on": "update-value",
+                            "condition": "$item.logical_config.interface_type === 'CUSTOM'",
+                            "name": "lwip_custom_interface",
+                            "semaphore": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "resources_allocation": {
+                    "title": "HW Resources allocation",
+                    "type": "object",
+                    "properties": {
+                      "eth_config": {
+                        "type": "object",
+                        "title": "Ethernet configuration",
+                        "actions": [
+                          {
+                            "type": "include",
+                            "condition": "$item.logical_config.interface_type === 'ETH'"
+                          }
+                        ],
+                        "properties": {
+                          "eth_instance": {
+                            "type": "object",
+                            "title": "ETH instance",
+                            "description": "Select the ETH peripheral to be used by this network interface. The ETH peripheral must be enabled and configured in Peripherals ETH configuration panel.",
+                            "objectType": "bind.peripheral.config",
+                            "criteria": {
+                              "peripheralType": [
+                                "eth"
+                              ]
+                            }
+                          },
+                          "phy_instance_name": {
+                            "type": "integer",
+                            "title": "PHY instance code name",
+                            "description": "Generated numeric suffix used for PHY accessors, for example 1 for mx_phy1_init().",
+                            "minimum": 1,
+                            "default": 1
+                          },
+                          "rx_channel": {
+                            "type": "string",
+                            "title": "RX channel",
+                            "description": "Select the Ethernet RX DMA channel used by this network interface. The channel must be enabled in ETH Peripheral configuration panel to be available in this list.",
+                            "oneOf": [
+                              {
+                                "const": "HAL_ETH_RX_CHANNEL_0",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_rx_channels')?.find(channel => channel._foreignKey === 0)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_RX_CHANNEL_1",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_rx_channels')?.find(channel => channel._foreignKey === 1)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_RX_CHANNEL_2",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_rx_channels')?.find(channel => channel._foreignKey === 2)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_RX_CHANNEL_3",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_rx_channels')?.find(channel => channel._foreignKey === 3)?.use_channel ?? false"
+                                  }
+                                ]
+                              }
+                            ],
+                            "actions": [
+                              {
+                                "type": "error",
+                                "condition": "!$item.resources_allocation.eth_config.rx_channel || $item.resources_allocation.eth_config.rx_channel === ''",
+                                "message": "Please select a valid ETH RX channel."
+                              }
+                            ]
+                          },
+                          "tx_channel": {
+                            "type": "string",
+                            "title": "TX channel",
+                            "description": "Select the Ethernet TX DMA channel used by this network interface. The channel must be enabled in ETH peripheral configuration panel to be available in this list." ,
+                            "oneOf": [
+                              {
+                                "const": "HAL_ETH_TX_CHANNEL_0",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_tx_channels')?.find(channel => channel._foreignKey === 0)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_TX_CHANNEL_1",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_tx_channels')?.find(channel => channel._foreignKey === 1)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_TX_CHANNEL_2",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_tx_channels')?.find(channel => channel._foreignKey === 2)?.use_channel ?? false"
+                                  }
+                                ]
+                              },
+                              {
+                                "const": "HAL_ETH_TX_CHANNEL_3",
+                                "actions": [
+                                  {
+                                    "type": "include",
+                                    "condition": "$get('sw-config.peripheral-parameter-value', $item.resources_allocation.eth_config.eth_instance.selection, 'eth_tx_channels')?.find(channel => channel._foreignKey === 3)?.use_channel ?? false"
+                                  }
+                                ]
+                              }
+                            ],
+                            "actions": [
+                              {
+                                "type": "error",
+                                "condition": "!$item.resources_allocation.eth_config.tx_channel || $item.resources_allocation.eth_config.tx_channel === ''",
+                                "message": "Please select a valid ETH TX channel."
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "rng_interface": {
+              "title": "RNG interface",
+              "type": "object",
+              "properties": {
+                "rng_instance": {
+                  "type": "object",
+                  "title": "RNG instance",
+                  "description": "The RNG peripheral is used by the Generate Random seed option. If enabled, it must be configured in Peripherals RNG configuration panel.",
+                  "objectType": "bind.peripheral.config",
+                  "criteria": {
+                    "peripheralType": [
+                      "rng"
+                    ]
+                  },
+                  "actions": [
+                    {
+                      "type": "enable",
+                      "condition": "$core.applicative.generate_srand_code",
+                      "message": "Enable this option when Generate random seed initialisation code is enabled in Applicative parameters."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

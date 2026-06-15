@@ -22,7 +22,6 @@
 #include "stm32_hal.h"
 #include "mx_lwip.h"
 
-
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "task.h"
@@ -480,9 +479,9 @@ static bool hardware_interface_is_used(lwip_eth_interface_netif_context_t *p_net
       continue;
     }
 
-    if ((p_netif_context->p_hardware->p_eth == p_i->p_hardware->p_eth) &&
-        (p_netif_context->rx_channel_id == p_i->rx_channel_id) &&
-        (p_netif_context->tx_channel_id == p_i->tx_channel_id))
+    if ((p_netif_context->p_hardware->p_eth == p_i->p_hardware->p_eth)
+        && (p_netif_context->rx_channel_id == p_i->rx_channel_id)
+        && (p_netif_context->tx_channel_id == p_i->tx_channel_id))
     {
       hardware_interface_found = true;
       break;
@@ -525,10 +524,10 @@ static bool netif_context_equals(lwip_eth_interface_netif_context_t *p1, lwip_et
     return false;
   }
 
-  if ((p1->vlan_id == p2->vlan_id) &&
-      (p1->p_hardware->p_eth == p2->p_hardware->p_eth) &&
-      (p1->rx_channel_id == p2->rx_channel_id) &&
-      (p1->tx_channel_id == p2->tx_channel_id))
+  if ((p1->vlan_id == p2->vlan_id)
+      && (p1->p_hardware->p_eth == p2->p_hardware->p_eth)
+      && (p1->rx_channel_id == p2->rx_channel_id)
+      && (p1->tx_channel_id == p2->tx_channel_id))
   {
     return true;
   }
@@ -547,11 +546,11 @@ static void link_update_notify_hal_eth(hal_eth_handle_t *p_eth, mx_phy_link_mode
     case MX_PHY_LINK_SPEED_100:
       eth_link_config.speed = HAL_ETH_MAC_SPEED_100M;
       break;
-#if defined(HAL_ETH_MAC_SPEED_1000M)
-    case PHY_LINK_SPEED_1000:
-      eth_mac_config.speed = HAL_ETH_MAC_SPEED_1000M;
+#if defined(MX_LWIP_ETH_GIGABIT_SUPPORT) && (MX_LWIP_ETH_GIGABIT_SUPPORT == 1)
+    case MX_PHY_LINK_SPEED_1000:
+      eth_link_config.speed = HAL_ETH_MAC_SPEED_1000M;
       break;
-#endif /* if defined(HAL_ETH_MAC_SPEED_1000M) */
+#endif /* if defined(MX_LWIP_ETH_GIGABIT_SUPPORT) */
     default:
       /* MAC speed not changed on purpose */
       break;
@@ -589,9 +588,12 @@ void phy_link_monitor_thread(void *arg)
 
         p_hardware->p_phy->get_link_mode(&new_phy_link_mode);
 
-        if (new_phy_link_mode.status != current_phy_link_mode->status)
+        if ((new_phy_link_mode.status != current_phy_link_mode->status)
+            || (new_phy_link_mode.speed != current_phy_link_mode->speed)
+            || (new_phy_link_mode.duplex != current_phy_link_mode->duplex))
         {
-          if (new_phy_link_mode.status == MX_PHY_LINK_DOWN)
+          if ((new_phy_link_mode.status == MX_PHY_LINK_DOWN)
+              && (new_phy_link_mode.status != current_phy_link_mode->status))
           {
             for (int i_netif = 0 ; i_netif < MX_LWIP_MAX_INTERFACE_NB ; i_netif++)
             {
@@ -650,7 +652,6 @@ void data_worker_thread(void *arg)
     {
       if (message.type == DATA_HW_EVENT)
       {
-
         HAL_ETH_ExecDataHandler(message.p_eth, message.channels_set, &output_channel_mask);
       }
       else if (message.type == MW_OUTPUT_BUFFER)
@@ -671,17 +672,19 @@ void data_worker_thread(void *arg)
         tx_pkt_conf.p_data = (void *)message.pbuf;
         if (p_netif_context->vlan_id != 0)
         {
+          tx_pkt_conf.attributes |= HAL_ETH_TX_PKT_CTRL_VLANTAG;
           tx_pkt_conf.vlan_tag_id = p_netif_context->vlan_id;
           tx_pkt_conf.vlan_ctrl = HAL_ETH_TX_PKT_VLAN_INSERT;
         }
 
         do
         {
-          hal_status = HAL_ETH_RequestTx(p_netif_context->p_hardware->p_eth, p_netif_context->tx_channel_id, eth_tx_buffer, buffer_count, &tx_pkt_conf);
+          hal_status = HAL_ETH_RequestTx(p_netif_context->p_hardware->p_eth,
+            p_netif_context->tx_channel_id, eth_tx_buffer, buffer_count, &tx_pkt_conf);
 
           if (hal_status == HAL_BUSY)
           {
-            HAL_ETH_ExecDataHandler(p_netif_context->p_hardware->p_eth, message.channels_set, &output_channel_mask);
+            HAL_ETH_ExecDataHandler(p_netif_context->p_hardware->p_eth, p_netif_context->tx_channel_id, &output_channel_mask);
           }
         } while (hal_status == HAL_BUSY);
 
@@ -1198,8 +1201,9 @@ err_t lwip_eth_interface_init(void)
   {
     if (xTaskCreate(
           data_worker_thread,
-          "DataWorker",
-          MX_LWIP_DATA_WORKER_STACK_SIZE, (void *)NULL, MX_LWIP_DATA_WORKER_PRIORITY, &data_worker_task) != pdPASS)
+          "EthDataWorker",
+          MX_LWIP_DATA_WORKER_STACK_SIZE / sizeof(StackType_t), (void *)NULL, MX_LWIP_DATA_WORKER_PRIORITY,
+          &data_worker_task) != pdPASS)
     {
       LWIP_ASSERT("data worker task creation failed", false);
       err = ERR_MEM;
@@ -1213,8 +1217,9 @@ err_t lwip_eth_interface_init(void)
   if ((err == ERR_OK) && (link_monitor_task == NULL))
   {
     if (xTaskCreate(phy_link_monitor_thread,
-                    "LinkMonitor",
-                    MX_LWIP_LINK_MONITOR_STACK_SIZE, (void *)NULL, MX_LWIP_LINK_MONITOR_PRIORITY, &link_monitor_task) != pdPASS)
+                    "EthLinkMonitor",
+                    MX_LWIP_LINK_MONITOR_STACK_SIZE / sizeof(StackType_t), (void *)NULL, MX_LWIP_LINK_MONITOR_PRIORITY,
+                    &link_monitor_task) != pdPASS)
     {
       LWIP_ASSERT("link monitor task creation failed", false);
       err = ERR_MEM;

@@ -1,0 +1,122 @@
+{{!--
+  ******************************************************************************
+  * @file    mx_lwip_template.h.hbs
+  * @brief   Template for LwIP generated initialisation include file.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+~--}}
+{{assign "lwipFilter" (JSONparse '{"cgroup": "STM32CubeMX2 Config", "csub": "LwIP"}')~}}
+{{assign 'lwip_context' (@root.SWConfigurationAPI.getInstancesConfiguration @root.lwipFilter)~}}
+{{assign 'lwip_cxt' @root.lwip_context.[0].settings.parameters~}}
+{{log "LwIP Config template lwip_cxt:" (toJSON @root.lwip_cxt)~}}
+{{assign 'use_ethernet_interface' false~}}
+{{#if (helper_lwip_has_ethernet_interface @root.lwip_cxt.interfaces.network_interfaces)}}
+{{assign 'use_ethernet_interface' true~}}
+{{/if}}
+{{assign 'gigabit_support' false~}}
+{{#if (helper_lwip_ethernet_supports_gigabit @root.peripheralsResourceManagerAPI)~}}
+{{assign 'gigabit_support' true~}}
+{{/if}}
+/**
+  ******************************************************************************
+  * @file           : mx_lwip.h
+  * @brief          : LwIP STM32 interface initialization.
+{{> LICENSE}}
+
+#ifndef MX_LWIP_H
+#define MX_LWIP_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+{{#with @root.lwip_cxt~}}
+
+/* Includes ------------------------------------------------------------------*/
+#include "lwip/err.h"
+#include "lwip/netif.h"
+{{#if (eq @root.use_ethernet_interface true)~}}
+#include "eth_interface_freertos.h"
+{{/if}}
+
+#include <stdbool.h>
+#include <stdint.h>
+
+/* Exported types ------------------------------------------------------------*/
+/* Exported constants --------------------------------------------------------*/
+/* Exported macros -----------------------------------------------------------*/
+{{#if (eq @root.use_ethernet_interface true)~}}
+#define MX_LWIP_MAX_INTERFACE_NB                10   /**< Maximum number of network interfaces. */
+#define MX_LWIP_DATA_WORKER_QUEUE_SIZE          20   /**< Size of the message queue. */
+#define MX_LWIP_DATA_WORKER_QUEUE_TX_TIMEOUT_MS 1000 /**< Timeout for low-level output in the message queue. */
+#define MX_LWIP_DATA_WORKER_STACK_SIZE          8192 /**< Stack size in bytes for the data worker thread. */
+#define MX_LWIP_DATA_WORKER_PRIORITY            25   /**< Data worker thread priority. */
+#define MX_LWIP_LINK_MONITOR_PERIOD_MS          100  /**< Link monitoring period in milliseconds. */
+#define MX_LWIP_LINK_MONITOR_STACK_SIZE         1024 /**< Stack size in bytes for the link monitor thread. */
+#define MX_LWIP_LINK_MONITOR_PRIORITY           25   /**< Link monitor thread priority. */
+#define MX_LWIP_MAX_ETH_TX_BUFFERS              5    /**< Maximum number of Ethernet TX buffers. */
+#define MX_LWIP_ETH_GIGABIT_SUPPORT             {{#if @root.gigabit_support~}}1{{~else~}}0{{~/if}}    /**< {{#if @root.gigabit_support~}}Enable{{~else~}}Disable{{~/if}} gigabit support in ethernet interface. */
+{{/if}}
+
+/* Exported variables --------------------------------------------------------*/
+/* Exported functions --------------------------------------------------------*/
+
+/**
+ * @brief  Initialize the LwIP stack and Ethernet interface.
+ * @return ERR_OK on success, error code otherwise.
+ */
+err_t mx_lwip_init(void);
+
+/**
+ * @brief  De-initialize the LwIP stack and Ethernet interface.
+ * @return ERR_OK on success, error code otherwise.
+ */
+err_t mx_lwip_deinit(void);
+
+{{#each @root.lwip_cxt.interfaces.network_interfaces~}}
+{{#if (eq logical_config.interface_type 'ETH')}}
+/**
+ * @brief  Get the context structure for Ethernet interface {{add @index 1}}.
+ * @return Pointer to the Ethernet interface context.
+ */
+lwip_eth_interface_netif_context_t *mx_lwip_get_interface_context_{{add @index 1}}(void);
+
+/**
+ * @brief  Initialize Ethernet interface {{add @index 1}} and configure the provided netif.
+ * @param  p_netif Pointer to the LwIP network interface structure to initialize.
+ * @return ERR_OK on success, error code otherwise.
+ */
+err_t mx_lwip_init_interface_{{add @index 1}}(struct netif *p_netif);
+
+/**
+ * @brief  De-initialize Ethernet interface {{add @index 1}} and clear its context.
+ * @param  p_netif Pointer to the LwIP network interface structure to de-initialize.
+ */
+void mx_lwip_deinit_interface_{{add @index 1}}(struct netif *p_netif);
+
+{{/if}}
+{{/each}}
+{{#if @root.lwip_cxt.core.applicative.sntp_client}}
+/**
+ * @brief Register a SNTP time update callback function.
+ * @param fn Pointer to a function taking seconds and microseconds.
+ */
+void mx_lwip_sntp_register_set_system_time_fn(void(*fn)(u32_t sec, u32_t usec));
+
+{{/if}}
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+{{~/with~}}{{! with @root.lwip_cxt }}
+
+#endif /* MX_LWIP_H */

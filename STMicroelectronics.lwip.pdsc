@@ -10,6 +10,24 @@
     <environment name="STM32Cube">
       <stm32:pack type="MW" friendlyName="lwip" shortDesc="LwIP Middleware">
         <relocation-info parent="middleware"/>
+        <compatibility>
+          <release version="2.1.0">
+            <applicable-schema schemaType="sw-configuration" schemaVersion="3.8.0"/>
+            <applicable-api-group apiType="codegen-getters">
+              <applicable-api apiType="EnvVarAPI" apiVersion="1.0.0"/>
+              <applicable-api apiType="peripheralsResourceManagerAPI" apiVersion="1.0.0"/>
+              <applicable-api apiType="SWConfigurationAPI" apiVersion="1.0.0"/>
+              <applicable-api apiType="SWProjectAPI" apiVersion="1.0.0"/>
+            </applicable-api-group>
+          </release>
+          <release version="2.0.0">
+            <applicable-schema schemaType="sw-configuration" schemaVersion="3.7.0"/>
+            <applicable-api-group apiType="codegen-getters">
+              <applicable-api apiType="SWConfigurationAPI" apiVersion="1.0.0"/>
+              <applicable-api apiType="SWProjectAPI" apiVersion="1.0.0"/>
+            </applicable-api-group>
+          </release>
+        </compatibility>
       </stm32:pack>
     </environment>
   </environments>
@@ -21,6 +39,12 @@
     <ECCN-US>EAR99</ECCN-US>
   </ECCN>
   <releases>
+    <release date="2026-06-12" version="2.1.0">
+      - LwIP SW Pack release 2.1.0.
+      - Add configuration and code generation.
+      - Add common and RTOS port components.
+      - This pack is based on LwIP V2.2.1 version.
+    </release>
     <release date="2026-03-13" version="2.0.0">
       - First Official release of LwIP SW Pack.
         This pack is based on LwIP V2.2.1 version.
@@ -123,7 +147,6 @@
         <file category="source" name="src/core/udp.c"/>
         <file category="source" name="src/netif/ethernet.c"/>
         <file category="header" name="src/include/netif/ethernet.h"/>
-        <file category="source" condition="RTOS condition" name="ports/freertos/arch/sys_arch.c"/>
         <file category="source" condition="RTOS condition" name="src/api/api_lib.c"/>
         <file category="header" condition="RTOS condition" name="src/include/lwip/api.h"/>
         <file category="source" condition="RTOS condition" name="src/api/api_msg.c"/>
@@ -148,11 +171,6 @@
         <file category="include" name="src/include/lwip/priv/"/>
         <file category="include" name="src/include/lwip/prot/"/>
         <file category="include" name="src/include/netif/"/>
-        <file category="include" name="ports/"/>
-        <file category="include" name="ports/common/"/>
-        <file category="include" name="ports/common/arch/"/>
-        <file category="include" condition="RTOS condition" name="ports/freertos/"/>
-        <file category="include" condition="RTOS condition" name="ports/freertos/arch/"/>
         <file category="doc" name="SW_Security_Level.md"/>
         <file category="other" name="src/include/lwip/init.h.cmake.in"/>
       </files>
@@ -177,17 +195,49 @@
         <file category="source" name="src/apps/lwiperf/lwiperf.c"/>
       </files>
     </component>
-    <component Cclass="Network" Cgroup="LwIP" Csub="STM32 ETH Interface FreeRTOS" Cversion="2.0.0" condition="lwip condition" maxInstances="1">
+    <component Cclass="Network" Cgroup="LwIP" Csub="Common port" Cvariant="STM32" Cversion="2.1.0">
+      <description>LwIP STM32 port</description>
+      <files>
+        <file category="include" name="ports/"/>
+        <file category="include" name="ports/common/"/>
+        <file category="include" name="ports/common/arch/"/>
+        <file category="header" name="ports/common/arch/bpstruct.h"/>
+        <file category="header" name="ports/common/arch/cc.h"/>
+        <file category="header" name="ports/common/arch/epstruct.h"/>
+        <file category="header" name="ports/common/arch/init.h"/>
+        <file category="header" name="ports/common/arch/perf.h"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="RTOS port" Cvariant="FreeRTOS" condition="RTOS condition" Cversion="2.1.0">
+      <description>LwIP FreeRTOS port</description>
+      <files>
+        <file category="source" name="ports/freertos/arch/sys_arch.c"/>
+        <file category="source" name="ports/freertos/arch/sys_arch.h"/>
+        <file category="include" name="ports/freertos/"/>
+        <file category="include" name="ports/freertos/arch/"/>
+      </files>
+    </component>
+    <component Cclass="Network" Cgroup="LwIP" Csub="STM32 ETH Interface FreeRTOS" Cversion="2.1.0" condition="lwip condition" maxInstances="1">
       <description>LwIP STM32 ETH Interface FreeRTOS</description>
       <files>
         <file category="source" name="interfaces/ethernet/eth_interface_freertos.c"/>
         <file category="header" name="interfaces/ethernet/eth_interface_freertos.h"/>
       </files>
     </component>
-    <component generator="lwip_mx2codegen" Cclass="Network" Cgroup="STM32CubeMX2 Config" Csub="LwIP" Cversion="2.0.0" condition="lwip condition">
+    <component Cclass="Network" Cgroup="LwIP" Csub="STM32 Custom Interface" Cversion="2.1.0" condition="lwip condition" maxInstances="1">
+      <description>LwIP STM32 Custom Interface</description>
+      <files>
+        <file category="source" attr="config" name="interfaces/custom/custom_interface.c"/>
+        <file category="header" attr="config" name="interfaces/custom/custom_interface.h"/>
+      </files>
+    </component>
+    <component generator="lwip_mx2codegen" Cclass="Network" Cgroup="STM32CubeMX2 Config" Csub="LwIP" Cversion="2.1.0" condition="lwip condition">
       <description>STM32Cube Configuration and Code Generation for LwIP network stack</description>
       <environments>
         <environment name="STM32Cube">
+          <stm32:component>
+            <middleware-entry-point id="LwIP" name="LwIP" category="TCP/IP"/>
+          </stm32:component>
         </environment>
       </environments>
       <files>
@@ -196,8 +246,10 @@
         <file category="genAsset" name=".config/STMicroelectronics.lwip.gpdsc.hbs"/>
         <file category="genAsset" name=".config/lwip_config_parameters.json"/>
         <file category="genAsset" name=".config/template/helpers/common_helpers.js"/>
+        <file category="genAsset" name=".config/template/helpers/lwip_helpers.js"/>
         <file category="genAsset" name=".config/template/license/mx_lwip_license_template.md.hbs"/>
         <file category="genAsset" name=".config/template/lwipopts_template.h.hbs"/>
+        <file category="genAsset" name=".config/template/lwipopts_user_template.h.hbs"/>
         <file category="genAsset" name=".config/template/mx_lwip_phy_template.h.hbs"/>
         <file category="genAsset" name=".config/template/mx_lwip_template.h.hbs"/>
         <file category="genAsset" name=".config/template/mx_lwip_template.c.hbs"/>
