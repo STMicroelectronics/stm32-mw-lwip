@@ -179,15 +179,16 @@ err_t sys_mbox_trypost_fromisr(sys_mbox_t *mbox, void *msg)
 */
 u32_t sys_arch_mbox_fetch(sys_mbox_t *mbox, void **msg, u32_t timeout)
 {
+  const uint32_t tick_duration_ms = 1000 / osKernelGetTickFreq();
+  const uint32_t starttime_ms = osKernelGetTickCount() * tick_duration_ms;
   osStatus_t status;
-  uint32_t starttime = osKernelGetTickCount();
 
-  if(timeout != 0)
+  if (timeout != 0)
   {
-    status = osMessageQueueGet(*mbox, msg, 0, timeout);
+    status = osMessageQueueGet(*mbox, msg, 0, timeout / tick_duration_ms);
     if (status == osOK)
     {
-      return (osKernelGetTickCount() - starttime);
+      return ((osKernelGetTickCount() * tick_duration_ms) - starttime_ms);
     }
     else
     {
@@ -197,7 +198,7 @@ u32_t sys_arch_mbox_fetch(sys_mbox_t *mbox, void **msg, u32_t timeout)
   else
   {
     osMessageQueueGet(*mbox, msg, 0, osWaitForever );
-    return (osKernelGetTickCount() - starttime);
+    return ((osKernelGetTickCount() * tick_duration_ms) - starttime_ms);
   }
 }
 
@@ -279,13 +280,14 @@ err_t sys_sem_new(sys_sem_t *sem, u8_t count)
 */
 u32_t sys_arch_sem_wait(sys_sem_t *sem, u32_t timeout)
 {
-  uint32_t starttime = osKernelGetTickCount();
+  const uint32_t tick_duration_ms = 1000 / osKernelGetTickFreq();
+  const uint32_t starttime_ms = osKernelGetTickCount() * tick_duration_ms;
 
-  if(timeout != 0)
+  if (timeout != 0)
   {
-    if(osSemaphoreAcquire(*sem, timeout) == osOK)
+    if(osSemaphoreAcquire(*sem, timeout / tick_duration_ms) == osOK)
     {
-        return (osKernelGetTickCount() - starttime);
+        return ((osKernelGetTickCount() * tick_duration_ms) - starttime_ms);
     }
     else
     {
@@ -295,7 +297,7 @@ u32_t sys_arch_sem_wait(sys_sem_t *sem, u32_t timeout)
   else
   {
     while(osSemaphoreAcquire(*sem, osWaitForever) != osOK);
-    return (osKernelGetTickCount() - starttime);
+    return ((osKernelGetTickCount() * tick_duration_ms) - starttime_ms);
   }
 }
 
@@ -394,8 +396,7 @@ void sys_mutex_unlock(sys_mutex_t *mutex)
   osMutexRelease(*mutex);
 }
 #endif /*LWIP_COMPAT_MUTEX*/
-/*-----------------------------------------------------------------------------------*/
-// TODO
+
 /*-----------------------------------------------------------------------------------*/
 /*
   Starts a new thread with priority "prio" that will begin its execution in the

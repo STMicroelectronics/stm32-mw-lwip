@@ -1,6 +1,6 @@
 # Middleware LwIP MCU Component
 
-![latest tag](https://img.shields.io/github/v/tag/STMicroelectronics/stm32_mw_lwip.svg?color=brightgreen)
+![tag](https://img.shields.io/badge/tag-v2.2.1_20260817-brightgreen.svg)
 
 ## Overview
 

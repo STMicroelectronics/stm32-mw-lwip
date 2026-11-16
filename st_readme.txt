@@ -19,6 +19,15 @@
   ******************************************************************************
   @endverbatim
 
+
+### 17-August-2026 ###
+======================
+  + fix: wrong timing in sys_arch.c when tick isn't 1 ms
+
+### 25-March-2026 ###
+=====================
+  + Add SW_Security_Level.md file
+
 ### 04-August-2025 ###
 ====================
   + Upgrade to LwIP 2.2.1
@@ -120,7 +129,3 @@
 ### 18-February-2014 ###
 ========================
    + First customized version for STM32Cube solution.
-
-
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
- */
