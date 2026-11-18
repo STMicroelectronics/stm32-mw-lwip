@@ -3,7 +3,6 @@
 #include "lwip/priv/tcp_priv.h"
 #include "lwip/stats.h"
 #include "lwip/pbuf.h"
-#include "lwip/inet.h"
 #include "lwip/inet_chksum.h"
 #include "lwip/ip_addr.h"
 
@@ -25,11 +24,7 @@ tcp_remove(struct tcp_pcb* pcb_list)
   while(pcb != NULL) {
     pcb2 = pcb;
     pcb = pcb->next;
-    if (pcb2->state == LISTEN) {
-      tcp_close(pcb2);
-    } else {
-      tcp_abort(pcb2);
-    }
+    tcp_abort(pcb2);
   }
 }
 
@@ -264,7 +259,6 @@ void test_tcp_input(struct pbuf *p, struct netif *inp)
   ip_addr_copy_from_ip4(*ip_current_src_addr(), iphdr->src);
   ip_current_netif() = inp;
   ip_data.current_ip4_header = iphdr;
-  ip_data.current_input_netif = inp;
 
   /* since adding IPv6, p->payload must point to tcp header, not ip header */
   pbuf_header(p, -(s16_t)sizeof(struct ip_hdr));

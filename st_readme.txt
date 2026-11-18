@@ -19,47 +19,14 @@
   ******************************************************************************
   @endverbatim
 
+### 21-September-2026 ###
+=========================
+  + Fix: use recursive mutex for sys_arch_protect().
+  + Add SW_Security_Level.md file at root directory.
 
-### 17-August-2026 ###
-======================
-  + fix: wrong timing in sys_arch.c when tick isn't 1 ms
-
-### 25-March-2026 ###
-=====================
-  + Add SW_Security_Level.md file
-
-### 04-August-2025 ###
-====================
-  + Upgrade to LwIP 2.2.1
-    For documentation, go to https://www.nongnu.org/lwip or run Doxygen tool
-    (https://www.doxygen.nl/) with configuration file doc/doxygen/lwip.Doxyfile
-    (see doc/doxygen/generate.bat or generate.sh).
-
-### 06-January-2025 ###
-========================
-  + sys_arch.c:
-     - Add new LWIP_CHECK_MULTITHREADING flag to enable or disable core lock checking functions.
-     - Add support for recursive Mutex.
-     - Add new API sys_lock_tcpip_core to lock the lwip core, mark the current core lock holder and the lock count.
-     - Add new API sys_unlock_tcpip_core to unlock the lwip core, reset the current core lock holder and the lock count.
-     - Add new API sys_mark_tcpip_thread to mark the lwip tcpip thread ID.
-     - Add new API sys_check_core_locking to check if core locking is done correctly.
-
-### 02-February-2024 ###
-========================
-  + Upgrade to LwIP V2.2.0 version
-     - For more details about new features and bug fixes please refer to CHANGELOG.txt and UPGRADING files.
-
-### 18-August-2023 ###
+### 28-August-2023 ###
 ========================
   + Add LICENSE.md file at the root directory.
-
-### 19-May-2023 ###
-========================
-  + Upgrade to use LwIP V2.1.3 version
-     - For more details about new features and bug fixes please refer to CHANGELOG.txt and UPGRADING files.
-  + sys_arch.c:
-     - Remove support of the cmsis_os1 API and keep only cmsis_os2.
 
 ### 15-March-2019 ###
 ========================
@@ -129,3 +96,7 @@
 ### 18-February-2014 ###
 ========================
    + First customized version for STM32Cube solution.
+
+
+ * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
+ */

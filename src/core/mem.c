@@ -60,7 +60,6 @@
 #include "lwip/stats.h"
 #include "lwip/err.h"
 
-#include <stdio.h>  /* snprintf */
 #include <string.h>
 
 #if MEM_LIBC_MALLOC
@@ -152,7 +151,7 @@ mem_overflow_init_raw(void *p, size_t size)
 }
 #endif /* MEM_OVERFLOW_CHECK || MEMP_OVERFLOW_CHECK */
 
-#if MEM_CUSTOM_ALLOCATOR || MEM_USE_POOLS
+#if MEM_LIBC_MALLOC || MEM_USE_POOLS
 
 /** mem_init is not used when using pools instead of a heap or using
  * C library malloc().
@@ -172,9 +171,23 @@ mem_trim(void *mem, mem_size_t size)
   LWIP_UNUSED_ARG(size);
   return mem;
 }
-#endif /* MEM_CUSTOM_ALLOCATOR || MEM_USE_POOLS */
+#endif /* MEM_LIBC_MALLOC || MEM_USE_POOLS */
 
-#if MEM_CUSTOM_ALLOCATOR
+#if MEM_LIBC_MALLOC
+/* lwIP heap implemented using C library malloc() */
+
+/* in case C library malloc() needs extra protection,
+ * allow these defines to be overridden.
+ */
+#ifndef mem_clib_free
+#define mem_clib_free free
+#endif
+#ifndef mem_clib_malloc
+#define mem_clib_malloc malloc
+#endif
+#ifndef mem_clib_calloc
+#define mem_clib_calloc calloc
+#endif
 
 #if LWIP_STATS && MEM_STATS
 #define MEM_LIBC_STATSHELPER_SIZE LWIP_MEM_ALIGN_SIZE(sizeof(mem_size_t))
@@ -193,7 +206,7 @@ mem_trim(void *mem, mem_size_t size)
 void *
 mem_malloc(mem_size_t size)
 {
-  void *ret = MEM_CUSTOM_MALLOC(size + MEM_LIBC_STATSHELPER_SIZE);
+  void *ret = mem_clib_malloc(size + MEM_LIBC_STATSHELPER_SIZE);
   if (ret == NULL) {
     MEM_STATS_INC_LOCKED(err);
   } else {
@@ -220,7 +233,7 @@ mem_free(void *rmem)
   rmem = (u8_t *)rmem - MEM_LIBC_STATSHELPER_SIZE;
   MEM_STATS_DEC_USED_LOCKED(used, *(mem_size_t *)rmem);
 #endif
-  MEM_CUSTOM_FREE(rmem);
+  mem_clib_free(rmem);
 }
 
 #elif MEM_USE_POOLS
@@ -675,7 +688,7 @@ mem_free(void *rmem)
 /**
  * Shrink memory returned by mem_malloc().
  *
- * @param rmem pointer to memory allocated by mem_malloc the is to be shrunk
+ * @param rmem pointer to memory allocated by mem_malloc the is to be shrinked
  * @param new_size required size after shrinking (needs to be smaller than or
  *                equal to the previous size)
  * @return for compatibility reasons: is always == rmem, at the moment
@@ -744,7 +757,7 @@ mem_trim(void *rmem, mem_size_t new_size)
     LWIP_ASSERT("invalid next ptr", mem->next != MEM_SIZE_ALIGNED);
     /* remember the old next pointer */
     next = mem2->next;
-    /* create new struct mem which is moved directly after the shrunk mem */
+    /* create new struct mem which is moved directly after the shrinked mem */
     ptr2 = (mem_size_t)(ptr + SIZEOF_STRUCT_MEM + newsize);
     if (lfree == mem2) {
       lfree = ptr_to_mem(ptr2);
@@ -792,7 +805,7 @@ mem_trim(void *rmem, mem_size_t new_size)
   /* else {
     next struct mem is used but size between mem and mem2 is not big enough
     to create another struct mem
-    -> don't do anything.
+    -> don't do anyhting.
     -> the remaining space stays unused since it is too small
   } */
 #if MEM_OVERFLOW_CHECK
@@ -964,14 +977,14 @@ mem_malloc_adjust_lfree:
 
 #endif /* MEM_USE_POOLS */
 
-#if MEM_CUSTOM_ALLOCATOR && (!LWIP_STATS || !MEM_STATS)
+#if MEM_LIBC_MALLOC && (!LWIP_STATS || !MEM_STATS)
 void *
 mem_calloc(mem_size_t count, mem_size_t size)
 {
-  return MEM_CUSTOM_CALLOC(count, size);
+  return mem_clib_calloc(count, size);
 }
 
-#else /* MEM_CUSTOM_ALLOCATOR && (!LWIP_STATS || !MEM_STATS) */
+#else /* MEM_LIBC_MALLOC && (!LWIP_STATS || !MEM_STATS) */
 /**
  * Contiguously allocates enough space for count objects that are size bytes
  * of memory each and returns a pointer to the allocated memory.
@@ -1001,4 +1014,4 @@ mem_calloc(mem_size_t count, mem_size_t size)
   }
   return p;
 }
-#endif /* MEM_CUSTOM_ALLOCATOR && (!LWIP_STATS || !MEM_STATS) */
+#endif /* MEM_LIBC_MALLOC && (!LWIP_STATS || !MEM_STATS) */

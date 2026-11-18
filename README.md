@@ -1,6 +1,6 @@
 # Middleware LwIP MCU Component
 
-![tag](https://img.shields.io/badge/tag-v2.2.1_20260817-brightgreen.svg)
+![tag](https://img.shields.io/badge/tag-v2.1.2_20260921-brightgreen.svg)
 
 ## Overview
 
